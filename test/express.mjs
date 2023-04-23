@@ -18,6 +18,10 @@ app.get('/', function (req, res) {
 
 // ------------------
 
+app.all(["/sap/bc/adt/*"], async function (req, res) {
+  res.send('no ADT');
+});
+
 app.all(["/sap", "/sap*"], async function (req, res) {
   await cl_express_icf_shim.run({req, res, class: "ZCL_SICF"});
 });
