@@ -7,7 +7,8 @@
     "clone": "rm -rf abap2UI5 && git clone https://github.com/oblomov-dev/abap2UI5 && rm -rf src && cp -r abap2UI5/src src",
     "transpile": "rm -rf output && cp test/*.abap downport && abap_transpile abap_transpile.json",
     "express": "node test/express.mjs",
-    "downport": "rm -rf downport && cp -r src downport && abaplint --fix abaplint-downport.jsonc"
+    "downport": "rm -rf downport && cp -r src downport && abaplint --fix abaplint-downport.jsonc",
+    "test": "npm run downport && npm run transpile && npm run express"
   },
   "repository": {
     "type": "git",
