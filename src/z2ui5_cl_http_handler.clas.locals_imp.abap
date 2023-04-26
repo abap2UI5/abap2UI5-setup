@@ -12,7 +12,7 @@ CLASS z2ui5_lcl_utility DEFINITION INHERITING FROM cx_no_check.
         gen_type       TYPE string,
         gen_kind       TYPE string,
       END OF ty_attri.
-    TYPES ty_t_attri TYPE STANDARD TABLE OF ty_attri WITH EMPTY KEY.
+    TYPES ty_T_attri TYPE STANDARD TABLE OF ty_attri WITH EMPTY KEY.
 
     TYPES ty_tt_string TYPE STANDARD TABLE OF string_table WITH EMPTY KEY.
 
@@ -915,7 +915,7 @@ CLASS z2ui5_lcl_fw_handler DEFINITION.
         check_app_leave TYPE abap_bool,
         o_call_app      TYPE REF TO z2ui5_if_app,
         t_after         TYPE z2ui5_lcl_utility=>ty_tt_string,
-        s_set           TYPE z2ui5_if_client=>ty_s_next,
+        s_set           TYPE z2ui5_if_client=>ty_S_next,
       END OF ty_s_next.
 
     DATA ms_actual TYPE z2ui5_if_client=>ty_s_get.
@@ -1408,7 +1408,8 @@ CLASS z2ui5_lcl_fw_handler IMPLEMENTATION.
 
     lo_ui5_model->add_attribute_object( `oSystem`
         )->add_attribute( n = `ID`                 v = ms_db-id
-        )->add_attribute( n = `CHECK_DEBUG_ACTIVE` v = z2ui5_lcl_utility=>get_abap_2_json( abap_true ) apos_active = abap_false ).
+     "   )->add_attribute( n = `CHECK_DEBUG_ACTIVE` v = z2ui5_lcl_utility=>get_abap_2_json( abap_true ) apos_active = abap_false
+      ).
 
     IF ms_next-t_after IS NOT INITIAL.
       DATA(lo_list) = lo_ui5_model->add_attribute_list( `oAfter` ).
