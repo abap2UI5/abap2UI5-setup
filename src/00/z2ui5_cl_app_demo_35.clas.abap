@@ -66,10 +66,10 @@ CLASS z2ui5_cl_app_demo_35 IMPLEMENTATION.
         FIELD-SYMBOLS <tab> TYPE table.
         ASSIGN mt_table->* TO <tab>.
 
-        " SELECT FROM (mv_name)
-        "     FIELDS *
-        "   INTO CORRESPONDING FIELDS OF TABLE @<tab>
-        "     UP TO 100 ROWS.
+        SELECT FROM (mv_name)
+            FIELDS *
+          INTO CORRESPONDING FIELDS OF TABLE @<tab>
+            UP TO 100 ROWS.
 
 
       WHEN 'BUTTON_CONFIRM'.
