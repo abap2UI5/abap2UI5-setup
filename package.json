@@ -21,10 +21,10 @@
   },
   "homepage": "https://github.com/oblomov-dev/abap2UI5#readme",
   "devDependencies": {
-    "@abaplint/cli": "^2.98.3",
-    "@abaplint/runtime": "^2.6.36",
+    "@abaplint/cli": "^2.99.0",
+    "@abaplint/runtime": "^2.6.39",
     "@abaplint/database-sqlite": "^2.6.0",
     "express": "^4.18.2",
-    "@abaplint/transpiler-cli": "^2.6.36"
+    "@abaplint/transpiler-cli": "^2.6.39"
   }
 }
