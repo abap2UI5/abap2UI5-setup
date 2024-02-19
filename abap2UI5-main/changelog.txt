@@ -1,0 +1,82 @@
+abap2UI5 changelog
+=================
+
+Legend
+------
+* : fixed
+! : changed
++ : added
+- : removed
+
+
+2024-02-16 v1.119.0
+-------------------
+
++ Source Code View for Debugging Tools
++ New Parameters for the UI5 Tree Control
+! New Design for Start Page
+
+
+
+2024-02-08 v1.118.0
+-------------------
+
+! /ui2/cl_json replaced with aJson
+* Compatibility Fixes for Low Releases
+
+
+2024-02-02 v1.117.0
+-------------------
+
++ NavContainer in Popups
++ New properties added to XML View
++ Improvements POPUP_TO_SELECT (title, sorting, descriptions
+* Fixes for ABAP for Cloud Readiness
+
+
+2024-01-26 v1.116.0
+-------------------
+
++ StartUp App with Value Help
++ Popup Error, Popup Range, Popup Table
++ Custom Control Chart.js
+* Popup Model Handling
+* Bugfixes
+
+
+2024-01-19 v1.115.0
+-------------------
+
+* Binding Logic
++ Popups (Confirm, Inform, Select Entry, PDF View, Message View)
+
+
+2024-01-12 v1.114.0
+-------------------
+
+* cross app navigation
+* table output
+! debugger tools
+
+
+2024-01-03 v1.113.0
+-------------------
+
++ new debugging tools
+! UI5 module loading
+
+
+2023-12-20 v1.112.0
+-------------------
+
++ binding on cell level
++ custom control - MultiInput with backend token handling
++ custom control - ui.table filtering after model update
+* downport ready syntax
+
+
+2023-12-15 v1.110.0
+-------------------
+
++ custom control - image mapster
+! package structure

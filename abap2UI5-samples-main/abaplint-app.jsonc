@@ -1,0 +1,10 @@
+{
+  "configurations": {
+    "default": {
+      "filename": "./abaplint.jsonc"
+    },
+    "abap_cloud_readiness": {
+      "filename": "./abaplint-syntax_cloud.jsonc"
+    }
+  }
+}
