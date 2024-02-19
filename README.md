@@ -1,6 +1,6 @@
 # abap2UI5-web
 
-Run abap2UI5 on [**open-abap**](https://github.com/open-abap) under Node.js
+Run abap2UI5 with [**open-abap**](https://github.com/open-abap) on Node.js
 
 ### Start
 ```
