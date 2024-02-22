@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/04/z2ui5_cl_fw_cc_timer.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAiBA;;;;;;;;;;;;;;EAEE;;;;;IAEE,iCAAS,6IACP,sIACA,+HACA,sLAEA,uJACA,iIACA,sIACA,wIACA,iJACA,kJACA,gIACA,4IACA,kJACA,oJACA,gIACA,4IACA,kJACA,qJACA,gIACA,4HACA,mIACA,6IACA,gKACA,qJACA,gIACA,2HACA,uHACA,yIACA,uHACA,4IACA,yHACA,sLACA,oJACA,yKACA,sJACA,gNACA,uLACA,uHACA,8IACA,uJACA,uHACA,8FACA,uHAAK;IAET;;AACF",
+  "file": "z2ui5_cl_fw_cc_timer.clas.mjs",
+  "sourceRoot": ""
+}

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/01/01/z2ui5_cl_xml_view.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AASA;;;;;;;;;;;;;;EAEE;QAEO,gHAAqC;QACrC,yDAAkB;IACvB,aAAU,kDAA6B;IAEvC,YAAS,iGAAqC;IAE9C,yBAAG,OAAiB;wFACmB;IACvC;EAEF;AAEF",
+  "file": "z2ui5_cl_xml_view.clas.testclasses.mjs",
+  "sourceRoot": ""
+}

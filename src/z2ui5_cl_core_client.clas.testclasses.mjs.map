@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/02/z2ui5_cl_core_client.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;AAUA;;;;;;;;;;;;;;EAEE;QAEO,4HAA2C;QAC3C,wHAA0C;QAC1C,wHAA0C;;;;EAOjD;AAEF",
+  "file": "z2ui5_cl_core_client.clas.testclasses.mjs",
+  "sourceRoot": ""
+}

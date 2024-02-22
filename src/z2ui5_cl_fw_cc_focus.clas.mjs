@@ -1,0 +1,28 @@
+const {cx_root} = await import("./cx_root.clas.mjs");
+// z2ui5_cl_fw_cc_focus.clas.abap
+class z2ui5_cl_fw_cc_focus {
+  static INTERNAL_TYPE = 'CLAS';
+  static INTERNAL_NAME = 'Z2UI5_CL_FW_CC_FOCUS';
+  static IMPLEMENTED_INTERFACES = [];
+  static ATTRIBUTES = {};
+  static METHODS = {"GET_JS": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}}}};
+  constructor() {
+    this.me = new abap.types.ABAPObject();
+    this.me.set(this);
+  }
+  async constructor_(INPUT) {
+    if (super.constructor_) { await super.constructor_(INPUT); }
+    return this;
+  }
+  async get_js() {
+    return z2ui5_cl_fw_cc_focus.get_js();
+  }
+  static async get_js() {
+    let result = new abap.types.String({qualifiedName: "STRING"});
+    result.set(abap.operators.concat(new abap.types.String().set(`sap.ui.define("z2ui5/Focus", [`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`  "sap/ui/core/Control",`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`], (Control) => {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`  "use strict";`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`  return Control.extend("z2ui5.Focus", {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`      metadata: {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`          properties: {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              setUpdate : { type: "boolean", defaultValue: true },`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              focusId: { type: "string" },`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              selectionStart: { type: "string", defaultValue: "0" },`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              selectionEnd: { type: "string", defaultValue: "0" },`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`          }`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`      },`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`      init() {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`      },`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`      renderer(oRm, oControl) {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`        if (!oControl.getProperty("setUpdate")){ return; }`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`            oControl.setProperty("setUpdate", false);`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`          setTimeout((oControl) => {`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              var oElement = sap.z2ui5.oView.byId(oControl.getProperty("focusId"));`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              var oFocus = oElement.getFocusInfo();`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              oFocus.selectionStart = parseInt(oControl.getProperty("selectionStart"));`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              oFocus.selectionEnd = parseInt(oControl.getProperty("selectionEnd"));`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`              oElement.applyFocusInfo(oFocus);`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`          }, 100, oControl);`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`      }`),abap.operators.concat(new abap.types.String().set(`\n`),abap.operators.concat(new abap.types.String().set(`  });`),abap.operators.concat(new abap.types.String().set(`\n`),new abap.types.String().set(`});`))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))))));
+    return result;
+  }
+}
+abap.Classes['Z2UI5_CL_FW_CC_FOCUS'] = z2ui5_cl_fw_cc_focus;
+export {z2ui5_cl_fw_cc_focus};
+//# sourceMappingURL=z2ui5_cl_fw_cc_focus.clas.mjs.map

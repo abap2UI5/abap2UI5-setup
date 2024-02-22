@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/z2ui5_cl_http_handler.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAwBA;;;;;;;;;;;;;;;EAGE;;;;;;;QAEO,yHAAyC;;IAE9C,YAAS,0BAAe;IAE1B;;EAGA;;;;;;;;QAEO,4HAA2C;;IAEhD,YAAS,2BAAgB;IAE3B;;AACF",
+  "file": "z2ui5_cl_http_handler.clas.mjs",
+  "sourceRoot": ""
+}

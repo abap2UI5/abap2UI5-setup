@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/01/02/z2ui5_cl_ui5_tree_xml.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAkBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AACA",
+  "file": "z2ui5_cl_ui5_tree_xml.clas.mjs",
+  "sourceRoot": ""
+}

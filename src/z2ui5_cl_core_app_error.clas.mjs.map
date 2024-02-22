@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/03/z2ui5_cl_core_app_error.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAuBA;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;;;;;;IAGE,MAAM,OAAE,aAAW,KAAK;IAE1B;;EAGA;;;;QAEO,yDAAkB;QAClB,6DAAsB;QACtB,0DAAmB;QACnB,6FAAsB;QACtB,0PAAuB;QACvB,0PAAuB;QACvB,uGAA+B;IACpC,YAAS,yBAAY,6BAAM,iDAAe,QAAQ,OAAC,SAAU,iDAAe,QAAQ,OAAC,WAC1D,KAAM,mCAAK;IAEtC,qCAAa,SAAU,iDAAe,QAAQ,OAAC,OAAM;IAGrD,YAAU,+BAAE;IAEZ,aAAW,aAAQ;IACnB,4BAAM;;;;MACJ,kCAAU,8BAAW,0DAAS,4CAAyB,sCAAM;MAC7D,aAAW,QAAQ,OAAE,QAAQ;IAC/B;;IAGA,sBAAM,KAAK;IACX,0DAA8B;IAE9B,sBAAM,KAAK;IACX,8DAAkC;IAElC,UAAO,4zBAYyF;2FAErD;sDACnB;EAE1B;AACF",
+  "file": "z2ui5_cl_core_app_error.clas.mjs",
+  "sourceRoot": ""
+}

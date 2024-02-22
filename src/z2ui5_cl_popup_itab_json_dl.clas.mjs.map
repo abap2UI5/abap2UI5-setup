@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/02/z2ui5_cl_popup_itab_json_dl.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAyCA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;;;;;;;;;;;;;;;;IAGE,QAAQ,OAAE,aAAU,qEAAyC;IAE7D,QAAQ,OAAE,UAAQ,OAAO;IACzB,QAAQ,OAAE,SAAO,MAAM;IAEvB,QAAQ,OAAE,wBAAsB,qBAAqB;IACrD,QAAQ,OAAE,uBAAqB,oBAAoB;IAErD;;EAGA;;IAEE,WAAS,2BAAsB;IAEjC;;EAGA;;;;QACO,gFAAsB;QAChB,0DAAmB;QACnB,0DAAmB;QACnB,+GAAkC;QAClC,+DAAwB;QACxB,wGAA8B;QAChC,sFAAqB;IAE9B,OAAE,OAAE,WAAS,MAAM;IAEnB;MAEI,iBAAmE,IAAhE,yHAAkE,wBAAU;QAG7E,YAAU,mFAAsD;QAEhE,kCAAU,8IACO,QAAW,sGAAuE;;kIAIvC;MAE9D;QAGE,iBAAe,kDAAqB;;;;;;mCAQpC,OAAS,GAAG;sEACkB;MAEhC;;;;;;;;IAKJ;EACF;AACF",
+  "file": "z2ui5_cl_popup_itab_json_dl.clas.mjs",
+  "sourceRoot": ""
+}

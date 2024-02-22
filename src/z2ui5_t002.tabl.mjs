@@ -1,0 +1,5 @@
+abap.DDIC["Z2UI5_T002"] = {
+  "objectType": "TABL",
+  "type": new abap.types.Structure({"mandt": new abap.types.Character(3, {"qualifiedName":"MANDT","ddicName":"MANDT"}), "layout": new abap.types.Character(12, {}), "tab": new abap.types.Character(30, {}), "fname": new abap.types.Character(30, {}), "rollname": new abap.types.Character(30, {}), "visible": new abap.types.Character(1, {"qualifiedName":"XSDBOOLEAN","ddicName":"XSDBOOLEAN"}), "halign": new abap.types.Character(7, {}), "importance": new abap.types.Character(7, {}), "merge": new abap.types.Character(1, {"qualifiedName":"XSDBOOLEAN","ddicName":"XSDBOOLEAN"}), "width": new abap.types.Integer({qualifiedName: "I"}), "text": new abap.types.Character(40, {})}, "Z2UI5_T002", "Z2UI5_T002", {}, {}),
+  "keyFields": ["MANDT","LAYOUT","TAB","FNAME"],
+};
