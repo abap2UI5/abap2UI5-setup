@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/02/z2ui5_cl_app_hello_world.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAiBA;;;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;IAEE,iBAAqB,GAAlB,wBAAoB,wBAAU;MAC/B,2BAAoB,sBAAS;i5BAaV;IAErB;IAEA,IACE,cADG,iDAAe,KAApB;;yJAE4D;;;EAI9D;AACF",
+  "file": "z2ui5_cl_app_hello_world.clas.mjs",
+  "sourceRoot": ""
+}

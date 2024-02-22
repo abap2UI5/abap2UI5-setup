@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/04/z2ui5_cl_fw_cc_title.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAiBA;;;;;;;;;;;;;;EAEE;;;;;IAEE,iCAAS,iLACA,mIACA,4JACA,qIACA,2IACA,0IACA,oJACA,oIACA,+HACA,4HACA,yIACA,6JACA,mJACA,4HACA,oJACA,mGACA,oEAAO;IAElB;;AAEF",
+  "file": "z2ui5_cl_fw_cc_title.clas.mjs",
+  "sourceRoot": ""
+}

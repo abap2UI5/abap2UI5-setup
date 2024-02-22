@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/02/z2ui5_cl_popup_file_upload.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA+CA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;;;;;;;;;;;;;;;;;IAGE,QAAQ,OAAE,UAAQ,OAAO;IAEzB,QAAQ,OAAE,kBAAgB,MAAM;IAChC,QAAQ,OAAE,wBAAsB,qBAAqB;IACrD,QAAQ,OAAE,uBAAqB,oBAAoB;IACnD,QAAQ,OAAE,YAAU,MAAM;IAE5B;;EAGA;;IAEE,WAAS,cAAS;IAEpB;;EAGA;QAEO,8GAAmC;IACxC,WAAQ,m4CAsBkC;iGAEE;EAE9C;EAGA;;;;QACW,2DAAoB;QACpB,0DAAmB;QACnB,6DAAqB;IAE9B,OAAE,OAAE,WAAS,MAAM;IAEnB,iBAAqB,GAAlB,wBAAoB,wBAAU;MAC/B,2BAAoB,sBAAS;+BACd;MACf;IACF;IAEA,IAEE,OAkBA,AAIA,OAxBG,iDAAe,KAApB;;MAMI;MACA;MAGA,cAAW,yEAA8C;MACzD,cAAS,MAAC,YAAQ,gFAAqD;MAEvE,+BAAwB,sBAAS;MAGjC,sBAAM,aAAQ;MACd,sBAAM,YAAO;6DACgB;;MAG7B,cAAS,MAAC,qBAAkB,sBAAS;wDACb;qMAC4D;;wDAE5D;qMAC4D;;EAG1F;AACF",
+  "file": "z2ui5_cl_popup_file_upload.clas.mjs",
+  "sourceRoot": ""
+}

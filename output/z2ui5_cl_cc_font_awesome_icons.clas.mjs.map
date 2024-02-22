@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/05/z2ui5_cl_cc_font_awesome_icons.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAmBA;;;;;;;;;;;;;;EAEE;;;;;;IAEE,+BAAQ,8GAIF,+HACA,+IACA,8IAKA,oHACA,+IACA,8IAKA,oHACA,6IACA,4IAKA,oHACA,6IACA,4IAKA,oHACA,4IACA,2IAKA,oHACA,8IACA,6IAKA,oHACA,mJACA,kJAKA,oHACA,qJACA,oJAKA,oHACA,mJACA,kJAKA,gHAIC,6IACA,0KACA,mEAAmB,iCAAc,gHACjC,2HACA,4FACA,uGAAI;IAEb;;AAEF",
+  "file": "z2ui5_cl_cc_font_awesome_icons.clas.mjs",
+  "sourceRoot": ""
+}

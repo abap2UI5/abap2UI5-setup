@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/02/z2ui5_cl_popup_js_loader.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA0CA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;;;;;;;;;IAGE,QAAQ,OAAE,OAAK,IAAI;IACnB,QAAQ,OAAE,iBAAe,QAAQ;IAEnC;;EAGA;;;;;;IAEE,QAAQ,OAAE,mBAAiB,sBAAS;IACtC;;EAGA;;IAEE,YAAU,iBAAY;IAExB;;EAGA;QAGO,8GAAmC;IACxC,WAAQ,0JACS;IAEjB,yBAAG,kBAAiB;wUAE6C;IACjE;IAEA,iBAAkB,GAAf,qBAAiB,uBAAS;mQAGgB;IAC7C;iGAE4C;EAE9C;EAGA;;;;IAEE,OAAE,OAAE,WAAS,MAAM;IAEnB,iBAAqB,GAAlB,wBAAoB,wBAAU;MAC/B,2BAAoB,sBAAS;+BACd;MACf;IACF;IAEA,IACE,OAOA,OARG,iDAAe,KAApB;;MAEI,iBAAuB,GAApB,4BAAU,gBAAa,oCAAM;QAC9B,wBAAiB,sBAAS;MAC5B;wDACwB;qMAC4D;;wDAG5D;qMAC4D;;;EAI1F;AACF",
+  "file": "z2ui5_cl_popup_js_loader.clas.mjs",
+  "sourceRoot": ""
+}

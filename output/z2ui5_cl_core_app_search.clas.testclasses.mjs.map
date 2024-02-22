@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/03/z2ui5_cl_core_app_search.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;AAUA;;;;;;;;;;;;;;EAEE;QAEO,6HAA2C;;EAGlD;AAEF",
+  "file": "z2ui5_cl_core_app_search.clas.testclasses.mjs",
+  "sourceRoot": ""
+}
