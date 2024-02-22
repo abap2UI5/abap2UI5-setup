@@ -17,6 +17,7 @@ class z2ui5_cl_xml_view_cc {
   "SPREADSHEET_EXPORT": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "TABLEID": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "TYPE": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "TEXT": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "ICON": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "FILE_UPLOADER": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "VALUE": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "PATH": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "PLACEHOLDER": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "UPLOAD": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "ICONONLY": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "BUTTONONLY": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "BUTTONTEXT": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "UPLOADBUTTONTEXT": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "CHECKDIRECTUPLOAD": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "FILETYPE": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "MESSAGING": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "ITEMS": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
+  "MESSAGE_MANAGER": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "ITEMS": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "TITLE": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "TITLE": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "HISTORY": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "SEARCH": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "SCROLLING": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});}, "is_optional": " "}, "SETUPDATE": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "ITEMS": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
@@ -322,7 +323,7 @@ class z2ui5_cl_xml_view_cc {
     await this.mo_view.get()._generic({name: new abap.types.String().set(`Info`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp17});
     return result;
   }
-  async messaging(INPUT) {
+  async message_manager(INPUT) {
     let result = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let items = INPUT?.items || new abap.types.Character();
     let temp19 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
@@ -332,7 +333,20 @@ class z2ui5_cl_xml_view_cc {
     temp20.get().n.set(new abap.types.String().set(`items`));
     temp20.get().v.set(items);
     abap.statements.insertInternal({data: temp20, table: temp19});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`Messaging`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp19});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`MessageManager`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp19});
+    return result;
+  }
+  async messaging(INPUT) {
+    let result = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    let items = INPUT?.items || new abap.types.Character();
+    let temp21 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp22 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    result.set(this.mo_view);
+    abap.statements.clear(temp21);
+    temp22.get().n.set(new abap.types.String().set(`items`));
+    temp22.get().v.set(items);
+    abap.statements.insertInternal({data: temp22, table: temp21});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`Messaging`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp21});
     return result;
   }
   async multiinput(INPUT) {
@@ -352,56 +366,56 @@ class z2ui5_cl_xml_view_cc {
     let change = INPUT?.change || new abap.types.Character();
     let addedtokens = INPUT?.addedtokens || new abap.types.Character();
     let removedtokens = INPUT?.removedtokens || new abap.types.Character();
-    let temp21 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp22 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let temp23 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp24 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     result.set(this.mo_view);
-    abap.statements.clear(temp21);
-    temp22.get().n.set(new abap.types.String().set(`tokens`));
-    temp22.get().v.set(tokens);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`showClearIcon`));
-    temp22.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: showclearicon})));
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`showValueHelp`));
-    temp22.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: showvaluehelp})));
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`enabled`));
-    temp22.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: enabled})));
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`suggestionItems`));
-    temp22.get().v.set(suggestionitems);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`tokenUpdate`));
-    temp22.get().v.set(tokenupdate);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`submit`));
-    temp22.get().v.set(submit);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`width`));
-    temp22.get().v.set(width);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`value`));
-    temp22.get().v.set(value);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`id`));
-    temp22.get().v.set(id);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`change`));
-    temp22.get().v.set(change);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`valueHelpRequest`));
-    temp22.get().v.set(valuehelprequest);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`addedTokens`));
-    temp22.get().v.set(addedtokens);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`removedTokens`));
-    temp22.get().v.set(removedtokens);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    temp22.get().n.set(new abap.types.String().set(`class`));
-    temp22.get().v.set(class_);
-    abap.statements.insertInternal({data: temp22, table: temp21});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`MultiInput`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp21});
+    abap.statements.clear(temp23);
+    temp24.get().n.set(new abap.types.String().set(`tokens`));
+    temp24.get().v.set(tokens);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`showClearIcon`));
+    temp24.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: showclearicon})));
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`showValueHelp`));
+    temp24.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: showvaluehelp})));
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`enabled`));
+    temp24.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: enabled})));
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`suggestionItems`));
+    temp24.get().v.set(suggestionitems);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`tokenUpdate`));
+    temp24.get().v.set(tokenupdate);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`submit`));
+    temp24.get().v.set(submit);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`width`));
+    temp24.get().v.set(width);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`value`));
+    temp24.get().v.set(value);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`id`));
+    temp24.get().v.set(id);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`change`));
+    temp24.get().v.set(change);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`valueHelpRequest`));
+    temp24.get().v.set(valuehelprequest);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`addedTokens`));
+    temp24.get().v.set(addedtokens);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`removedTokens`));
+    temp24.get().v.set(removedtokens);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    temp24.get().n.set(new abap.types.String().set(`class`));
+    temp24.get().v.set(class_);
+    abap.statements.insertInternal({data: temp24, table: temp23});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`MultiInput`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp23});
     return result;
   }
   async multiinput_ext(INPUT) {
@@ -410,40 +424,40 @@ class z2ui5_cl_xml_view_cc {
     let change = INPUT?.change || new abap.types.Character();
     let addedtokens = INPUT?.addedtokens || new abap.types.Character();
     let removedtokens = INPUT?.removedtokens || new abap.types.Character();
-    let temp23 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp24 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let temp25 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp26 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     result.set(this.mo_view);
-    abap.statements.clear(temp23);
-    temp24.get().n.set(new abap.types.String().set(`MultiInputId`));
-    temp24.get().v.set(multiinputid);
-    abap.statements.insertInternal({data: temp24, table: temp23});
-    temp24.get().n.set(new abap.types.String().set(`change`));
-    temp24.get().v.set(change);
-    abap.statements.insertInternal({data: temp24, table: temp23});
-    temp24.get().n.set(new abap.types.String().set(`addedTokens`));
-    temp24.get().v.set(addedtokens);
-    abap.statements.insertInternal({data: temp24, table: temp23});
-    temp24.get().n.set(new abap.types.String().set(`removedTokens`));
-    temp24.get().v.set(removedtokens);
-    abap.statements.insertInternal({data: temp24, table: temp23});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`MultiInputExt`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp23});
+    abap.statements.clear(temp25);
+    temp26.get().n.set(new abap.types.String().set(`MultiInputId`));
+    temp26.get().v.set(multiinputid);
+    abap.statements.insertInternal({data: temp26, table: temp25});
+    temp26.get().n.set(new abap.types.String().set(`change`));
+    temp26.get().v.set(change);
+    abap.statements.insertInternal({data: temp26, table: temp25});
+    temp26.get().n.set(new abap.types.String().set(`addedTokens`));
+    temp26.get().v.set(addedtokens);
+    abap.statements.insertInternal({data: temp26, table: temp25});
+    temp26.get().n.set(new abap.types.String().set(`removedTokens`));
+    temp26.get().v.set(removedtokens);
+    abap.statements.insertInternal({data: temp26, table: temp25});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`MultiInputExt`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp25});
     return result;
   }
   async scrolling(INPUT) {
     let result = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let setupdate = INPUT?.setupdate || new abap.types.Character();
     let items = INPUT?.items || new abap.types.Character();
-    let temp25 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp26 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let temp27 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp28 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     result.set(this.mo_view);
-    abap.statements.clear(temp25);
-    temp26.get().n.set(new abap.types.String().set(`setUpdate`));
-    temp26.get().v.set(setupdate);
-    abap.statements.insertInternal({data: temp26, table: temp25});
-    temp26.get().n.set(new abap.types.String().set(`items`));
-    temp26.get().v.set(items);
-    abap.statements.insertInternal({data: temp26, table: temp25});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`Scrolling`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp25});
+    abap.statements.clear(temp27);
+    temp28.get().n.set(new abap.types.String().set(`setUpdate`));
+    temp28.get().v.set(setupdate);
+    abap.statements.insertInternal({data: temp28, table: temp27});
+    temp28.get().n.set(new abap.types.String().set(`items`));
+    temp28.get().v.set(items);
+    abap.statements.insertInternal({data: temp28, table: temp27});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`Scrolling`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp27});
     return result;
   }
   async spreadsheet_export(INPUT) {
@@ -452,23 +466,23 @@ class z2ui5_cl_xml_view_cc {
     let type = INPUT?.type || new abap.types.Character();
     let text = INPUT?.text || new abap.types.Character();
     let icon = INPUT?.icon || new abap.types.Character();
-    let temp27 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp28 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let temp29 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp30 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     result.set(this.mo_view);
-    abap.statements.clear(temp27);
-    temp28.get().n.set(new abap.types.String().set(`tableId`));
-    temp28.get().v.set(tableid);
-    abap.statements.insertInternal({data: temp28, table: temp27});
-    temp28.get().n.set(new abap.types.String().set(`text`));
-    temp28.get().v.set(text);
-    abap.statements.insertInternal({data: temp28, table: temp27});
-    temp28.get().n.set(new abap.types.String().set(`icon`));
-    temp28.get().v.set(icon);
-    abap.statements.insertInternal({data: temp28, table: temp27});
-    temp28.get().n.set(new abap.types.String().set(`type`));
-    temp28.get().v.set(type);
-    abap.statements.insertInternal({data: temp28, table: temp27});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`ExportSpreadsheet`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp27});
+    abap.statements.clear(temp29);
+    temp30.get().n.set(new abap.types.String().set(`tableId`));
+    temp30.get().v.set(tableid);
+    abap.statements.insertInternal({data: temp30, table: temp29});
+    temp30.get().n.set(new abap.types.String().set(`text`));
+    temp30.get().v.set(text);
+    abap.statements.insertInternal({data: temp30, table: temp29});
+    temp30.get().n.set(new abap.types.String().set(`icon`));
+    temp30.get().v.set(icon);
+    abap.statements.insertInternal({data: temp30, table: temp29});
+    temp30.get().n.set(new abap.types.String().set(`type`));
+    temp30.get().v.set(type);
+    abap.statements.insertInternal({data: temp30, table: temp29});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`ExportSpreadsheet`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp29});
     return result;
   }
   async timer(INPUT) {
@@ -477,48 +491,48 @@ class z2ui5_cl_xml_view_cc {
     let delayms = INPUT?.delayms || new abap.types.Character();
     let checkrepeat = INPUT?.checkrepeat || new abap.types.Character();
     let checkactive = INPUT?.checkactive || new abap.types.Character();
-    let temp29 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp30 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let temp31 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp32 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     result.set(this.mo_view);
-    abap.statements.clear(temp29);
-    temp30.get().n.set(new abap.types.String().set(`delayMS`));
-    temp30.get().v.set(delayms);
-    abap.statements.insertInternal({data: temp30, table: temp29});
-    temp30.get().n.set(new abap.types.String().set(`finished`));
-    temp30.get().v.set(finished);
-    abap.statements.insertInternal({data: temp30, table: temp29});
-    temp30.get().n.set(new abap.types.String().set(`checkActive`));
-    temp30.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: checkactive})));
-    abap.statements.insertInternal({data: temp30, table: temp29});
-    temp30.get().n.set(new abap.types.String().set(`checkRepeat`));
-    temp30.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: checkrepeat})));
-    abap.statements.insertInternal({data: temp30, table: temp29});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`Timer`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp29});
+    abap.statements.clear(temp31);
+    temp32.get().n.set(new abap.types.String().set(`delayMS`));
+    temp32.get().v.set(delayms);
+    abap.statements.insertInternal({data: temp32, table: temp31});
+    temp32.get().n.set(new abap.types.String().set(`finished`));
+    temp32.get().v.set(finished);
+    abap.statements.insertInternal({data: temp32, table: temp31});
+    temp32.get().n.set(new abap.types.String().set(`checkActive`));
+    temp32.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: checkactive})));
+    abap.statements.insertInternal({data: temp32, table: temp31});
+    temp32.get().n.set(new abap.types.String().set(`checkRepeat`));
+    temp32.get().v.set((await abap.Classes['Z2UI5_CL_UTIL'].boolean_abap_2_json({val: checkrepeat})));
+    abap.statements.insertInternal({data: temp32, table: temp31});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`Timer`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp31});
     return result;
   }
   async title(INPUT) {
     let result = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let title = INPUT?.title || new abap.types.Character();
-    let temp31 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp32 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let temp33 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp34 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     result.set(this.mo_view);
-    abap.statements.clear(temp31);
-    temp32.get().n.set(new abap.types.String().set(`title`));
-    temp32.get().v.set(title);
-    abap.statements.insertInternal({data: temp32, table: temp31});
-    await this.mo_view.get()._generic({name: new abap.types.String().set(`Title`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp31});
+    abap.statements.clear(temp33);
+    temp34.get().n.set(new abap.types.String().set(`title`));
+    temp34.get().v.set(title);
+    abap.statements.insertInternal({data: temp34, table: temp33});
+    await this.mo_view.get()._generic({name: new abap.types.String().set(`Title`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp33});
     return result;
   }
   async uitableext(INPUT) {
     let result = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let tableid = INPUT?.tableid || new abap.types.Character();
-    let temp33 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp34 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
-    abap.statements.clear(temp33);
-    temp34.get().n.set(new abap.types.String().set(`tableId`));
-    temp34.get().v.set(tableid);
-    abap.statements.insertInternal({data: temp34, table: temp33});
-    result.set((await this.mo_view.get()._generic({name: new abap.types.String().set(`UITableExt`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp33})));
+    let temp35 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp36 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    abap.statements.clear(temp35);
+    temp36.get().n.set(new abap.types.String().set(`tableId`));
+    temp36.get().v.set(tableid);
+    abap.statements.insertInternal({data: temp36, table: temp35});
+    result.set((await this.mo_view.get()._generic({name: new abap.types.String().set(`UITableExt`), ns: new abap.types.String().set(`z2ui5`), t_prop: temp35})));
     return result;
   }
 }
