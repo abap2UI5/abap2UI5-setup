@@ -38,10 +38,10 @@ class cl_abap_conv_out_ce {
     let replacement = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.replacement) {replacement.set(INPUT.replacement);}
     ret.set(await (new abap.Classes['CL_ABAP_CONV_OUT_CE']()).constructor_());
-    let unique218 = encoding;
-    if (abap.compare.eq(unique218, new abap.types.Character(5).set('UTF-8')) || abap.compare.eq(unique218, new abap.types.Character(1).set(''))) {
+    let unique217 = encoding;
+    if (abap.compare.eq(unique217, new abap.types.Character(5).set('UTF-8')) || abap.compare.eq(unique217, new abap.types.Character(1).set(''))) {
       ret.get().mv_js_encoding.set(new abap.types.Character(4).set('utf8'));
-    } else if (abap.compare.eq(unique218, new abap.types.Character(4).set('4103'))) {
+    } else if (abap.compare.eq(unique217, new abap.types.Character(4).set('4103'))) {
       ret.get().mv_js_encoding.set(new abap.types.Character(7).set('utf16le'));
     } else {
       abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(13).set('not supported')));

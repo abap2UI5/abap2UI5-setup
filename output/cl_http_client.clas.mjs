@@ -141,17 +141,17 @@ class cl_http_client {
     lv_url.set(abap.operators.concat(this.mv_host,lv_url));
     await this.if_http_client$request.get().if_http_entity$get_form_fields({fields: lt_form_fields});
     if (abap.compare.gt(abap.builtin.lines({val: lt_form_fields}), abap.IntegerFactory.get(0))) {
-      let unique231 = lv_method;
-      if (abap.compare.eq(unique231, new abap.types.Character(3).set('GET'))) {
+      let unique230 = lv_method;
+      if (abap.compare.eq(unique230, new abap.types.Character(3).set('GET'))) {
         lv_url.set(abap.operators.concat(lv_url,abap.operators.concat(new abap.types.Character(1).set('?'),(await abap.Classes['CL_HTTP_UTILITY'].if_http_utility$fields_to_string({fields: lt_form_fields})))));
-      } else if (abap.compare.eq(unique231, new abap.types.Character(4).set('POST'))) {
+      } else if (abap.compare.eq(unique230, new abap.types.Character(4).set('POST'))) {
         await this.if_http_client$request.get().if_http_entity$set_cdata({data: (await abap.Classes['CL_HTTP_UTILITY'].if_http_utility$fields_to_string({fields: lt_form_fields}))});
       }
     }
     await this.if_http_client$request.get().if_http_entity$get_header_fields({fields: lt_header_fields});
     let headers = {};
-    for await (const unique232 of abap.statements.loop(lt_header_fields,{where: async (I) => {return abap.compare.ne(I.name, new abap.types.Character(12).set('~request_uri'));}})) {
-      ls_field.set(unique232);
+    for await (const unique231 of abap.statements.loop(lt_header_fields,{where: async (I) => {return abap.compare.ne(I.name, new abap.types.Character(12).set('~request_uri'));}})) {
+      ls_field.set(unique231);
       headers[ls_field.get().name.get()] = ls_field.get().value.get();
     }
     lv_content_type.set((await this.if_http_client$request.get().if_http_entity$get_content_type()));

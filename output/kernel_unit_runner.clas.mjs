@@ -33,8 +33,8 @@ class kernel_unit_runner {
     let lv_found = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     lv_stack.set(INPUT.ix_error.get().stack);
     abap.statements.split({source: lv_stack, at: new abap.types.String().set(`\n`), table: lt_lines});
-    for await (const unique362 of abap.statements.loop(lt_lines)) {
-      lv_stack.set(unique362);
+    for await (const unique361 of abap.statements.loop(lt_lines)) {
+      lv_stack.set(unique361);
       if (abap.compare.cp(lv_stack, new abap.types.Character(21).set('*cl_abap_unit_assert*'))) {
         lv_found.set(abap.builtin.abap_true);
         continue;
@@ -58,8 +58,8 @@ class kernel_unit_runner {
     let lt_strings = abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "");
     let lv_string = new abap.types.String({qualifiedName: "STRING"});
     let lv_message = new abap.types.String({qualifiedName: "STRING"});
-    for await (const unique363 of abap.statements.loop(it_list)) {
-      ls_list.set(unique363);
+    for await (const unique362 of abap.statements.loop(it_list)) {
+      ls_list.set(unique362);
       lv_message.set(ls_list.get().message);
       abap.statements.replace({target: lv_message, all: true, with: new abap.types.String().set(`\"`), of: new abap.types.String().set(`"`)});
       abap.statements.replace({target: lv_message, all: true, with: new abap.types.String().set(`\\n`), of: new abap.types.String().set(`\n`)});
@@ -86,8 +86,8 @@ class kernel_unit_runner {
     if (it_input === undefined) { it_input = abap.types.TableFactory.construct(new abap.types.Structure({"class_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-class_name"}), "testclass_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-testclass_name"}), "method_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-method_name"})}, "kernel_unit_runner=>ty_input_item", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "kernel_unit_runner=>ty_input").set(INPUT.it_input); }
     let ls_input = new abap.types.Structure({"class_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-class_name"}), "testclass_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-testclass_name"}), "method_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-method_name"})}, "kernel_unit_runner=>ty_input_item", undefined, {}, {});
     let ls_class = new abap.types.Structure({"class_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_class_item-class_name"}), "testclass_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_class_item-testclass_name"})}, "kernel_unit_runner=>ty_class_item", undefined, {}, {});
-    for await (const unique364 of abap.statements.loop(it_input)) {
-      ls_input.set(unique364);
+    for await (const unique363 of abap.statements.loop(it_input)) {
+      ls_input.set(unique363);
       abap.statements.moveCorresponding(ls_input, ls_class);
       abap.statements.insertInternal({data: ls_class, table: rt_classes});
     }
@@ -113,13 +113,13 @@ class kernel_unit_runner {
     let lx_assert = new abap.types.ABAPObject({qualifiedName: "KERNEL_CX_ASSERT", RTTIName: "\\CLASS=KERNEL_CX_ASSERT"});
     let fs_ls_result_ = new abap.types.FieldSymbol(new abap.types.Structure({"class_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-class_name"}), "testclass_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-testclass_name"}), "method_name": new abap.types.Character(30, {"qualifiedName":"kernel_unit_runner=>ty_input_item-method_name"}), "expected": new abap.types.String({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_RESULT_ITEM-EXPECTED"}), "actual": new abap.types.String({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_RESULT_ITEM-ACTUAL"}), "status": new abap.types.String({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_STATUS"}), "runtime": new abap.types.Integer({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_RESULT_ITEM-RUNTIME"}), "message": new abap.types.String({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_RESULT_ITEM-MESSAGE"}), "js_location": new abap.types.String({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_RESULT_ITEM-JS_LOCATION"}), "console": new abap.types.String({qualifiedName: "KERNEL_UNIT_RUNNER=>TY_RESULT_ITEM-CONSOLE"})}, "kernel_unit_runner=>ty_result_item", undefined, {}, {}));
     lt_classes.set((await this.unique_classes({it_input: it_input})));
-    for await (const unique365 of abap.statements.loop(lt_classes)) {
-      ls_class.set(unique365);
+    for await (const unique364 of abap.statements.loop(lt_classes)) {
+      ls_class.set(unique364);
       lv_name.set(new abap.types.String().set(`CLAS-${abap.templateFormatting(ls_class.get().class_name)}-${abap.templateFormatting(ls_class.get().testclass_name)}`));
-      let unique366 = abap.Classes["CLAS-KERNEL_UNIT_RUNNER-"+lv_name.get().trimEnd()];
-      if (unique366 === undefined) { unique366 = abap.Classes[lv_name.get().trimEnd()]; }
-      if (unique366 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
-      lo_obj.set(await (new unique366()).constructor_());
+      let unique365 = abap.Classes["CLAS-KERNEL_UNIT_RUNNER-"+lv_name.get().trimEnd()];
+      if (unique365 === undefined) { unique365 = abap.Classes[lv_name.get().trimEnd()]; }
+      if (unique365 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
+      lo_obj.set(await (new unique365()).constructor_());
       try {
         if (lo_obj.get().class_setup === undefined && abap.Classes['CX_SY_DYN_CALL_ILLEGAL_METHOD'.trimEnd()] === undefined) { throw "CX_SY_DYN_CALL_ILLEGAL_METHOD not found"; }
         if (lo_obj.get().class_setup === undefined) { throw new abap.Classes['CX_SY_DYN_CALL_ILLEGAL_METHOD'.trimEnd()](); }
@@ -130,8 +130,8 @@ class kernel_unit_runner {
           throw e;
         }
       }
-      for await (const unique367 of abap.statements.loop(it_input,{where: async (I) => {return abap.compare.eq(I.class_name, ls_class.get().class_name) && abap.compare.eq(I.testclass_name, ls_class.get().testclass_name);},topEquals: {"class_name": ls_class.get().class_name,"testclass_name": ls_class.get().testclass_name}})) {
-        ls_input.set(unique367);
+      for await (const unique366 of abap.statements.loop(it_input,{where: async (I) => {return abap.compare.eq(I.class_name, ls_class.get().class_name) && abap.compare.eq(I.testclass_name, ls_class.get().testclass_name);},topEquals: {"class_name": ls_class.get().class_name,"testclass_name": ls_class.get().testclass_name}})) {
+        ls_input.set(unique366);
         fs_ls_result_.assign(rs_result.get().list.appendInitial());
         abap.statements.moveCorresponding(ls_input, fs_ls_result_);
         try {

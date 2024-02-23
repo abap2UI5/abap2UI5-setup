@@ -27,9 +27,9 @@ class kernel_push_channels {
     lv_seconds.set(abap.operators.multiply(seconds,new abap.types.Integer().set(1000)));
     abap.statements.assert(abap.compare.gt(lv_seconds, abap.IntegerFactory.get(0)));
     const indexBackup1 = abap.builtin.sy.get().index.get();
-    let unique295 = 1;
+    let unique294 = 1;
     while (abap.compare.gt(lv_seconds, abap.IntegerFactory.get(0))) {
-      abap.builtin.sy.get().index.set(unique295++);
+      abap.builtin.sy.get().index.set(unique294++);
       await new Promise(resolve => setTimeout(resolve, 100));
       lv_condition = cond() ? "X" : " ";
       if (abap.compare.eq(lv_condition, abap.builtin.abap_true)) {

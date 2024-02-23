@@ -50,13 +50,13 @@ class z2ui5_cl_popup_table {
     lt_comp.set((await abap.Classes['Z2UI5_CL_UTIL'].rtti_get_t_attri_by_struc({val: fs_tab_out_})));
     list.set((await tab.get().column_list_item({valign: new abap.types.String().set(`Top`)})));
     cells.set((await list.get().cells()));
-    for await (const unique186 of abap.statements.loop(lt_comp)) {
-      ls_comp.set(unique186);
+    for await (const unique185 of abap.statements.loop(lt_comp)) {
+      ls_comp.set(unique185);
       await cells.get().text({text: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(ls_comp.get().name,new abap.types.String().set(`}`)))});
     }
     columns.set((await tab.get().columns()));
-    for await (const unique187 of abap.statements.loop(lt_comp)) {
-      ls_comp.set(unique187);
+    for await (const unique186 of abap.statements.loop(lt_comp)) {
+      ls_comp.set(unique186);
       await (await (await columns.get().column({width: new abap.types.Character(4).set('8rem')})).get().header({ns: new abap.types.String().set(``)})).get().text({text: ls_comp.get().name});
     }
     await (await (await (await (await popup.get().get_parent()).get().footer()).get().overflow_toolbar()).get().toolbar_spacer()).get().button({text: new abap.types.Character(2).set('OK'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(14).set('BUTTON_CONFIRM')})), type: new abap.types.Character(10).set('Emphasized')});
@@ -77,11 +77,11 @@ class z2ui5_cl_popup_table {
     return r_result;
   }
   async on_event() {
-    let unique188 = ((await this.client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique188, new abap.types.Character(14).set('BUTTON_CONFIRM'))) {
+    let unique187 = ((await this.client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique187, new abap.types.Character(14).set('BUTTON_CONFIRM'))) {
       this.ms_result.get().check_confirmed.set(abap.builtin.abap_true);
       await this.on_event_confirm();
-    } else if (abap.compare.eq(unique188, new abap.types.Character(6).set('CANCEL'))) {
+    } else if (abap.compare.eq(unique187, new abap.types.Character(6).set('CANCEL'))) {
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave({app: (await this.client.get().z2ui5_if_client$get_app({id: ((await this.client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
     }

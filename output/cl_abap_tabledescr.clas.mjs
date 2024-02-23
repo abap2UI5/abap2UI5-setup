@@ -141,12 +141,12 @@ class cl_abap_tabledescr extends cl_abap_datadescr {
     lv_flag.set(data.getOptions()?.primaryKey?.isUnique === true ? "X" : "");
     descr.get().has_unique_key.set(lv_flag);
     lv_type.set(data.getOptions()?.primaryKey?.type || "");
-    let unique312 = lv_type;
-    if (abap.compare.eq(unique312, new abap.types.Character(8).set('STANDARD'))) {
+    let unique311 = lv_type;
+    if (abap.compare.eq(unique311, new abap.types.Character(8).set('STANDARD'))) {
       descr.get().table_kind.set(cl_abap_tabledescr.tablekind_std);
-    } else if (abap.compare.eq(unique312, new abap.types.Character(6).set('SORTED'))) {
+    } else if (abap.compare.eq(unique311, new abap.types.Character(6).set('SORTED'))) {
       descr.get().table_kind.set(cl_abap_tabledescr.tablekind_sorted);
-    } else if (abap.compare.eq(unique312, new abap.types.Character(6).set('HASHED'))) {
+    } else if (abap.compare.eq(unique311, new abap.types.Character(6).set('HASHED'))) {
       descr.get().table_kind.set(cl_abap_tabledescr.tablekind_hashed);
     } else {
       descr.get().table_kind.set(cl_abap_tabledescr.tablekind_std);
@@ -169,8 +169,8 @@ class cl_abap_tabledescr extends cl_abap_datadescr {
       if (abap.compare.eq(descr.get().mo_line_type.get().kind, cl_abap_tabledescr.kind_struct)) {
         await abap.statements.cast(lo_struct, descr.get().mo_line_type);
         lt_components.set((await lo_struct.get().get_components()));
-        for await (const unique313 of abap.statements.loop(lt_components)) {
-          ls_component.set(unique313);
+        for await (const unique312 of abap.statements.loop(lt_components)) {
+          ls_component.set(unique312);
           ls_key.get().name.set(ls_component.get().name);
           abap.statements.append({source: ls_key, target: descr.get().key});
         }

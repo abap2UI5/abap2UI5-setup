@@ -29,9 +29,9 @@ class cl_abap_timefm {
     abap.statements.assert(abap.compare.eq(is_24_allowed, abap.builtin.abap_true));
     abap.statements.find(time_ext, {regex: new abap.types.Character(44).set('^([0-1]?[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$')});
     if (abap.compare.ne(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
-      const unique226 = await (new abap.Classes['CX_ABAP_TIMEFM_INVALID']()).constructor_();
-      unique226.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_timefm.clas.abap","INTERNAL_LINE": 38};
-      throw unique226;
+      const unique225 = await (new abap.Classes['CX_ABAP_TIMEFM_INVALID']()).constructor_();
+      unique225.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_timefm.clas.abap","INTERNAL_LINE": 38};
+      throw unique225;
     }
     lv_text.set(time_ext);
     abap.statements.replace({target: lv_text, all: true, with: new abap.types.Character(1).set(''), of: new abap.types.Character(1).set(':')});

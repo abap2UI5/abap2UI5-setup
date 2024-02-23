@@ -119,10 +119,10 @@ class cl_shm_area extends cx_shm_general_error {
     if (abap.compare.eq(sneak_mode, abap.builtin.abap_false) && abap.compare.initial(cl_shm_area.mo_root)) {
       lv_name.set(area_name);
       abap.statements.replace({target: lv_name, all: false, with: new abap.types.Character(5).set('_ROOT'), of: new abap.types.Character(5).set('_AREA')});
-      let unique318 = abap.Classes["CLAS-CL_SHM_AREA-"+lv_name.get().trimEnd()];
-      if (unique318 === undefined) { unique318 = abap.Classes[lv_name.get().trimEnd()]; }
-      if (unique318 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
-      created.set(await (new unique318()).constructor_());
+      let unique317 = abap.Classes["CLAS-CL_SHM_AREA-"+lv_name.get().trimEnd()];
+      if (unique317 === undefined) { unique317 = abap.Classes[lv_name.get().trimEnd()]; }
+      if (unique317 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
+      created.set(await (new unique317()).constructor_());
       await this._set_root({root: created});
     }
     root.set(cl_shm_area.mo_root);
@@ -291,10 +291,10 @@ class cl_shm_area extends cx_shm_general_error {
     let lv_name = new abap.types.String({qualifiedName: "STRING"});
     if (abap.compare.initial(cl_shm_area.mo_root)) {
       abap.statements.replace({target: lv_name, all: false, with: new abap.types.Character(5).set('_ROOT'), of: new abap.types.Character(5).set('_AREA')});
-      let unique319 = abap.Classes["CLAS-CL_SHM_AREA-"+lv_name.get().trimEnd()];
-      if (unique319 === undefined) { unique319 = abap.Classes[lv_name.get().trimEnd()]; }
-      if (unique319 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
-      created.set(await (new unique319()).constructor_());
+      let unique318 = abap.Classes["CLAS-CL_SHM_AREA-"+lv_name.get().trimEnd()];
+      if (unique318 === undefined) { unique318 = abap.Classes[lv_name.get().trimEnd()]; }
+      if (unique318 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
+      created.set(await (new unique318()).constructor_());
       await this._set_root({root: created});
     }
     root.set(cl_shm_area.mo_root);

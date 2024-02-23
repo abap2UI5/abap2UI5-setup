@@ -73,8 +73,8 @@ class lcl_stack {
   async get_full_name() {
     let rv_path = new abap.types.String({qualifiedName: "STRING"});
     let fs_ls_data_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "LCL_STACK=>TY_DATA-NAME"}), "is_array": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "array_index": new abap.types.Integer({qualifiedName: "LCL_STACK=>TY_DATA-ARRAY_INDEX"})}, "lcl_stack=>ty_data", undefined, {}, {}));
-    for await (const unique248 of abap.statements.loop(this.mt_stack)) {
-      fs_ls_data_.assign(unique248);
+    for await (const unique247 of abap.statements.loop(this.mt_stack)) {
+      fs_ls_data_.assign(unique247);
       rv_path.set(abap.operators.concat(rv_path,fs_ls_data_.get().name));
     }
     return rv_path;
@@ -107,8 +107,8 @@ class lcl_parser {
   }
   async adjust_names() {
     let fs_ls_data_ = new abap.types.FieldSymbol(new abap.types.Structure({"parent": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-PARENT"}), "name": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-NAME"}), "full_name": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-FULL_NAME"}), "full_name_upper": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-FULL_NAME_UPPER"}), "value": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-VALUE"}), "type": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-TYPE"})}, "lcl_parser=>ty_data", undefined, {}, {}));
-    for await (const unique249 of abap.statements.loop(this.mt_data)) {
-      fs_ls_data_.assign(unique249);
+    for await (const unique248 of abap.statements.loop(this.mt_data)) {
+      fs_ls_data_.assign(unique248);
       abap.statements.replace({target: fs_ls_data_.get().parent, all: true, with: new abap.types.Character(1).set('_'), of: new abap.types.Character(1).set('-')});
       abap.statements.replace({target: fs_ls_data_.get().name, all: true, with: new abap.types.Character(1).set('_'), of: new abap.types.Character(1).set('-')});
       abap.statements.replace({target: fs_ls_data_.get().full_name, all: true, with: new abap.types.Character(1).set('_'), of: new abap.types.Character(1).set('-')});
@@ -155,8 +155,8 @@ class lcl_parser {
     if (iv_path?.getQualifiedName === undefined || iv_path.getQualifiedName() !== "STRING") { iv_path = undefined; }
     if (iv_path === undefined) { iv_path = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.iv_path); }
     let ls_data = new abap.types.Structure({"parent": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-PARENT"}), "name": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-NAME"}), "full_name": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-FULL_NAME"}), "full_name_upper": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-FULL_NAME_UPPER"}), "value": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-VALUE"}), "type": new abap.types.String({qualifiedName: "LCL_PARSER=>TY_DATA-TYPE"})}, "lcl_parser=>ty_data", undefined, {}, {});
-    for await (const unique250 of abap.statements.loop(this.mt_data,{usingKey: "key_parent",where: async (I) => {return abap.compare.eq(I.parent, iv_path);},topEquals: {"parent": iv_path}})) {
-      ls_data.set(unique250);
+    for await (const unique249 of abap.statements.loop(this.mt_data,{usingKey: "key_parent",where: async (I) => {return abap.compare.eq(I.parent, iv_path);},topEquals: {"parent": iv_path}})) {
+      ls_data.set(unique249);
       abap.statements.append({source: ls_data.get().name, target: rt_members});
     }
     return rt_members;
@@ -223,9 +223,9 @@ class lcl_parser {
     lo_stack.set(await (new abap.Classes['CLAS-/UI2/CL_JSON-LCL_STACK']()).constructor_());
     li_reader.set((await abap.Classes['CL_SXML_STRING_READER'].create({input: (await abap.Classes['CL_ABAP_CODEPAGE'].convert_to({source: iv_json}))})));
     const indexBackup1 = abap.builtin.sy.get().index.get();
-    let unique251 = 1;
+    let unique250 = 1;
     while (true) {
-      abap.builtin.sy.get().index.set(unique251++);
+      abap.builtin.sy.get().index.set(unique250++);
       li_node.set((await li_reader.get().if_sxml_reader$read_next_node()));
       if (abap.compare.initial(li_node)) {
         break;
@@ -233,11 +233,11 @@ class lcl_parser {
       abap.statements.append({source: li_node, target: lt_nodes});
     }
     abap.builtin.sy.get().index.set(indexBackup1);
-    for await (const unique252 of abap.statements.loop(lt_nodes)) {
-      li_node.set(unique252);
+    for await (const unique251 of abap.statements.loop(lt_nodes)) {
+      li_node.set(unique251);
       lv_index.set(abap.builtin.sy.get().tabix);
-      let unique253 = li_node.get().if_sxml_node$type;
-      if (abap.compare.eq(unique253, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
+      let unique252 = li_node.get().if_sxml_node$type;
+      if (abap.compare.eq(unique252, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
         await abap.statements.cast(li_open, li_node);
         lt_attributes.set((await li_open.get().if_sxml_open_element$get_attributes()));
         abap.statements.readTable(lt_attributes,{index: abap.IntegerFactory.get(1),
@@ -274,7 +274,7 @@ class lcl_parser {
           abap.statements.append({source: ls_data, target: this.mt_data});
           await lo_stack.get().push({iv_name: new abap.types.Character(1).set('/'), iv_type: li_open.get().if_sxml_open_element$qname.get().name});
         }
-      } else if (abap.compare.eq(unique253, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
+      } else if (abap.compare.eq(unique252, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
         await abap.statements.cast(li_close, li_node);
         lv_name.set((await lo_stack.get().pop()));
         if (abap.compare.eq(lv_name, new abap.types.Character(1).set('/'))) {
