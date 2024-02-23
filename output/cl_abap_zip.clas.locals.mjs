@@ -92,14 +92,14 @@ class lcl_stream {
     let idx = new abap.types.Hex({length: 4});
     if (abap.compare.eq(abap.builtin.xstrlen({val: lcl_stream.crc32_map}), abap.IntegerFactory.get(0))) {
       const indexBackup1 = abap.builtin.sy.get().index.get();
-      const unique199 = new abap.types.Integer().set(256).get();
-      for (let unique200 = 0; unique200 < unique199; unique200++) {
-        abap.builtin.sy.get().index.set(unique200 + 1);
+      const unique201 = new abap.types.Integer().set(256).get();
+      for (let unique202 = 0; unique202 < unique201; unique202++) {
+        abap.builtin.sy.get().index.set(unique202 + 1);
         cindex.set(abap.operators.minus(abap.builtin.sy.get().index,abap.IntegerFactory.get(1)));
         const indexBackup2 = abap.builtin.sy.get().index.get();
-        const unique201 = abap.IntegerFactory.get(8).get();
-        for (let unique202 = 0; unique202 < unique201; unique202++) {
-          abap.builtin.sy.get().index.set(unique202 + 1);
+        const unique203 = abap.IntegerFactory.get(8).get();
+        for (let unique204 = 0; unique204 < unique203; unique204++) {
+          abap.builtin.sy.get().index.set(unique204 + 1);
           low_bit.set(new abap.types.Character(8).set('00000001'));
           low_bit.set(abap.operators.bitand(cindex,low_bit));
           cindex.set(abap.operators.div(cindex,abap.IntegerFactory.get(2)));
@@ -115,9 +115,9 @@ class lcl_stream {
     }
     len.set(abap.builtin.xstrlen({val: iv_xstring}));
     const indexBackup3 = abap.builtin.sy.get().index.get();
-    const unique203 = len.get();
-    for (let unique204 = 0; unique204 < unique203; unique204++) {
-      abap.builtin.sy.get().index.set(unique204 + 1);
+    const unique205 = len.get();
+    for (let unique206 = 0; unique206 < unique205; unique206++) {
+      abap.builtin.sy.get().index.set(unique206 + 1);
       nindex.set(abap.operators.minus(abap.builtin.sy.get().index,abap.IntegerFactory.get(1)));
       abap.statements.concatenate({source: [m000000, iv_xstring.getOffset({offset: nindex, length: 1})], target: idx});
       idx.set(abap.operators.bitand(abap.operators.bitxor(crc,idx),m000000ff));

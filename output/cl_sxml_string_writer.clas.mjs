@@ -176,10 +176,10 @@ class cl_sxml_string_writer {
       await this.append_text({text: new abap.types.Character(1).set(',')});
     }
     abap.statements.append({source: name, target: this.mt_stack});
-    let unique326 = name;
-    if (abap.compare.eq(unique326, new abap.types.Character(6).set('object'))) {
+    let unique328 = name;
+    if (abap.compare.eq(unique328, new abap.types.Character(6).set('object'))) {
       await this.append_text({text: new abap.types.Character(1).set('{')});
-    } else if (abap.compare.eq(unique326, new abap.types.Character(5).set('array'))) {
+    } else if (abap.compare.eq(unique328, new abap.types.Character(5).set('array'))) {
       await this.append_text({text: new abap.types.Character(1).set('[')});
     }
   }
@@ -195,10 +195,10 @@ class cl_sxml_string_writer {
   async if_sxml_writer$close_element() {
     let name = new abap.types.String({qualifiedName: "STRING"});
     name.set((await this.remove()));
-    let unique327 = name;
-    if (abap.compare.eq(unique327, new abap.types.Character(6).set('object'))) {
+    let unique329 = name;
+    if (abap.compare.eq(unique329, new abap.types.Character(6).set('object'))) {
       await this.append_text({text: new abap.types.Character(1).set('}')});
-    } else if (abap.compare.eq(unique327, new abap.types.Character(5).set('array'))) {
+    } else if (abap.compare.eq(unique329, new abap.types.Character(5).set('array'))) {
       await this.append_text({text: new abap.types.Character(1).set(']')});
     }
   }
@@ -230,12 +230,12 @@ class cl_sxml_string_writer {
     if (value === undefined) { value = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.value); }
     let name = new abap.types.String({qualifiedName: "STRING"});
     name.set((await this.peek()));
-    let unique328 = name;
-    if (abap.compare.eq(unique328, new abap.types.Character(3).set('str'))) {
+    let unique330 = name;
+    if (abap.compare.eq(unique330, new abap.types.Character(3).set('str'))) {
       await this.append_text({text: new abap.types.Character(1).set('"')});
       await this.append_text({text: abap.builtin.condense({val: value})});
       await this.append_text({text: new abap.types.Character(1).set('"')});
-    } else if (abap.compare.eq(unique328, new abap.types.Character(3).set('num'))) {
+    } else if (abap.compare.eq(unique330, new abap.types.Character(3).set('num'))) {
       await this.append_text({text: abap.builtin.condense({val: value})});
     } else {
       console.dir(name);

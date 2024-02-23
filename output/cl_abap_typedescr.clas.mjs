@@ -138,8 +138,8 @@ class cl_abap_typedescr {
     let lo_current = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
     let lo_struct = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
     abap.statements.split({source: p_name, at: new abap.types.Character(1).set('-'), table: lt_parts});
-    for await (const unique312 of abap.statements.loop(lt_parts)) {
-      lv_part.set(unique312);
+    for await (const unique314 of abap.statements.loop(lt_parts)) {
+      lv_part.set(unique314);
       if (abap.compare.initial(lo_current)) {
         lo_current.set((await this.describe_by_name({p_name: lv_part})));
       } else if (abap.compare.eq(lo_current.get().kind, cl_abap_typedescr.kind_struct)) {
@@ -166,8 +166,8 @@ class cl_abap_typedescr {
     }
     oo_type.set(abap.Classes[p_name.get().toUpperCase().trimEnd()]?.INTERNAL_TYPE || "");
     lv_any = abap.Classes[p_name.get().toUpperCase().trimEnd()];
-    let unique313 = oo_type;
-    if (abap.compare.eq(unique313, new abap.types.Character(4).set('INTF'))) {
+    let unique315 = oo_type;
+    if (abap.compare.eq(unique315, new abap.types.Character(4).set('INTF'))) {
       type.set(await (new abap.Classes['CL_ABAP_INTFDESCR']()).constructor_({p_object: lv_any}));
       type.get().type_kind.set(cl_abap_typedescr.typekind_intf);
       type.get().kind.set(cl_abap_typedescr.kind_intf);
@@ -176,7 +176,7 @@ class cl_abap_typedescr {
       await abap.statements.cast(objectdescr, type);
       objectdescr.get().mv_object_name.set(abap.builtin.to_upper({val: p_name}));
       objectdescr.get().mv_object_type.set(oo_type);
-    } else if (abap.compare.eq(unique313, new abap.types.Character(4).set('CLAS'))) {
+    } else if (abap.compare.eq(unique315, new abap.types.Character(4).set('CLAS'))) {
       type.set(await (new abap.Classes['CL_ABAP_CLASSDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_class);
       type.get().kind.set(cl_abap_typedescr.kind_class);
@@ -267,8 +267,8 @@ class cl_abap_typedescr {
     let fs_ls_component_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
     lt_components.set((await io_struct.get().get_components()));
     rv_deep.set(abap.builtin.abap_false);
-    for await (const unique314 of abap.statements.loop(lt_components)) {
-      fs_ls_component_.assign(unique314);
+    for await (const unique316 of abap.statements.loop(lt_components)) {
+      fs_ls_component_.assign(unique316);
       if (abap.compare.eq(fs_ls_component_.get().type.get().kind, cl_abap_typedescr.kind_struct) || abap.compare.eq(fs_ls_component_.get().type.get().type_kind, cl_abap_typedescr.typekind_string) || abap.compare.eq(fs_ls_component_.get().type.get().type_kind, cl_abap_typedescr.typekind_xstring) || abap.compare.eq(fs_ls_component_.get().type.get().kind, cl_abap_typedescr.kind_table)) {
         rv_deep.set(abap.builtin.abap_true);
         return rv_deep;
@@ -297,8 +297,8 @@ class cl_abap_typedescr {
     lv_name.set(p_data.constructor.name);
     lv_length.set(p_data.getLength ? p_data.getLength() : 0);
     lv_decimals.set(p_data.getDecimals ? p_data.getDecimals() : 0);
-    let unique315 = lv_name;
-    if (abap.compare.eq(unique315, new abap.types.Character(7).set('Integer'))) {
+    let unique317 = lv_name;
+    if (abap.compare.eq(unique317, new abap.types.Character(7).set('Integer'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_int);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
@@ -306,7 +306,7 @@ class cl_abap_typedescr {
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(abap.IntegerFactory.get(11));
       type.get().absolute_name.set(new abap.types.Character(1).set('I'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(8).set('Integer8'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(8).set('Integer8'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_int8);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
@@ -314,21 +314,21 @@ class cl_abap_typedescr {
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(abap.IntegerFactory.get(20));
       type.get().absolute_name.set(new abap.types.Character(4).set('INT8'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(4).set('Numc'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(4).set('Numc'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_num);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().length.set(abap.operators.multiply(lv_length,abap.IntegerFactory.get(2)));
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(lv_length);
-    } else if (abap.compare.eq(unique315, new abap.types.Character(3).set('Hex'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(3).set('Hex'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_hex);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().length.set(lv_length);
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(abap.operators.multiply(lv_length,abap.IntegerFactory.get(2)));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(4).set('Date'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(4).set('Date'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_date);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
@@ -336,13 +336,13 @@ class cl_abap_typedescr {
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(abap.IntegerFactory.get(8));
       type.get().absolute_name.set(new abap.types.Character(1).set('D'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(6).set('Packed'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(6).set('Packed'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_packed);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().length.set(lv_length);
       type.get().decimals.set(lv_decimals);
-    } else if (abap.compare.eq(unique315, new abap.types.Character(4).set('Time'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(4).set('Time'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_time);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
@@ -350,16 +350,16 @@ class cl_abap_typedescr {
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(abap.IntegerFactory.get(6));
       type.get().absolute_name.set(new abap.types.Character(1).set('T'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(5).set('Float'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(5).set('Float'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_float);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().absolute_name.set(new abap.types.Character(1).set('F'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(10).set('DecFloat34'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(10).set('DecFloat34'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_decfloat34);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
-    } else if (abap.compare.eq(unique315, new abap.types.Character(9).set('Structure'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(9).set('Structure'))) {
       lo_struct.set((await abap.Classes['CL_ABAP_STRUCTDESCR'].construct_from_data({data: p_data})));
       await abap.statements.cast(type, lo_struct);
       if (abap.compare.eq((await this.is_deep({io_struct: lo_struct})), abap.builtin.abap_true)) {
@@ -368,35 +368,35 @@ class cl_abap_typedescr {
         type.get().type_kind.set(cl_abap_typedescr.typekind_struct1);
       }
       type.get().kind.set(cl_abap_typedescr.kind_struct);
-    } else if (abap.compare.eq(unique315, new abap.types.Character(5).set('Table')) || abap.compare.eq(unique315, new abap.types.Character(11).set('HashedTable'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(5).set('Table')) || abap.compare.eq(unique317, new abap.types.Character(11).set('HashedTable'))) {
       await abap.statements.cast(type, (await abap.Classes['CL_ABAP_TABLEDESCR'].construct_from_data({data: p_data})));
       type.get().type_kind.set(cl_abap_typedescr.typekind_table);
       type.get().kind.set(cl_abap_typedescr.kind_table);
       type.get().length.set(abap.IntegerFactory.get(8));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(7).set('XString'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(7).set('XString'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_xstring);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().length.set(abap.IntegerFactory.get(8));
       type.get().absolute_name.set(new abap.types.Character(7).set('XSTRING'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(6).set('String'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(6).set('String'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_string);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().length.set(abap.IntegerFactory.get(8));
       type.get().absolute_name.set(new abap.types.Character(6).set('STRING'));
-    } else if (abap.compare.eq(unique315, new abap.types.Character(9).set('Character'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(9).set('Character'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_char);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
       type.get().length.set(abap.operators.multiply(lv_length,abap.IntegerFactory.get(2)));
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(lv_length);
-    } else if (abap.compare.eq(unique315, new abap.types.Character(11).set('FieldSymbol'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(11).set('FieldSymbol'))) {
       lv_name = p_data.getPointer();
       type.set((await this.describe_by_data({p_data: lv_name})));
       return type;
-    } else if (abap.compare.eq(unique315, new abap.types.Character(10).set('ABAPObject'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(10).set('ABAPObject'))) {
       type.set(await (new abap.Classes['CL_ABAP_REFDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_oref);
       type.get().kind.set(cl_abap_typedescr.kind_ref);
@@ -413,11 +413,11 @@ class cl_abap_typedescr {
       } else {
         lo_ref.get().referenced.set((await this.describe_by_object_ref({p_object_ref: p_data})));
       }
-    } else if (abap.compare.eq(unique315, new abap.types.Character(7).set('UTCLong'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(7).set('UTCLong'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_utclong);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
-    } else if (abap.compare.eq(unique315, new abap.types.Character(13).set('DataReference'))) {
+    } else if (abap.compare.eq(unique317, new abap.types.Character(13).set('DataReference'))) {
       type.set(await (new abap.Classes['CL_ABAP_REFDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_dref);
       type.get().kind.set(cl_abap_typedescr.kind_ref);

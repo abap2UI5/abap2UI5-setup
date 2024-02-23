@@ -51,7 +51,7 @@ class ltcl_test_db {
     let lo_app_user = new abap.types.ABAPObject({qualifiedName: "LTCL_TEST_DB", RTTIName: "\\CLASS-POOL=Z2UI5_CL_CORE_APP\\CLASS=LTCL_TEST_DB"});
     let lo_app = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_CORE_APP", RTTIName: "\\CLASS=Z2UI5_CL_CORE_APP"});
     let lo_app_db = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_CORE_APP", RTTIName: "\\CLASS=Z2UI5_CL_CORE_APP"});
-    let temp6 = new abap.types.ABAPObject({qualifiedName: "LTCL_TEST_DB", RTTIName: "\\CLASS-POOL=Z2UI5_CL_CORE_APP\\CLASS=LTCL_TEST_DB"});
+    let temp8 = new abap.types.ABAPObject({qualifiedName: "LTCL_TEST_DB", RTTIName: "\\CLASS-POOL=Z2UI5_CL_CORE_APP\\CLASS=LTCL_TEST_DB"});
     let lo_app_user_db = new abap.types.ABAPObject({qualifiedName: "LTCL_TEST_DB", RTTIName: "\\CLASS-POOL=Z2UI5_CL_CORE_APP\\CLASS=LTCL_TEST_DB"});
     lo_app_user.set(await (new abap.Classes['CLAS-Z2UI5_CL_CORE_APP-LTCL_TEST_DB']()).constructor_());
     lo_app_user.get().mv_value.set(new abap.types.String().set(`my value`));
@@ -60,8 +60,8 @@ class ltcl_test_db {
     lo_app.get().mo_app.set(lo_app_user);
     await lo_app.get().db_save();
     lo_app_db.set((await abap.Classes['Z2UI5_CL_CORE_APP'].db_load({id: new abap.types.String().set(`TEST_ID`)})));
-    await abap.statements.cast(temp6, lo_app_db.get().mo_app);
-    lo_app_user_db.set(temp6);
+    await abap.statements.cast(temp8, lo_app_db.get().mo_app);
+    lo_app_user_db.set(temp8);
     await abap.Classes['CL_ABAP_UNIT_ASSERT'].assert_equals({act: lo_app_user_db.get().mv_value, exp: lo_app_user.get().mv_value});
   }
   async z2ui5_if_app$main(INPUT) {

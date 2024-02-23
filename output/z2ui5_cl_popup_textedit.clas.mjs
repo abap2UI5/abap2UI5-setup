@@ -63,12 +63,12 @@ class z2ui5_cl_popup_textedit {
       await this.display();
       return;
     }
-    let unique187 = ((await client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique187, new abap.types.String().set(`BUTTON_TEXTAREA_CONFIRM`))) {
+    let unique189 = ((await client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique189, new abap.types.String().set(`BUTTON_TEXTAREA_CONFIRM`))) {
       this.ms_result.get().check_confirmed.set(abap.builtin.abap_true);
       await client.get().z2ui5_if_client$popup_destroy();
       await client.get().z2ui5_if_client$nav_app_leave({app: (await client.get().z2ui5_if_client$get_app({id: ((await client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
-    } else if (abap.compare.eq(unique187, new abap.types.String().set(`BUTTON_TEXTAREA_CANCEL`))) {
+    } else if (abap.compare.eq(unique189, new abap.types.String().set(`BUTTON_TEXTAREA_CANCEL`))) {
       await client.get().z2ui5_if_client$popup_destroy();
       await client.get().z2ui5_if_client$nav_app_leave({app: (await client.get().z2ui5_if_client$get_app({id: ((await client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
     }

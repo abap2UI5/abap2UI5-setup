@@ -58,29 +58,29 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     let ls_component = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
     let ls_ref = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
     if (abap.compare.eq(abap.builtin.lines({val: p_components}), abap.IntegerFactory.get(0))) {
-      const unique301 = await (new abap.Classes['CX_SY_STRUCT_ATTRIBUTES']()).constructor_();
-      unique301.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 87};
-      throw unique301;
+      const unique303 = await (new abap.Classes['CX_SY_STRUCT_ATTRIBUTES']()).constructor_();
+      unique303.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 87};
+      throw unique303;
     }
-    for await (const unique302 of abap.statements.loop(p_components)) {
-      ls_component.set(unique302);
+    for await (const unique304 of abap.statements.loop(p_components)) {
+      ls_component.set(unique304);
       if (abap.compare.initial(ls_component.get().name)) {
-        const unique303 = await (new abap.Classes['CX_SY_STRUCT_COMP_NAME']()).constructor_();
-        unique303.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 92};
-        throw unique303;
-      } else if (abap.compare.initial(ls_component.get().type)) {
-        const unique304 = await (new abap.Classes['CX_SY_STRUCT_COMP_TYPE']()).constructor_();
-        unique304.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 94};
-        throw unique304;
-      } else if (abap.compare.gt(abap.builtin.strlen({val: ls_component.get().name}), abap.IntegerFactory.get(30))) {
         const unique305 = await (new abap.Classes['CX_SY_STRUCT_COMP_NAME']()).constructor_();
-        unique305.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 96};
+        unique305.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 92};
         throw unique305;
+      } else if (abap.compare.initial(ls_component.get().type)) {
+        const unique306 = await (new abap.Classes['CX_SY_STRUCT_COMP_TYPE']()).constructor_();
+        unique306.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 94};
+        throw unique306;
+      } else if (abap.compare.gt(abap.builtin.strlen({val: ls_component.get().name}), abap.IntegerFactory.get(30))) {
+        const unique307 = await (new abap.Classes['CX_SY_STRUCT_COMP_NAME']()).constructor_();
+        unique307.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_structdescr.clas.abap","INTERNAL_LINE": 96};
+        throw unique307;
       }
     }
     ref.set(await (new abap.Classes['CL_ABAP_STRUCTDESCR']()).constructor_());
-    for await (const unique306 of abap.statements.loop(p_components)) {
-      ls_component.set(unique306);
+    for await (const unique308 of abap.statements.loop(p_components)) {
+      ls_component.set(unique308);
       abap.statements.clear(ls_ref);
       ls_ref.get().name.set(ls_component.get().name);
       ls_ref.get().type.set(ls_component.get().type);
@@ -98,8 +98,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     let ls_component = new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "name": new abap.types.Character(30, {"qualifiedName":"abap_compname"})}, "abap_compdescr", undefined, {}, {});
     let ls_view = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"})}, "abap_simple_componentdescr", undefined, {}, {});
     let ls_ref = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
-    for await (const unique307 of abap.statements.loop(this.components)) {
-      ls_component.set(unique307);
+    for await (const unique309 of abap.statements.loop(this.components)) {
+      ls_component.set(unique309);
       abap.statements.clear(ls_view);
       ls_view.get().name.set(ls_component.get().name);
       abap.statements.readTable(this.mt_refs,{into: ls_ref,
@@ -135,8 +135,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     lt_components.set((await this.get_components()));
     abap.statements.assert(abap.compare.cp(this.absolute_name, new abap.types.Character(7).set('+TYPE=*')));
     lv_name.set(this.absolute_name.getOffset({offset: 6}));
-    for await (const unique308 of abap.statements.loop(lt_components)) {
-      ls_component.set(unique308);
+    for await (const unique310 of abap.statements.loop(lt_components)) {
+      ls_component.set(unique310);
       abap.statements.clear(ls_return);
       ls_return.get().tabname.set(lv_name);
       ls_return.get().fieldname.set(ls_component.get().name);
@@ -194,8 +194,8 @@ class cl_abap_structdescr extends cl_abap_complexdescr {
     let ls_component = new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "name": new abap.types.Character(30, {"qualifiedName":"abap_compname"})}, "abap_compdescr", undefined, {}, {});
     let fs_ls_ref_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
     abap.statements.clear(this.components);
-    for await (const unique309 of abap.statements.loop(this.mt_refs)) {
-      fs_ls_ref_.assign(unique309);
+    for await (const unique311 of abap.statements.loop(this.mt_refs)) {
+      fs_ls_ref_.assign(unique311);
       ls_component.get().name.set(fs_ls_ref_.get().name);
       ls_component.get().type_kind.set(fs_ls_ref_.get().type.get().type_kind);
       ls_component.get().length.set(fs_ls_ref_.get().type.get().length);

@@ -49,13 +49,13 @@ class z2ui5_cl_popup_layout {
     list.set((await tab.get().column_list_item({valign: new abap.types.String().set(`Top`)})));
     cells.set((await list.get().cells()));
     columns.set((await tab.get().columns()));
-    for await (const unique167 of abap.statements.loop(lt_comp)) {
-      ls_comp2.set(unique167);
+    for await (const unique169 of abap.statements.loop(lt_comp)) {
+      ls_comp2.set(unique169);
       col.set((await (await columns.get().column({width: new abap.types.Character(4).set('8rem')})).get().header({ns: new abap.types.String().set(``)})));
       await col.get().text({text: ls_comp2.get().name});
     }
-    for await (const unique168 of abap.statements.loop(lt_comp)) {
-      ls_comp.set(unique168);
+    for await (const unique170 of abap.statements.loop(lt_comp)) {
+      ls_comp.set(unique170);
       if (abap.compare.eq(ls_comp.get().name, new abap.types.Character(4).set('NAME'))) {
         await cells.get().text({text: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(ls_comp.get().name,new abap.types.String().set(`}`)))});
       } else {
@@ -80,8 +80,8 @@ class z2ui5_cl_popup_layout {
     r_result.set(await (new abap.Classes['Z2UI5_CL_POPUP_LAYOUT']()).constructor_());
     if (abap.compare.initial(t_layout)) {
       lt_comp.set((await abap.Classes['Z2UI5_CL_UTIL'].rtti_get_t_attri_by_struc({val: i_tab})));
-      for await (const unique169 of abap.statements.loop(lt_comp)) {
-        lr_comp.assign(unique169);
+      for await (const unique171 of abap.statements.loop(lt_comp)) {
+        lr_comp.assign(unique171);
         abap.statements.clear(temp2);
         temp2.get().name.set(lr_comp.get().name);
         temp2.get().visible.set(abap.builtin.abap_true);
@@ -94,11 +94,11 @@ class z2ui5_cl_popup_layout {
     return r_result;
   }
   async on_event() {
-    let unique170 = ((await this.client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique170, new abap.types.Character(14).set('BUTTON_CONFIRM'))) {
+    let unique172 = ((await this.client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique172, new abap.types.Character(14).set('BUTTON_CONFIRM'))) {
       this.ms_result.get().check_confirmed.set(abap.builtin.abap_true);
       await this.on_event_confirm();
-    } else if (abap.compare.eq(unique170, new abap.types.Character(6).set('CANCEL'))) {
+    } else if (abap.compare.eq(unique172, new abap.types.Character(6).set('CANCEL'))) {
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave({app: (await this.client.get().z2ui5_if_client$get_app({id: ((await this.client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
     }

@@ -43,9 +43,9 @@ class cl_abap_datfm {
     let regex_yyyymmdd_no_dot = new abap.types.String({qualifiedName: "STRING"});
     regex_yyyymmdd_no_dot.set('^(\\d{4})(0[0-9]|1[012])(0[0-9]|[12][0-9]|3[01])$');
     if (abap.compare.ne(im_datfmdes, cl_abap_datfm.ddmmyyyy_dot_seperated) && abap.compare.ne(im_datfmdes, cl_abap_datfm.yyyymmdd_dot_seperated)) {
-      const unique222 = await (new abap.Classes['CX_ABAP_DATFM']()).constructor_();
-      unique222.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_datfm.clas.abap","INTERNAL_LINE": 50};
-      throw unique222;
+      const unique224 = await (new abap.Classes['CX_ABAP_DATFM']()).constructor_();
+      unique224.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_datfm.clas.abap","INTERNAL_LINE": 50};
+      throw unique224;
     }
     abap.statements.find(im_datext, {regex: regex_ddmmyyyy_dot_seperated, first: false});
     if (abap.compare.eq(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
@@ -65,9 +65,9 @@ class cl_abap_datfm {
       ex_datfmused.set(cl_abap_datfm.yyyymmdd_dot_seperated);
       return;
     }
-    const unique223 = await (new abap.Classes['CX_ABAP_DATFM']()).constructor_();
-    unique223.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_datfm.clas.abap","INTERNAL_LINE": 74};
-    throw unique223;
+    const unique225 = await (new abap.Classes['CX_ABAP_DATFM']()).constructor_();
+    unique225.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_datfm.clas.abap","INTERNAL_LINE": 74};
+    throw unique225;
   }
   async get_date_format_des(INPUT) {
     return cl_abap_datfm.get_date_format_des(INPUT);

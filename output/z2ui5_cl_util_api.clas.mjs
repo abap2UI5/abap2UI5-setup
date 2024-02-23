@@ -7,7 +7,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   static IMPLEMENTED_INTERFACES = [];
   static ATTRIBUTES = {};
   static METHODS = {"RTTI_GET_T_ATTRI_BY_INCLUDE": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");}, "is_optional": " "}, "TYPE": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"});}, "is_optional": " "}, "ATTRI": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
-  "RTTI_GET_T_DDIC_FIXED_VALUES": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");}, "is_optional": " "}, "VAL": {"type": () => {return new abap.types.Character(4);}, "is_optional": " "}, "LANGU": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
+  "RTTI_GET_T_DDIC_FIXED_VALUES": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return abap.types.TableFactory.construct(new abap.types.Structure({"low": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-LOW"}), "high": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-HIGH"}), "descr": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-DESCR"})}, "z2ui5_cl_util_api=>ty_s_fix_val", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_fix_val");}, "is_optional": " "}, "VAL": {"type": () => {return new abap.types.Character(4);}, "is_optional": " "}, "LANGU": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "SOURCE_GET_METHOD": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}, "IV_CLASSNAME": {"type": () => {return new abap.types.Character();}, "is_optional": " "}, "IV_METHODNAME": {"type": () => {return new abap.types.Character();}, "is_optional": " "}}},
   "CHECK_BOUND_A_NOT_INITAL": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});}, "is_optional": " "}, "VAL": {"type": () => {return new abap.types.DataReference(new abap.types.Character(4));}, "is_optional": " "}}},
   "CHECK_UNASSIGN_INITAL": {"visibility": "U", "parameters": {"RESULT": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});}, "is_optional": " "}, "VAL": {"type": () => {return new abap.types.DataReference(new abap.types.Character(4));}, "is_optional": " "}}},
@@ -69,54 +69,20 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
   }
-  async rtti_tab_get_relative_name(INPUT) {
-    return z2ui5_cl_util_api.rtti_tab_get_relative_name(INPUT);
-  }
-  static async rtti_tab_get_relative_name(INPUT) {
-    let result = new abap.types.String({qualifiedName: "STRING"});
-    let table = INPUT?.table;
-    let fs_table_ = new abap.types.FieldSymbol(new abap.types.Character(4));
-    let typedesc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
-    let temp1 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
-    let tabledesc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
-    let temp2 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-    let structdesc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-    try {
-      typedesc.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: table})));
-      let unique55 = typedesc.get().kind;
-      if (abap.compare.eq(unique55, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
-        await abap.statements.cast(temp1, typedesc);
-        tabledesc.set(temp1);
-        await abap.statements.cast(temp2, (await tabledesc.get().get_table_line_type()));
-        structdesc.set(temp2);
-        result.set((await structdesc.get().get_relative_name()));
-        return result;
-      } else if (abap.compare.eq(unique55, typedesc.get().kind_ref)) {
-        abap.statements.assign({target: fs_table_, source: (table).dereference()});
-        result.set((await this.rtti_tab_get_relative_name({table: fs_table_})));
-      }
-    } catch (e) {
-      if ((abap.Classes['CX_ROOT'] && e instanceof abap.Classes['CX_ROOT'])) {
-      } else {
-        throw e;
-      }
-    }
-    return result;
-  }
   async boolean_abap_2_json(INPUT) {
     return z2ui5_cl_util_api.boolean_abap_2_json(INPUT);
   }
   static async boolean_abap_2_json(INPUT) {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let val = INPUT?.val;
-    let temp3 = new abap.types.String({qualifiedName: "STRING"});
+    let temp1 = new abap.types.String({qualifiedName: "STRING"});
     if (abap.compare.initial((await this.boolean_check_by_data({val: val}))) === false) {
       if (abap.compare.eq(val, abap.builtin.abap_true)) {
-        temp3.set(new abap.types.String().set(`true`));
+        temp1.set(new abap.types.String().set(`true`));
       } else {
-        temp3.set(new abap.types.String().set(`false`));
+        temp1.set(new abap.types.String().set(`false`));
       }
-      result.set(temp3);
+      result.set(temp1);
     } else {
       result.set(val);
     }
@@ -148,8 +114,8 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     let val = INPUT?.val;
     if (val?.getQualifiedName === undefined || val.getQualifiedName() !== "STRING") { val = undefined; }
     if (val === undefined) { val = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.val); }
-    let unique56 = val;
-    if (abap.compare.eq(unique56, new abap.types.Character(9).set('ABAP_BOOL')) || abap.compare.eq(unique56, new abap.types.Character(10).set('XSDBOOLEAN')) || abap.compare.eq(unique56, new abap.types.Character(4).set('FLAG')) || abap.compare.eq(unique56, new abap.types.Character(5).set('XFLAG')) || abap.compare.eq(unique56, new abap.types.Character(5).set('XFELD')) || abap.compare.eq(unique56, new abap.types.Character(12).set('ABAP_BOOLEAN')) || abap.compare.eq(unique56, new abap.types.Character(11).set('WDY_BOOLEAN')) || abap.compare.eq(unique56, new abap.types.Character(10).set('OS_BOOLEAN'))) {
+    let unique55 = val;
+    if (abap.compare.eq(unique55, new abap.types.Character(9).set('ABAP_BOOL')) || abap.compare.eq(unique55, new abap.types.Character(10).set('XSDBOOLEAN')) || abap.compare.eq(unique55, new abap.types.Character(4).set('FLAG')) || abap.compare.eq(unique55, new abap.types.Character(5).set('XFLAG')) || abap.compare.eq(unique55, new abap.types.Character(5).set('XFELD')) || abap.compare.eq(unique55, new abap.types.Character(12).set('ABAP_BOOLEAN')) || abap.compare.eq(unique55, new abap.types.Character(11).set('WDY_BOOLEAN')) || abap.compare.eq(unique55, new abap.types.Character(10).set('OS_BOOLEAN'))) {
       result.set(abap.builtin.abap_true);
     }
     return result;
@@ -217,9 +183,9 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   static async c_trim(INPUT) {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let val = INPUT?.val;
-    let temp4 = new abap.types.String({qualifiedName: "STRING"});
-    temp4.set(val);
-    result.set(abap.builtin.shift_left({val: abap.builtin.shift_right({val: temp4})}));
+    let temp2 = new abap.types.String({qualifiedName: "STRING"});
+    temp2.set(val);
+    result.set(abap.builtin.shift_left({val: abap.builtin.shift_right({val: temp2})}));
     result.set(abap.builtin.shift_right({val: result, sub: abap.Classes['CL_ABAP_CHAR_UTILITIES'].horizontal_tab}));
     result.set(abap.builtin.shift_left({val: result, sub: abap.Classes['CL_ABAP_CHAR_UTILITIES'].horizontal_tab}));
     result.set(abap.builtin.shift_left({val: abap.builtin.shift_right({val: result})}));
@@ -231,9 +197,9 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   static async c_trim_lower(INPUT) {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let val = INPUT?.val;
-    let temp5 = new abap.types.String({qualifiedName: "STRING"});
-    temp5.set(val);
-    result.set((abap.builtin.to_lower({val: (await this.c_trim({val: temp5}))})));
+    let temp3 = new abap.types.String({qualifiedName: "STRING"});
+    temp3.set(val);
+    result.set((abap.builtin.to_lower({val: (await this.c_trim({val: temp3}))})));
     return result;
   }
   async c_trim_upper(INPUT) {
@@ -242,9 +208,9 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   static async c_trim_upper(INPUT) {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let val = INPUT?.val;
-    let temp6 = new abap.types.String({qualifiedName: "STRING"});
-    temp6.set(val);
-    result.set((abap.builtin.to_upper({val: (await this.c_trim({val: temp6}))})));
+    let temp4 = new abap.types.String({qualifiedName: "STRING"});
+    temp4.set(val);
+    result.set((abap.builtin.to_upper({val: (await this.c_trim({val: temp4}))})));
     return result;
   }
   async filter_get_multi_by_data(INPUT) {
@@ -253,16 +219,16 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   static async filter_get_multi_by_data(INPUT) {
     let result = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_MULTI-NAME"}), "t_range": abap.types.TableFactory.construct(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_range"), "t_token": abap.types.TableFactory.construct(new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_token")}, "z2ui5_cl_util_api=>ty_s_sql_multi", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_filter_multi");
     let val = INPUT?.val;
-    let temp7 = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
+    let temp5 = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
     let temp1 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
     let lr_comp = new abap.types.DataReference(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
-    let temp8 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_MULTI-NAME"}), "t_range": abap.types.TableFactory.construct(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_range"), "t_token": abap.types.TableFactory.construct(new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_token")}, "z2ui5_cl_util_api=>ty_s_sql_multi", undefined, {}, {});
-    temp7.set((await this.rtti_get_t_attri_by_struc({val: val})));
-    for await (const unique57 of abap.statements.loop(temp7)) {
-      lr_comp.assign(unique57);
-      abap.statements.clear(temp8);
-      temp8.get().name.set(lr_comp.get().name);
-      abap.statements.insertInternal({data: temp8, table: result});
+    let temp6 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_MULTI-NAME"}), "t_range": abap.types.TableFactory.construct(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_range"), "t_token": abap.types.TableFactory.construct(new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_token")}, "z2ui5_cl_util_api=>ty_s_sql_multi", undefined, {}, {});
+    temp5.set((await this.rtti_get_t_attri_by_struc({val: val})));
+    for await (const unique56 of abap.statements.loop(temp5)) {
+      lr_comp.assign(unique56);
+      abap.statements.clear(temp6);
+      temp6.get().name.set(lr_comp.get().name);
+      abap.statements.insertInternal({data: temp6, table: result});
     }
     return result;
   }
@@ -275,13 +241,13 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     if (INPUT && INPUT.value) {value.set(INPUT.value);}
     let lv_length = new abap.types.Integer({qualifiedName: "I"});
     lv_length.set(abap.operators.minus(abap.builtin.strlen({val: value}),abap.IntegerFactory.get(1)));
-    let unique58 = value.getOffset({length: 1});
-    if (abap.compare.eq(unique58, new abap.types.String().set(`=`))) {
+    let unique57 = value.getOffset({length: 1});
+    if (abap.compare.eq(unique57, new abap.types.String().set(`=`))) {
       abap.statements.clear(result);
       result.get().sign.set(new abap.types.String().set(`I`));
       result.get().option.set(new abap.types.String().set(`EQ`));
       result.get().low.set(value.getOffset({offset: 1}));
-    } else if (abap.compare.eq(unique58, new abap.types.String().set(`<`))) {
+    } else if (abap.compare.eq(unique57, new abap.types.String().set(`<`))) {
       if (abap.compare.eq(value.getOffset({offset: 1, length: 1}), new abap.types.String().set(`=`))) {
         abap.statements.clear(result);
         result.get().sign.set(new abap.types.String().set(`I`));
@@ -293,7 +259,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
         result.get().option.set(new abap.types.String().set(`LT`));
         result.get().low.set(value.getOffset({offset: 1}));
       }
-    } else if (abap.compare.eq(unique58, new abap.types.String().set(`>`))) {
+    } else if (abap.compare.eq(unique57, new abap.types.String().set(`>`))) {
       if (abap.compare.eq(value.getOffset({offset: 1, length: 1}), new abap.types.String().set(`=`))) {
         abap.statements.clear(result);
         result.get().sign.set(new abap.types.String().set(`I`));
@@ -305,7 +271,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
         result.get().option.set(new abap.types.String().set(`GT`));
         result.get().low.set(value.getOffset({offset: 1}));
       }
-    } else if (abap.compare.eq(unique58, new abap.types.String().set(`*`))) {
+    } else if (abap.compare.eq(unique57, new abap.types.String().set(`*`))) {
       if (abap.compare.eq(value.getOffset({offset: lv_length, length: 1}), new abap.types.String().set(`*`))) {
         abap.statements.shift(value, {direction: 'RIGHT',deletingTrailing: new abap.types.String().set(`*`)});
         abap.statements.shift(value, {direction: 'LEFT',deletingLeading: new abap.types.String().set(`*`)});
@@ -336,8 +302,8 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     if (val?.getQualifiedName === undefined || val.getQualifiedName() !== "Z2UI5_CL_UTIL_API=>TY_T_TOKEN") { val = undefined; }
     if (val === undefined) { val = abap.types.TableFactory.construct(new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_token").set(INPUT.val); }
     let ls_token = new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {});
-    for await (const unique59 of abap.statements.loop(val)) {
-      ls_token.set(unique59);
+    for await (const unique58 of abap.statements.loop(val)) {
+      ls_token.set(unique58);
       abap.statements.insertInternal({data: (await this.filter_get_range_by_token({value: ls_token.get().text})), table: result});
     }
     return result;
@@ -347,40 +313,40 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   }
   static async filter_get_token_range_mapping() {
     let result = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp9 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp10 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
-    abap.statements.clear(temp9);
-    temp10.get().n.set(new abap.types.String().set(`EQ`));
-    temp10.get().v.set(new abap.types.String().set(`={LOW}`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`LT`));
-    temp10.get().v.set(new abap.types.String().set(`<{LOW}`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`LE`));
-    temp10.get().v.set(new abap.types.String().set(`<={LOW}`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`GT`));
-    temp10.get().v.set(new abap.types.String().set(`>{LOW}`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`GE`));
-    temp10.get().v.set(new abap.types.String().set(`>={LOW}`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`CP`));
-    temp10.get().v.set(new abap.types.String().set(`*{LOW}*`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`BT`));
-    temp10.get().v.set(new abap.types.String().set(`{LOW}...{HIGH}`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`NE`));
-    temp10.get().v.set(new abap.types.String().set(`!(={LOW})`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`NE`));
-    temp10.get().v.set(new abap.types.String().set(`!(<leer>)`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    temp10.get().n.set(new abap.types.String().set(`<leer>`));
-    temp10.get().v.set(new abap.types.String().set(`<leer>`));
-    abap.statements.insertInternal({data: temp10, table: temp9});
-    result.set(temp9);
+    let temp7 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+    let temp8 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    abap.statements.clear(temp7);
+    temp8.get().n.set(new abap.types.String().set(`EQ`));
+    temp8.get().v.set(new abap.types.String().set(`={LOW}`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`LT`));
+    temp8.get().v.set(new abap.types.String().set(`<{LOW}`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`LE`));
+    temp8.get().v.set(new abap.types.String().set(`<={LOW}`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`GT`));
+    temp8.get().v.set(new abap.types.String().set(`>{LOW}`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`GE`));
+    temp8.get().v.set(new abap.types.String().set(`>={LOW}`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`CP`));
+    temp8.get().v.set(new abap.types.String().set(`*{LOW}*`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`BT`));
+    temp8.get().v.set(new abap.types.String().set(`{LOW}...{HIGH}`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`NE`));
+    temp8.get().v.set(new abap.types.String().set(`!(={LOW})`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`NE`));
+    temp8.get().v.set(new abap.types.String().set(`!(<leer>)`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    temp8.get().n.set(new abap.types.String().set(`<leer>`));
+    temp8.get().v.set(new abap.types.String().set(`<leer>`));
+    abap.statements.insertInternal({data: temp8, table: temp7});
+    result.set(temp7);
     return result;
   }
   async filter_get_token_t_by_range_t(INPUT) {
@@ -392,15 +358,15 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     if (val?.getQualifiedName === undefined || val.getQualifiedName() !== "Z2UI5_CL_UTIL_API=>TY_T_RANGE") { val = undefined; }
     if (val === undefined) { val = abap.types.TableFactory.construct(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_range").set(INPUT.val); }
     let lt_mapping = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-    let temp11 = new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {});
+    let temp9 = new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {});
     let lr_row = new abap.types.DataReference(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}));
     let lv_value = new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"});
     let temp2 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
     let temp3 = new abap.types.Integer({qualifiedName: "I"});
-    let temp12 = new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {});
+    let temp10 = new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {});
     lt_mapping.set((await this.filter_get_token_range_mapping()));
-    for await (const unique60 of abap.statements.loop(val)) {
-      lr_row.assign(unique60);
+    for await (const unique59 of abap.statements.loop(val)) {
+      lr_row.assign(unique59);
       temp3.set(abap.builtin.sy.get().tabix);
       abap.statements.readTable(lt_mapping,{into: temp2,
         withKey: (i) => {return abap.compare.eq(i.n, lr_row.get().option);},
@@ -414,12 +380,12 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       lv_value.set(temp2.get().v);
       abap.statements.replace({target: lv_value, all: false, with: lr_row.get().low, of: new abap.types.String().set(`{LOW}`)});
       abap.statements.replace({target: lv_value, all: false, with: lr_row.get().high, of: new abap.types.String().set(`{HIGH}`)});
-      abap.statements.clear(temp12);
-      temp12.get().key.set(lv_value);
-      temp12.get().text.set(lv_value);
-      temp12.get().visible.set(abap.builtin.abap_true);
-      temp12.get().editable.set(abap.builtin.abap_true);
-      abap.statements.insertInternal({data: temp12, table: result});
+      abap.statements.clear(temp10);
+      temp10.get().key.set(lv_value);
+      temp10.get().text.set(lv_value);
+      temp10.get().visible.set(abap.builtin.abap_true);
+      temp10.get().editable.set(abap.builtin.abap_true);
+      abap.statements.insertInternal({data: temp10, table: result});
     }
     return result;
   }
@@ -434,14 +400,14 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     let lv_row = new abap.types.String({qualifiedName: "STRING"});
     let lv_index = new abap.types.Integer({qualifiedName: "I"});
     let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character(4));
-    for await (const unique61 of abap.statements.loop(tab)) {
-      fs_row_.assign(unique61);
+    for await (const unique60 of abap.statements.loop(tab)) {
+      fs_row_.assign(unique60);
       lv_row.set(new abap.types.String().set(``));
       lv_index.set(abap.IntegerFactory.get(1));
       const indexBackup1 = abap.builtin.sy.get().index.get();
-      let unique62 = 1;
+      let unique61 = 1;
       while (true) {
-        abap.builtin.sy.get().index.set(unique62++);
+        abap.builtin.sy.get().index.set(unique61++);
         abap.statements.assign({component: lv_index, target: fs_field_, source: fs_row_});
         if (abap.compare.ne(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
           break;
@@ -462,11 +428,11 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let val = INPUT?.val;
     let fs_tab_ = new abap.types.FieldSymbol(abap.types.TableFactory.construct(new abap.types.Character(4), {"withHeader":false,"keyType":"DEFAULT"}));
-    let temp13 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
+    let temp11 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
     let tab = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
-    let temp14 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+    let temp12 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
     let struc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-    let temp15 = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
+    let temp13 = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
     let temp4 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
     let lr_comp = new abap.types.DataReference(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
     let lr_row = new abap.types.DataReference(new abap.types.Character(4));
@@ -474,23 +440,23 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     let fs_row_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     abap.statements.assign({target: fs_tab_, source: val});
-    await abap.statements.cast(temp13, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: fs_tab_})));
-    tab.set(temp13);
-    await abap.statements.cast(temp14, (await tab.get().get_table_line_type()));
-    struc.set(temp14);
-    temp15.set((await struc.get().get_components()));
-    for await (const unique63 of abap.statements.loop(temp15)) {
-      lr_comp.assign(unique63);
+    await abap.statements.cast(temp11, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: fs_tab_})));
+    tab.set(temp11);
+    await abap.statements.cast(temp12, (await tab.get().get_table_line_type()));
+    struc.set(temp12);
+    temp13.set((await struc.get().get_components()));
+    for await (const unique62 of abap.statements.loop(temp13)) {
+      lr_comp.assign(unique62);
       result.set(abap.operators.concat(result,abap.operators.concat(lr_comp.get().name,new abap.types.Character(1).set(';'))));
     }
     result.set(abap.operators.concat(result,abap.Classes['CL_ABAP_CHAR_UTILITIES'].cr_lf));
-    for await (const unique64 of abap.statements.loop(fs_tab_)) {
-      lr_row.assign(unique64);
+    for await (const unique63 of abap.statements.loop(fs_tab_)) {
+      lr_row.assign(unique63);
       lv_index.set(abap.IntegerFactory.get(1));
       const indexBackup1 = abap.builtin.sy.get().index.get();
-      let unique65 = 1;
+      let unique64 = 1;
       while (true) {
-        abap.builtin.sy.get().index.set(unique65++);
+        abap.builtin.sy.get().index.set(unique64++);
         abap.statements.assign({target: fs_row_, source: (lr_row).dereference()});
         abap.statements.assign({component: lv_index, target: fs_field_, source: fs_row_});
         if (abap.compare.ne(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
@@ -521,14 +487,14 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     let lt_cols = abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "temp2");
     let temp5 = new abap.types.String({qualifiedName: "STRING"});
     let temp6 = new abap.types.Integer({qualifiedName: "I"});
-    let temp16 = new abap.types.String({qualifiedName: "STRING"});
+    let temp14 = new abap.types.String({qualifiedName: "STRING"});
     let lr_col = new abap.types.DataReference(new abap.types.String({qualifiedName: "STRING"}));
     let lv_name = new abap.types.String({qualifiedName: "STRING"});
-    let temp17 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
+    let temp15 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
     let struc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-    let temp18 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"});
+    let temp16 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"});
     let o_table_desc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
-    let temp19 = new abap.types.String({qualifiedName: "STRING"});
+    let temp17 = new abap.types.String({qualifiedName: "STRING"});
     let lr_rows = new abap.types.DataReference(new abap.types.String({qualifiedName: "STRING"}));
     let fs_row_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character(4));
@@ -541,29 +507,29 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), abap.IntegerFactory.get(0)));
     }
     abap.statements.split({source: temp5, at: new abap.types.Character(1).set(';'), table: lt_cols});
-    for await (const unique66 of abap.statements.loop(lt_cols)) {
-      lr_col.assign(unique66);
+    for await (const unique65 of abap.statements.loop(lt_cols)) {
+      lr_col.assign(unique65);
       lv_name.set((await this.c_trim_upper({val: (lr_col).dereference()})));
       abap.statements.replace({target: lv_name, all: false, with: new abap.types.String().set(`_`), of: new abap.types.String().set(` `)});
-      abap.statements.clear(temp17);
-      temp17.get().name.set(lv_name);
-      temp17.get().type.set((await abap.Classes['CL_ABAP_ELEMDESCR'].get_c({p_length: abap.IntegerFactory.get(40)})));
-      abap.statements.insertInternal({data: temp17, table: lt_comp});
+      abap.statements.clear(temp15);
+      temp15.get().name.set(lv_name);
+      temp15.get().type.set((await abap.Classes['CL_ABAP_ELEMDESCR'].get_c({p_length: abap.IntegerFactory.get(40)})));
+      abap.statements.insertInternal({data: temp15, table: lt_comp});
     }
     struc.set((await abap.Classes['CL_ABAP_STRUCTDESCR'].get({p_components: lt_comp})));
-    await abap.statements.cast(temp18, struc);
-    o_table_desc.set((await abap.Classes['CL_ABAP_TABLEDESCR'].create({p_line_type: temp18, p_table_kind: abap.Classes['CL_ABAP_TABLEDESCR'].tablekind_std, p_unique: abap.builtin.abap_false})));
+    await abap.statements.cast(temp16, struc);
+    o_table_desc.set((await abap.Classes['CL_ABAP_TABLEDESCR'].create({p_line_type: temp16, p_table_kind: abap.Classes['CL_ABAP_TABLEDESCR'].tablekind_std, p_unique: abap.builtin.abap_false})));
     if (abap.Classes['KERNEL_CREATE_DATA_HANDLE'] === undefined) throw new Error("CreateData, kernel class missing");
     await abap.Classes['KERNEL_CREATE_DATA_HANDLE'].call({handle: o_table_desc, dref: result});
     abap.statements.assign({target: fs_tab_, source: (result).dereference()});
     await abap.statements.deleteInternal(lt_rows,{where: (I) => {return abap.compare.initial(I.table_line);}});
-    for await (const unique67 of abap.statements.loop(lt_rows,{from: abap.IntegerFactory.get(2)})) {
-      lr_rows.assign(unique67);
+    for await (const unique66 of abap.statements.loop(lt_rows,{from: abap.IntegerFactory.get(2)})) {
+      lr_rows.assign(unique66);
       abap.statements.split({source: (lr_rows).dereference(), at: new abap.types.Character(1).set(';'), table: lt_cols});
       if (abap.Classes['KERNEL_CREATE_DATA_HANDLE'] === undefined) throw new Error("CreateData, kernel class missing");
       await abap.Classes['KERNEL_CREATE_DATA_HANDLE'].call({handle: struc, dref: lr_row});
-      for await (const unique68 of abap.statements.loop(lt_cols)) {
-        lr_col.assign(unique68);
+      for await (const unique67 of abap.statements.loop(lt_cols)) {
+        lr_col.assign(unique67);
         abap.statements.assign({target: fs_row_, source: (lr_row).dereference()});
         abap.statements.assign({component: abap.builtin.sy.get().tabix, target: fs_field_, source: fs_row_});
         abap.statements.assert(abap.compare.eq(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0)));
@@ -598,12 +564,12 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   static async json_stringify(INPUT) {
     let result = new abap.types.String({qualifiedName: "STRING"});
     let any = INPUT?.any;
-    let temp20 = new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_AJSON", RTTIName: "\\INTERFACE=Z2UI5_IF_AJSON"});
+    let temp18 = new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_AJSON", RTTIName: "\\INTERFACE=Z2UI5_IF_AJSON"});
     let li_ajson = new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_AJSON", RTTIName: "\\INTERFACE=Z2UI5_IF_AJSON"});
     let x = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CX_AJSON_ERROR", RTTIName: "\\CLASS=Z2UI5_CX_AJSON_ERROR"});
     try {
-      await abap.statements.cast(temp20, (await abap.Classes['Z2UI5_CL_AJSON'].create_empty()));
-      li_ajson.set(temp20);
+      await abap.statements.cast(temp18, (await abap.Classes['Z2UI5_CL_AJSON'].create_empty()));
+      li_ajson.set(temp18);
       result.set((await (await li_ajson.get().z2ui5_if_ajson$set({iv_path: new abap.types.String().set(`/`), iv_val: any})).get().z2ui5_if_ajson$stringify()));
     } catch (e) {
       if ((abap.Classes['Z2UI5_CX_AJSON_ERROR'] && e instanceof abap.Classes['Z2UI5_CX_AJSON_ERROR'])) {
@@ -662,12 +628,12 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       let result = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
       let val = INPUT?.val;
       let lo_typdescr = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
-      let temp21 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_REFDESCR", RTTIName: "\\CLASS=CL_ABAP_REFDESCR"});
+      let temp19 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_REFDESCR", RTTIName: "\\CLASS=CL_ABAP_REFDESCR"});
       let lo_ref = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_REFDESCR", RTTIName: "\\CLASS=CL_ABAP_REFDESCR"});
       try {
         lo_typdescr.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: val})));
-        await abap.statements.cast(temp21, lo_typdescr);
-        lo_ref.set(temp21);
+        await abap.statements.cast(temp19, lo_typdescr);
+        lo_ref.set(temp19);
         result.set(abap.builtin.abap_true);
       } catch (e) {
         if ((abap.Classes['CX_ROOT'] && e instanceof abap.Classes['CX_ROOT'])) {
@@ -718,11 +684,11 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       let result = new abap.types.String({qualifiedName: "STRING"});
       let val = INPUT?.val;
       let lo_descr = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
-      let temp22 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR", RTTIName: "\\CLASS=CL_ABAP_ELEMDESCR"});
+      let temp20 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR", RTTIName: "\\CLASS=CL_ABAP_ELEMDESCR"});
       let lo_ele = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_ELEMDESCR", RTTIName: "\\CLASS=CL_ABAP_ELEMDESCR"});
       lo_descr.set((await abap.Classes['CL_ABAP_ELEMDESCR'].describe_by_data({p_data: val})));
-      await abap.statements.cast(temp22, lo_descr);
-      lo_ele.set(temp22);
+      await abap.statements.cast(temp20, lo_descr);
+      lo_ele.set(temp20);
       result.set((await lo_ele.get().get_relative_name()));
       return result;
     }
@@ -735,19 +701,19 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       if (type?.getQualifiedName === undefined || type.getQualifiedName() !== "CL_ABAP_DATADESCR") { type = undefined; }
       if (type === undefined) { type = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}).set(INPUT.type); }
       let attri = INPUT?.attri;
-      let temp23 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+      let temp21 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
       let sdescr = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-      let temp24 = new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "name": new abap.types.Character(30, {"qualifiedName":"abap_compname"})}, "abap_compdescr", undefined, {}, {});
+      let temp22 = new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "name": new abap.types.Character(30, {"qualifiedName":"abap_compname"})}, "abap_compdescr", undefined, {}, {});
       let lr_comp = new abap.types.DataReference(new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "name": new abap.types.Character(30, {"qualifiedName":"abap_compname"})}, "abap_compdescr", undefined, {}, {}));
-      let temp25 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
+      let temp23 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
       let ls_attri = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
-      await abap.statements.cast(temp23, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_name({p_name: type.get().absolute_name})));
-      sdescr.set(temp23);
-      for await (const unique69 of abap.statements.loop(sdescr.get().components)) {
-        lr_comp.assign(unique69);
-        abap.statements.clear(temp25);
-        temp25.get().name.set(abap.operators.concat(attri,lr_comp.get().name));
-        ls_attri.set(temp25);
+      await abap.statements.cast(temp21, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_name({p_name: type.get().absolute_name})));
+      sdescr.set(temp21);
+      for await (const unique68 of abap.statements.loop(sdescr.get().components)) {
+        lr_comp.assign(unique68);
+        abap.statements.clear(temp23);
+        temp23.get().name.set(abap.operators.concat(attri,lr_comp.get().name));
+        ls_attri.set(temp23);
         abap.statements.insertInternal({data: ls_attri, table: result});
       }
       return result;
@@ -759,10 +725,10 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       let result = abap.types.TableFactory.construct(new abap.types.Structure({"length": new abap.types.Integer({qualifiedName: "LENGTH"}), "decimals": new abap.types.Integer({qualifiedName: "DECIMALS"}), "name": new abap.types.Character(61, {"qualifiedName":"abap_attrname"}), "type_kind": new abap.types.Character(1, {"qualifiedName":"abap_typekind"}), "visibility": new abap.types.Character(1, {"qualifiedName":"abap_visibility"}), "is_interface": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "is_inherited": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "is_class": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "is_constant": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "is_virtual": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "is_read_only": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "alias_for": new abap.types.Character(61, {"qualifiedName":"abap_attrname"})}, "abap_attrdescr", undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":["NAME"]},"secondary":[]}, "abap_attrdescr_tab");
       let val = INPUT?.val;
       let lo_obj_ref = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
-      let temp26 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CLASSDESCR", RTTIName: "\\CLASS=CL_ABAP_CLASSDESCR"});
+      let temp24 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_CLASSDESCR", RTTIName: "\\CLASS=CL_ABAP_CLASSDESCR"});
       lo_obj_ref.set((await abap.Classes['CL_ABAP_OBJECTDESCR'].describe_by_object_ref({p_object_ref: val})));
-      await abap.statements.cast(temp26, lo_obj_ref);
-      result.set(temp26.get().attributes);
+      await abap.statements.cast(temp24, lo_obj_ref);
+      result.set(temp24.get().attributes);
       return result;
     }
     async rtti_get_t_attri_by_struc(INPUT) {
@@ -772,41 +738,41 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       let result = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
       let val = INPUT?.val;
       let lo_type = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
-      let temp27 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+      let temp25 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
       let lo_struct = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-      let temp28 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
+      let temp26 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
       let lo_tab = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
-      let temp29 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+      let temp27 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
       let lo_ref = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
+      let temp28 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+      let temp29 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
       let temp30 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-      let temp31 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
-      let temp32 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
-      let temp33 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
+      let temp31 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {});
       let lr_comp = new abap.types.DataReference(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
       let lt_attri = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_component_tab");
       try {
         lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: val})));
-        await abap.statements.cast(temp27, lo_type);
-        lo_struct.set(temp27);
+        await abap.statements.cast(temp25, lo_type);
+        lo_struct.set(temp25);
       } catch (e) {
         if ((abap.Classes['CX_ROOT'] && e instanceof abap.Classes['CX_ROOT'])) {
           try {
-            await abap.statements.cast(temp28, lo_type);
-            lo_tab.set(temp28);
-            await abap.statements.cast(temp29, (await lo_tab.get().get_table_line_type()));
-            lo_struct.set(temp29);
+            await abap.statements.cast(temp26, lo_type);
+            lo_tab.set(temp26);
+            await abap.statements.cast(temp27, (await lo_tab.get().get_table_line_type()));
+            lo_struct.set(temp27);
           } catch (e) {
             if ((abap.Classes['CX_ROOT'] && e instanceof abap.Classes['CX_ROOT'])) {
               try {
                 lo_ref.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data_ref({p_data_ref: val})));
-                await abap.statements.cast(temp30, lo_ref);
-                lo_struct.set(temp30);
+                await abap.statements.cast(temp28, lo_ref);
+                lo_struct.set(temp28);
               } catch (e) {
                 if ((abap.Classes['CX_ROOT'] && e instanceof abap.Classes['CX_ROOT'])) {
-                  await abap.statements.cast(temp31, lo_ref);
-                  lo_tab.set(temp31);
-                  await abap.statements.cast(temp32, (await lo_tab.get().get_table_line_type()));
-                  lo_struct.set(temp32);
+                  await abap.statements.cast(temp29, lo_ref);
+                  lo_tab.set(temp29);
+                  await abap.statements.cast(temp30, (await lo_tab.get().get_table_line_type()));
+                  lo_struct.set(temp30);
                 } else {
                   throw e;
                 }
@@ -820,8 +786,8 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
         }
       }
       result.set((await lo_struct.get().get_components()));
-      for await (const unique70 of abap.statements.loop(result,{where: async (I) => {return abap.compare.eq(I.as_include, abap.builtin.abap_true);},topEquals: {"as_include": abap.builtin.abap_true}})) {
-        lr_comp.assign(unique70);
+      for await (const unique69 of abap.statements.loop(result,{where: async (I) => {return abap.compare.eq(I.as_include, abap.builtin.abap_true);},topEquals: {"as_include": abap.builtin.abap_true}})) {
+        lr_comp.assign(unique69);
         lt_attri.set((await this.rtti_get_t_attri_by_include({type: lr_comp.get().type, attri: lr_comp.get().name})));
         await abap.statements.deleteInternal(result);
         abap.statements.insertInternal({lines: true, data: lt_attri, table: result});
@@ -832,18 +798,44 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       return z2ui5_cl_util_api.rtti_get_t_ddic_fixed_values(INPUT);
     }
     static async rtti_get_t_ddic_fixed_values(INPUT) {
-      let result = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
+      let result = abap.types.TableFactory.construct(new abap.types.Structure({"low": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-LOW"}), "high": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-HIGH"}), "descr": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-DESCR"})}, "z2ui5_cl_util_api=>ty_s_fix_val", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_fix_val");
       let val = INPUT?.val;
       let langu = INPUT?.langu || new abap.types.Character();
       if (INPUT === undefined || INPUT.langu === undefined) {langu = abap.builtin.sy.get().langu;}
-      let temp34 = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
-      let temp35 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
-      abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), abap.IntegerFactory.get(0)));
-      abap.statements.clear(temp34);
-      temp35.get().n.set(val);
-      temp35.get().v.set(langu);
-      abap.statements.insertInternal({data: temp35, table: temp34});
-      result.set(temp34);
+      return result;
+    }
+    async rtti_tab_get_relative_name(INPUT) {
+      return z2ui5_cl_util_api.rtti_tab_get_relative_name(INPUT);
+    }
+    static async rtti_tab_get_relative_name(INPUT) {
+      let result = new abap.types.String({qualifiedName: "STRING"});
+      let table = INPUT?.table;
+      let fs_table_ = new abap.types.FieldSymbol(new abap.types.Character(4));
+      let typedesc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TYPEDESCR", RTTIName: "\\CLASS=CL_ABAP_TYPEDESCR"});
+      let temp32 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
+      let tabledesc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_TABLEDESCR", RTTIName: "\\CLASS=CL_ABAP_TABLEDESCR"});
+      let temp33 = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+      let structdesc = new abap.types.ABAPObject({qualifiedName: "CL_ABAP_STRUCTDESCR", RTTIName: "\\CLASS=CL_ABAP_STRUCTDESCR"});
+      try {
+        typedesc.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: table})));
+        let unique70 = typedesc.get().kind;
+        if (abap.compare.eq(unique70, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+          await abap.statements.cast(temp32, typedesc);
+          tabledesc.set(temp32);
+          await abap.statements.cast(temp33, (await tabledesc.get().get_table_line_type()));
+          structdesc.set(temp33);
+          result.set((await structdesc.get().get_relative_name()));
+          return result;
+        } else if (abap.compare.eq(unique70, typedesc.get().kind_ref)) {
+          abap.statements.assign({target: fs_table_, source: (table).dereference()});
+          result.set((await this.rtti_tab_get_relative_name({table: fs_table_})));
+        }
+      } catch (e) {
+        if ((abap.Classes['CX_ROOT'] && e instanceof abap.Classes['CX_ROOT'])) {
+        } else {
+          throw e;
+        }
+      }
       return result;
     }
     async source_get_file_types() {
@@ -896,12 +888,12 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
     static async sql_get_by_string(INPUT) {
       let result = new abap.types.Structure({"table": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_RESULT-TABLE"})}, "z2ui5_cl_util_api=>ty_s_sql_result", undefined, {}, {});
       let val = INPUT?.val;
-      let temp36 = new abap.types.String({qualifiedName: "STRING"});
+      let temp34 = new abap.types.String({qualifiedName: "STRING"});
       let lv_sql = new abap.types.String({qualifiedName: "STRING"});
       let lv_dummy = new abap.types.String({qualifiedName: "STRING"});
       let lv_tab = new abap.types.String({qualifiedName: "STRING"});
-      temp36.set(val);
-      lv_sql.set(temp36);
+      temp34.set(val);
+      lv_sql.set(temp34);
       abap.statements.replace({target: lv_sql, all: true, with: new abap.types.String().set(``), of: new abap.types.String().set(` `)});
       lv_sql.set(abap.builtin.to_upper({val: lv_sql}));
       abap.statements.split({source: lv_sql, at: new abap.types.Character(10).set('SELECTFROM'), targets: [lv_dummy,lv_tab]});
@@ -1006,20 +998,20 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       if (url === undefined) { url = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.url); }
       let lt_params = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
       let lv_val = new abap.types.String({qualifiedName: "STRING"});
-      let temp37 = new abap.types.String({qualifiedName: "STRING"});
-      let temp38 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+      let temp35 = new abap.types.String({qualifiedName: "STRING"});
+      let temp36 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
       lt_params.set((await this.url_param_get_tab({i_val: url})));
       lv_val.set((await this.c_trim_lower({val: val})));
-      abap.statements.clear(temp37);
-      abap.statements.readTable(lt_params,{into: temp38,
+      abap.statements.clear(temp35);
+      abap.statements.readTable(lt_params,{into: temp36,
         withKey: (i) => {return abap.compare.eq(i.n, lv_val);},
         withKeyValue: [{key: (i) => {return i.n}, value: lv_val}],
         usesTableLine: false,
         withKeySimple: {"n": lv_val}});
       if (abap.compare.eq(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
-        temp37.set(temp38.get().v);
+        temp35.set(temp36.get().v);
       }
-      result.set(temp37);
+      result.set(temp35);
       return result;
     }
     async url_param_get_tab(INPUT) {
@@ -1030,24 +1022,24 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       let i_val = INPUT?.i_val;
       let lv_search = new abap.types.String({qualifiedName: "STRING"});
       let lv_search2 = new abap.types.String({qualifiedName: "STRING"});
-      let temp39 = new abap.types.String({qualifiedName: "STRING"});
+      let temp37 = new abap.types.String({qualifiedName: "STRING"});
       
       let lt_param = abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "temp3");
-      let temp40 = new abap.types.String({qualifiedName: "STRING"});
+      let temp38 = new abap.types.String({qualifiedName: "STRING"});
       let lr_param = new abap.types.DataReference(new abap.types.String({qualifiedName: "STRING"}));
       let lv_name = new abap.types.String({qualifiedName: "STRING"});
       let lv_value = new abap.types.String({qualifiedName: "STRING"});
-      let temp41 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+      let temp39 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
       lv_search.set(abap.builtin.replace({val: i_val, sub: new abap.types.String().set(`%3D`), with: new abap.types.Character(1).set('='), occ: abap.IntegerFactory.get(0)}));
       lv_search.set(abap.builtin.shift_left({val: lv_search, sub: new abap.types.String().set(`?`)}));
       lv_search.set((await this.c_trim_lower({val: lv_search})));
       lv_search2.set(abap.builtin.substring_after({val: lv_search, sub: new abap.types.String().set(`&sap-startup-params=`)}));
       if (abap.compare.initial(lv_search2) === false) {
-        temp39.set(lv_search2);
+        temp37.set(lv_search2);
       } else {
-        temp39.set(lv_search);
+        temp37.set(lv_search);
       }
-      lv_search.set(temp39);
+      lv_search.set(temp37);
       lv_search2.set((abap.builtin.substring_after({val: (await this.c_trim_lower({val: lv_search})), sub: new abap.types.String().set(`?`)})));
       if (abap.compare.initial(lv_search2) === false) {
         lv_search.set(lv_search2);
@@ -1056,10 +1048,10 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       for await (const unique73 of abap.statements.loop(lt_param)) {
         lr_param.assign(unique73);
         abap.statements.split({source: (lr_param).dereference(), at: new abap.types.String().set(`=`), targets: [lv_name,lv_value]});
-        abap.statements.clear(temp41);
-        temp41.get().n.set((await this.c_trim_lower({val: lv_name})));
-        temp41.get().v.set((await this.c_trim_lower({val: lv_value})));
-        abap.statements.insertInternal({data: temp41, table: rt_params});
+        abap.statements.clear(temp39);
+        temp39.get().n.set((await this.c_trim_lower({val: lv_name})));
+        temp39.get().v.set((await this.c_trim_lower({val: lv_value})));
+        abap.statements.insertInternal({data: temp39, table: rt_params});
       }
       return rt_params;
     }
@@ -1079,9 +1071,9 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       if (value === undefined) { value = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.value); }
       let lt_params = abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value");
       let lv_n = new abap.types.String({qualifiedName: "STRING"});
-      let temp42 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+      let temp40 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
       let lr_params = new abap.types.DataReference(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}));
-      let temp43 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+      let temp41 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
       lt_params.set((await this.url_param_get_tab({i_val: url})));
       lv_n.set((await this.c_trim_lower({val: name})));
       for await (const unique74 of abap.statements.loop(lt_params,{where: async (I) => {return abap.compare.eq(I.n, lv_n);},topEquals: {"n": lv_n}})) {
@@ -1089,10 +1081,10 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
         lr_params.get().v.set((await this.c_trim_lower({val: value})));
       }
       if (abap.compare.ne(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
-        abap.statements.clear(temp43);
-        temp43.get().n.set(lv_n);
-        temp43.get().v.set((await this.c_trim_lower({val: value})));
-        abap.statements.insertInternal({data: temp43, table: lt_params});
+        abap.statements.clear(temp41);
+        temp41.get().n.set(lv_n);
+        temp41.get().v.set((await this.c_trim_lower({val: value})));
+        abap.statements.insertInternal({data: temp41, table: lt_params});
       }
       result.set((await this.url_param_create_url({t_params: lt_params})));
       return result;
@@ -1130,7 +1122,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
         lv_link.set(new abap.types.String().set(`https://github.com/sandraros/S-RTTI`));
         lv_text.set(abap.operators.concat(new abap.types.String().set(`<p>Please install the open-source project S-RTTI by sandraros and try again: <a href="`),abap.operators.concat(lv_link,new abap.types.String().set(`" style="color:blue; font-weight:600;" target="_blank">(link)</a></p>`))));
         const unique75 = await (new abap.Classes['Z2UI5_CX_UTIL_ERROR']()).constructor_({val: lv_text});
-        unique75.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1409};
+        unique75.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1408};
         throw unique75;
       }
       if (abap.Classes['KERNEL_CALL_TRANSFORMATION'] === undefined) throw new Error("CallTransformation, kernel class missing");
@@ -1160,7 +1152,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
         lv_link.set(new abap.types.String().set(`https://github.com/sandraros/S-RTTI`));
         lv_text.set(abap.operators.concat(new abap.types.String().set(`<p>Please install the open-source project S-RTTI by sandraros and try again: <a href="`),abap.operators.concat(lv_link,new abap.types.String().set(`" style="color:blue; font-weight:600;" target="_blank">(link)</a></p>`))));
         const unique76 = await (new abap.Classes['Z2UI5_CX_UTIL_ERROR']()).constructor_({val: lv_text});
-        unique76.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1445};
+        unique76.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1444};
         throw unique76;
       }
       lv_classname.set(new abap.types.Character(19).set('ZCL_SRTTI_TYPEDESCR'));
@@ -1194,7 +1186,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       if (when === undefined) { when = new abap.types.Character(1, {"qualifiedName":"XFELD","ddicName":"XFELD"}).set(INPUT.when); }
       if (abap.compare.eq(when, abap.builtin.abap_true)) {
         const unique77 = await (new abap.Classes['Z2UI5_CX_UTIL_ERROR']()).constructor_({val: v});
-        unique77.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1477};
+        unique77.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1476};
         throw unique77;
       }
     }
@@ -1229,7 +1221,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
       let v = INPUT?.v || new abap.types.Character();
       if (INPUT === undefined || INPUT.v === undefined) {v = new abap.types.String().set(`CX_SY_SUBRC`);}
       const unique79 = await (new abap.Classes['Z2UI5_CX_UTIL_ERROR']()).constructor_({val: v});
-      unique79.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1504};
+      unique79.EXTRA_CX = {"INTERNAL_FILENAME": "z2ui5_cl_util_api.clas.abap","INTERNAL_LINE": 1503};
       throw unique79;
     }
   }
@@ -1241,5 +1233,7 @@ class z2ui5_cl_util_api extends z2ui5_cl_util_stmpncfctn {
   z2ui5_cl_util_api.ty_s_sql_multi = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_MULTI-NAME"}), "t_range": abap.types.TableFactory.construct(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_range"), "t_token": abap.types.TableFactory.construct(new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_token")}, "z2ui5_cl_util_api=>ty_s_sql_multi", undefined, {}, {});
   z2ui5_cl_util_api.ty_t_filter_multi = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_MULTI-NAME"}), "t_range": abap.types.TableFactory.construct(new abap.types.Structure({"sign": new abap.types.Character(1, undefined), "option": new abap.types.Character(2, undefined), "low": new abap.types.String({qualifiedName: "STRING"}), "high": new abap.types.String({qualifiedName: "STRING"})}, undefined, undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_range"), "t_token": abap.types.TableFactory.construct(new abap.types.Structure({"key": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-KEY"}), "text": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_TOKEN-TEXT"}), "visible": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "selkz": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "editable": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_util_api=>ty_s_token", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_token")}, "z2ui5_cl_util_api=>ty_s_sql_multi", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_filter_multi");
   z2ui5_cl_util_api.ty_s_sql_result = new abap.types.Structure({"table": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_SQL_RESULT-TABLE"})}, "z2ui5_cl_util_api=>ty_s_sql_result", undefined, {}, {});
+  z2ui5_cl_util_api.ty_s_fix_val = new abap.types.Structure({"low": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-LOW"}), "high": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-HIGH"}), "descr": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-DESCR"})}, "z2ui5_cl_util_api=>ty_s_fix_val", undefined, {}, {});
+  z2ui5_cl_util_api.ty_t_fix_val = abap.types.TableFactory.construct(new abap.types.Structure({"low": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-LOW"}), "high": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-HIGH"}), "descr": new abap.types.String({qualifiedName: "Z2UI5_CL_UTIL_API=>TY_S_FIX_VAL-DESCR"})}, "z2ui5_cl_util_api=>ty_s_fix_val", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_util_api=>ty_t_fix_val");
 export {z2ui5_cl_util_api};
 //# sourceMappingURL=z2ui5_cl_util_api.clas.mjs.map

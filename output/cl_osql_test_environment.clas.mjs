@@ -43,8 +43,8 @@ class cl_osql_test_environment {
     let ref = new abap.types.DataReference(new abap.types.Character(4));
     let lv_table = new abap.types.Character(30, {"qualifiedName":"abap_compname"});
     let fs_fs_ = new abap.types.FieldSymbol(new abap.types.Character(4));
-    for await (const unique366 of abap.statements.loop(this.mt_tables)) {
-      lv_table.set(unique366);
+    for await (const unique368 of abap.statements.loop(this.mt_tables)) {
+      lv_table.set(unique368);
       try {
         abap.statements.createData(ref,{"name": lv_table.get()});
         abap.statements.assign({target: fs_fs_, source: (ref).dereference()});
@@ -66,8 +66,8 @@ class cl_osql_test_environment {
     if (abap.dbo.schemaPrefix !== "") throw new Error("already prefixed");
     await this.validate();
     await this.mo_sql.get().execute_update({statement: new abap.types.String().set(`ATTACH DATABASE ':memory:' AS ${abap.templateFormatting(cl_osql_test_environment.mv_schema)};`)});
-    for await (const unique367 of abap.statements.loop(this.mt_tables)) {
-      lv_table.set(unique367);
+    for await (const unique369 of abap.statements.loop(this.mt_tables)) {
+      lv_table.set(unique369);
       lv_table.set(abap.builtin.to_lower({val: lv_table}));
       lo_result.set((await this.mo_sql.get().execute_query({statement: new abap.types.String().set(`SELECT sql FROM main.sqlite_master WHERE type='table' AND name='${abap.templateFormatting(lv_table)}';`)})));
       lr_ref.assign(lv_sql);
@@ -85,8 +85,8 @@ class cl_osql_test_environment {
   }
   async if_osql_test_environment$clear_doubles() {
     let lv_table = new abap.types.Character(30, {"qualifiedName":"abap_compname"});
-    for await (const unique368 of abap.statements.loop(this.mt_tables)) {
-      lv_table.set(unique368);
+    for await (const unique370 of abap.statements.loop(this.mt_tables)) {
+      lv_table.set(unique370);
       lv_table.set(abap.builtin.to_lower({val: lv_table}));
       await this.mo_sql.get().execute_update({statement: new abap.types.String().set(`DELETE FROM ${abap.templateFormatting(cl_osql_test_environment.mv_schema)}."${abap.templateFormatting(lv_table)}";`)});
     }

@@ -76,11 +76,11 @@ class z2ui5_cl_popup_layout_v2 {
     if (abap.compare.eq(this.mv_init, abap.builtin.abap_false)) {
       this.mv_init.set(abap.builtin.abap_true);
       await this.on_init();
-      let unique171 = abap.builtin.abap_true;
-      if (abap.compare.eq(unique171, this.mv_open)) {
+      let unique173 = abap.builtin.abap_true;
+      if (abap.compare.eq(unique173, this.mv_open)) {
         await this.get_layouts();
         await this.render_open();
-      } else if (abap.compare.eq(unique171, this.mv_delete)) {
+      } else if (abap.compare.eq(unique173, this.mv_delete)) {
         await this.get_layouts();
         await this.render_delete();
       } else {
@@ -149,28 +149,28 @@ class z2ui5_cl_popup_layout_v2 {
     cells.set((await list.get().cells()));
     columns.set((await tab.get().columns()));
     lt_comp.set((await abap.Classes['Z2UI5_CL_UTIL'].rtti_get_t_attri_by_struc({val: this.ms_layout.get().t_layout})));
-    for await (const unique172 of abap.statements.loop(lt_comp)) {
-      comp.assign(unique172);
-      let unique173 = comp.get().name;
-      if (abap.compare.eq(unique173, new abap.types.Character(5).set('FNAME'))) {
+    for await (const unique174 of abap.statements.loop(lt_comp)) {
+      comp.assign(unique174);
+      let unique175 = comp.get().name;
+      if (abap.compare.eq(unique175, new abap.types.Character(5).set('FNAME'))) {
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(3).set('Row')});
-      } else if (abap.compare.eq(unique173, new abap.types.Character(7).set('VISIBLE'))) {
+      } else if (abap.compare.eq(unique175, new abap.types.Character(7).set('VISIBLE'))) {
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(7).set('Visible')});
-      } else if (abap.compare.eq(unique173, new abap.types.Character(5).set('MERGE'))) {
+      } else if (abap.compare.eq(unique175, new abap.types.Character(5).set('MERGE'))) {
         if (!(abap.compare.eq(this.mv_extended_layout, abap.builtin.abap_true))) {
           continue;
         }
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(16).set('Merge duplicates')});
-      } else if (abap.compare.eq(unique173, new abap.types.Character(6).set('HALIGN'))) {
+      } else if (abap.compare.eq(unique175, new abap.types.Character(6).set('HALIGN'))) {
         if (!(abap.compare.eq(this.mv_extended_layout, abap.builtin.abap_true))) {
           continue;
         }
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(5).set('Align')});
-      } else if (abap.compare.eq(unique173, new abap.types.Character(10).set('IMPORTANCE'))) {
+      } else if (abap.compare.eq(unique175, new abap.types.Character(10).set('IMPORTANCE'))) {
         if (!(abap.compare.eq(this.mv_extended_layout, abap.builtin.abap_true))) {
           continue;
         }
@@ -178,16 +178,16 @@ class z2ui5_cl_popup_layout_v2 {
         await col.get().text({text: new abap.types.Character(10).set('Importance')});
       }
     }
-    for await (const unique174 of abap.statements.loop(lt_comp)) {
-      comp.assign(unique174);
-      let unique175 = comp.get().name;
-      if (abap.compare.eq(unique175, new abap.types.Character(5).set('FNAME'))) {
+    for await (const unique176 of abap.statements.loop(lt_comp)) {
+      comp.assign(unique176);
+      let unique177 = comp.get().name;
+      if (abap.compare.eq(unique177, new abap.types.Character(5).set('FNAME'))) {
         await cells.get().text({text: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`)))});
-      } else if (abap.compare.eq(unique175, new abap.types.Character(7).set('VISIBLE')) || abap.compare.eq(unique175, new abap.types.Character(5).set('MERGE'))) {
+      } else if (abap.compare.eq(unique177, new abap.types.Character(7).set('VISIBLE')) || abap.compare.eq(unique177, new abap.types.Character(5).set('MERGE'))) {
         await cells.get().switch({type: new abap.types.Character(12).set('AcceptReject'), state: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`)))});
-      } else if (abap.compare.eq(unique175, new abap.types.Character(6).set('HALIGN'))) {
+      } else if (abap.compare.eq(unique177, new abap.types.Character(6).set('HALIGN'))) {
         await (await cells.get().combobox({selectedkey: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`))), items: (await this.client.get().z2ui5_if_client$_bind_local({val: this.mt_halign}))})).get().item({key: new abap.types.Character(5).set('{LOW}'), text: new abap.types.Character(16).set('{LOW} - {DDTEXT}')});
-      } else if (abap.compare.eq(unique175, new abap.types.Character(10).set('IMPORTANCE'))) {
+      } else if (abap.compare.eq(unique177, new abap.types.Character(10).set('IMPORTANCE'))) {
         await (await cells.get().combobox({selectedkey: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`))), items: (await this.client.get().z2ui5_if_client$_bind_local({val: this.mt_importance}))})).get().item({key: new abap.types.Character(5).set('{LOW}'), text: new abap.types.Character(16).set('{LOW} - {DDTEXT}')});
       }
     }
@@ -195,24 +195,24 @@ class z2ui5_cl_popup_layout_v2 {
     await this.client.get().z2ui5_if_client$popup_display({val: (await (await popup.get().get_root()).get().xml_get())});
   }
   async on_event() {
-    let unique176 = ((await this.client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique176, new abap.types.Character(5).set('CLOSE'))) {
+    let unique178 = ((await this.client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique178, new abap.types.Character(5).set('CLOSE'))) {
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(9).set('EDIT_SAVE'))) {
+    } else if (abap.compare.eq(unique178, new abap.types.Character(9).set('EDIT_SAVE'))) {
       await this.render_save();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(10).set('SAVE_CLOSE'))) {
+    } else if (abap.compare.eq(unique178, new abap.types.Character(10).set('SAVE_CLOSE'))) {
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.render_edit();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(9).set('SAVE_SAVE'))) {
+    } else if (abap.compare.eq(unique178, new abap.types.Character(9).set('SAVE_SAVE'))) {
       await this.save_layout();
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(11).set('OPEN_SELECT'))) {
+    } else if (abap.compare.eq(unique178, new abap.types.Character(11).set('OPEN_SELECT'))) {
       await this.get_selected_layout();
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(13).set('DELETE_SELECT'))) {
+    } else if (abap.compare.eq(unique178, new abap.types.Character(13).set('DELETE_SELECT'))) {
       await this.get_selected_layout();
       await this.db_delete_layout();
       await this.client.get().z2ui5_if_client$popup_destroy();
@@ -294,8 +294,8 @@ class z2ui5_cl_popup_layout_v2 {
     temp6.get().uname.set(user);
     temp6.get().tab.set(this.ms_layout.get().s_head.get().tab);
     t001.set(temp6);
-    for await (const unique177 of abap.statements.loop(this.ms_layout.get().t_layout)) {
-      layout.set(unique177);
+    for await (const unique179 of abap.statements.loop(this.ms_layout.get().t_layout)) {
+      layout.set(unique179);
       abap.statements.clear(temp7);
       temp7.get().layout.set(this.mv_layout);
       temp7.get().tab.set(this.ms_layout.get().s_head.get().tab);
@@ -406,8 +406,8 @@ class z2ui5_cl_popup_layout_v2 {
     if (abap.compare.initial(tab_name)) {
       tab_name.set(classname);
     }
-    for await (const unique178 of abap.statements.loop(t_comp)) {
-      lr_comp.assign(unique178);
+    for await (const unique180 of abap.statements.loop(t_comp)) {
+      lr_comp.assign(unique180);
       abap.statements.clear(temp12);
       temp12.get().tab.set(tab_name);
       temp12.get().fname.set(lr_comp.get().name);
@@ -439,8 +439,8 @@ class z2ui5_cl_popup_layout_v2 {
     }
     if (abap.compare.initial(def.get().layout) === false) {
       t_t002.set((await this.db_read_layout_info({i_def: def})));
-      for await (const unique179 of abap.statements.loop(result.get().t_layout)) {
-        layout.assign(unique179);
+      for await (const unique181 of abap.statements.loop(result.get().t_layout)) {
+        layout.assign(unique181);
         try {
           abap.statements.readTable(t_t002,{assigning: fs_temp18_,
             withKey: (i) => {return abap.compare.eq(i.fname, layout.get().fname);},
@@ -468,8 +468,8 @@ class z2ui5_cl_popup_layout_v2 {
       result.get().s_head.set(def);
     } else {
       index.set(abap.IntegerFactory.get(0));
-      for await (const unique180 of abap.statements.loop(result.get().t_layout)) {
-        layout.assign(unique180);
+      for await (const unique182 of abap.statements.loop(result.get().t_layout)) {
+        layout.assign(unique182);
         index.set(abap.operators.add(index,abap.IntegerFactory.get(1)));
         if (abap.compare.le(index, abap.IntegerFactory.get(10))) {
           layout.get().visible.set(abap.builtin.abap_true);
@@ -543,14 +543,14 @@ class z2ui5_cl_popup_layout_v2 {
     if (layout?.getQualifiedName === undefined || layout.getQualifiedName() !== "Z2UI5_CL_POPUP_LAYOUT_V2=>TY_S_LAYOUT") { layout = undefined; }
     if (layout === undefined) { layout = new abap.types.Structure({"s_head": new abap.types.Structure({"mandt": new abap.types.Character(3, {"qualifiedName":"MANDT","ddicName":"MANDT"}), "layout": new abap.types.Character(12, {}), "tab": new abap.types.Character(30, {}), "descr": new abap.types.Character(50, {}), "classname": new abap.types.Character(30, {}), "def": new abap.types.Character(1, {}), "uname": new abap.types.Character(12, {})}, "Z2UI5_T001", "Z2UI5_T001", {}, {}), "t_layout": abap.types.TableFactory.construct(new abap.types.Structure({"mandt": new abap.types.Character(3, {"qualifiedName":"MANDT","ddicName":"MANDT"}), "layout": new abap.types.Character(12, {}), "tab": new abap.types.Character(30, {}), "fname": new abap.types.Character(30, {}), "rollname": new abap.types.Character(30, {}), "visible": new abap.types.Character(1, {"qualifiedName":"XSDBOOLEAN","ddicName":"XSDBOOLEAN"}), "halign": new abap.types.Character(7, {}), "importance": new abap.types.Character(7, {}), "merge": new abap.types.Character(1, {"qualifiedName":"XSDBOOLEAN","ddicName":"XSDBOOLEAN"}), "width": new abap.types.Integer({qualifiedName: "I"}), "text": new abap.types.Character(40, {})}, "Z2UI5_T002", "Z2UI5_T002", {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_popup_layout_v2=>ty_t_t002")}, "z2ui5_cl_popup_layout_v2=>ty_s_layout", undefined, {}, {}).set(INPUT.layout); }
     result.set(client);
-    let unique181 = ((await result.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique181, new abap.types.Character(11).set('LAYOUT_OPEN'))) {
+    let unique183 = ((await result.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique183, new abap.types.Character(11).set('LAYOUT_OPEN'))) {
       await client.get().z2ui5_if_client$view_destroy();
       await result.get().z2ui5_if_client$nav_app_call({app: (await this.factory({layout: layout, open_layout: abap.builtin.abap_true}))});
-    } else if (abap.compare.eq(unique181, new abap.types.Character(11).set('LAYOUT_EDIT'))) {
+    } else if (abap.compare.eq(unique183, new abap.types.Character(11).set('LAYOUT_EDIT'))) {
       await client.get().z2ui5_if_client$view_destroy();
       await result.get().z2ui5_if_client$nav_app_call({app: (await this.factory({layout: layout, extended_layout: abap.builtin.abap_true}))});
-    } else if (abap.compare.eq(unique181, new abap.types.Character(13).set('LAYOUT_DELETE'))) {
+    } else if (abap.compare.eq(unique183, new abap.types.Character(13).set('LAYOUT_DELETE'))) {
       await client.get().z2ui5_if_client$view_destroy();
       await result.get().z2ui5_if_client$nav_app_call({app: (await this.factory({layout: layout, delete_layout: abap.builtin.abap_true}))});
     }
