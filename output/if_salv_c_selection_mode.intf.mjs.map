@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_salv_c_selection_mode.intf.mjs",
+  "file": "../downport/if_salv_c_selection_mode.intf.mjs",
   "sourceRoot": ""
 }

@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_sxmlp_factory.intf.mjs",
+  "file": "../downport/if_sxmlp_factory.intf.mjs",
   "sourceRoot": ""
 }

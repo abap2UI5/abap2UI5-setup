@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "openabap.fugr.convert_itf_to_stream_text.mjs",
+  "file": "../downport/openabap.fugr.convert_itf_to_stream_text.mjs",
   "sourceRoot": ""
 }

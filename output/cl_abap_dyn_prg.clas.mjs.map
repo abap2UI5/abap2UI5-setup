@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;AA8CA;;;;;;;;;;;;;;;;;;;EAEE;;;;;;;IAEE,YAAU,GAAG;IACf;;EAEA;;;;;;;IAEE,YAAU,GAAG;IACf;;EAEA;;;;;;IACE,oCAAS,GAAF,4BAAI,wCAAM;IACnB;;EAEA;;;;;;IACE,oCAAS,GAAF,4BAAI,wCAAM;IACnB;;EAEA;;;;;;IACE,oCAAS,GAAF,4BAAI,wCAAM;IACnB;;EAEA;;;;;;IACE,oCAAS,GAAF,4BAAI,wCAAM;IACnB;;AAEF",
-  "file": "cl_abap_dyn_prg.clas.mjs",
+  "file": "../downport/cl_abap_dyn_prg.clas.mjs",
   "sourceRoot": ""
 }

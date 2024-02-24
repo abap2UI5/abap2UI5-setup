@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "openabap.fugr.conversion_exit_isola_output.mjs",
+  "file": "../downport/openabap.fugr.conversion_exit_isola_output.mjs",
   "sourceRoot": ""
 }

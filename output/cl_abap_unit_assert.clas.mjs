@@ -46,20 +46,20 @@ class cl_abap_unit_assert {
     let fs_tab2_ = new abap.types.FieldSymbol(abap.types.TableFactory.construct(new abap.types.Character(4), {"withHeader":false,"keyType":"DEFAULT"}));
     let fs_row2_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     if (abap.compare.ne(abap.builtin.lines({val: act}), abap.builtin.lines({val: exp}))) {
-      const unique326 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected table to contain ${abap.templateFormatting(abap.builtin.lines({val: exp}))} rows, got ${abap.templateFormatting(abap.builtin.lines({val: act}))}`)});
-      unique326.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 162};
-      throw unique326;
+      const unique42 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected table to contain ${abap.templateFormatting(abap.builtin.lines({val: exp}))} rows, got ${abap.templateFormatting(abap.builtin.lines({val: act}))}`)});
+      unique42.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 162};
+      throw unique42;
     }
     abap.statements.assign({target: fs_tab1_, source: act});
     abap.statements.assign({target: fs_tab2_, source: exp});
     await abap.statements.cast(type1, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: act})));
     await abap.statements.cast(type2, (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: exp})));
     if (abap.compare.eq(type1.get().table_kind, abap.Classes['CL_ABAP_TABLEDESCR'].tablekind_hashed) || abap.compare.eq(type2.get().table_kind, abap.Classes['CL_ABAP_TABLEDESCR'].tablekind_hashed)) {
-      for await (const unique327 of abap.statements.loop(fs_tab1_)) {
-        fs_row1_.assign(unique327);
+      for await (const unique43 of abap.statements.loop(fs_tab1_)) {
+        fs_row1_.assign(unique43);
         lv_match.set(abap.builtin.abap_false);
-        for await (const unique328 of abap.statements.loop(fs_tab2_)) {
-          fs_row2_.assign(unique328);
+        for await (const unique44 of abap.statements.loop(fs_tab2_)) {
+          fs_row2_.assign(unique44);
           try {
             await this.assert_equals({act: fs_row1_, exp: fs_row2_});
             lv_match.set(abap.builtin.abap_true);
@@ -72,16 +72,16 @@ class cl_abap_unit_assert {
           }
         }
         if (abap.compare.eq(lv_match, abap.builtin.abap_false)) {
-          const unique329 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Hashed table contents differs`)});
-          unique329.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 188};
-          throw unique329;
+          const unique45 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Hashed table contents differs`)});
+          unique45.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 188};
+          throw unique45;
         }
       }
     } else {
       const indexBackup1 = abap.builtin.sy.get().index.get();
-      const unique330 = abap.builtin.lines({val: act}).get();
-      for (let unique331 = 0; unique331 < unique330; unique331++) {
-        abap.builtin.sy.get().index.set(unique331 + 1);
+      const unique46 = abap.builtin.lines({val: act}).get();
+      for (let unique47 = 0; unique47 < unique46; unique47++) {
+        abap.builtin.sy.get().index.set(unique47 + 1);
         index.set(abap.builtin.sy.get().index);
         abap.statements.readTable(fs_tab1_,{index: index,
           assigning: fs_row1_});
@@ -108,9 +108,9 @@ class cl_abap_unit_assert {
     let lv_match = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
     lv_match.set(abap.builtin.boolc({val: abap.builtin.contains({val: text, regex: pattern})}));
     if (abap.compare.eq(lv_match, abap.builtin.abap_false)) {
-      const unique332 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({expected: pattern, actual: text, msg: msg});
-      unique332.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 214};
-      throw unique332;
+      const unique48 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({expected: pattern, actual: text, msg: msg});
+      unique48.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 214};
+      throw unique48;
     }
   }
   async abort(INPUT) {
@@ -135,9 +135,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.initial(act)) {
-      const unique333 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected value to be bound`)});
-      unique333.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 228};
-      throw unique333;
+      const unique49 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected value to be bound`)});
+      unique49.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 228};
+      throw unique49;
     }
   }
   async assert_not_bound(INPUT) {
@@ -151,9 +151,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.initial(act) === false) {
-      const unique334 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected value to not be bound`)});
-      unique334.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 236};
-      throw unique334;
+      const unique50 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected value to not be bound`)});
+      unique50.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 236};
+      throw unique50;
     }
   }
   async assert_char_cp(INPUT) {
@@ -169,9 +169,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.np(act, exp)) {
-      const unique335 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({expected: exp, actual: act, msg: msg});
-      unique335.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 244};
-      throw unique335;
+      const unique51 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({expected: exp, actual: act, msg: msg});
+      unique51.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 244};
+      throw unique51;
     }
   }
   async assert_char_np(INPUT) {
@@ -186,9 +186,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.cp(act, exp)) {
-      const unique336 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Actual: ${abap.templateFormatting(act)}`)});
-      unique336.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 254};
-      throw unique336;
+      const unique52 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Actual: ${abap.templateFormatting(act)}`)});
+      unique52.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 254};
+      throw unique52;
     }
   }
   async fail(INPUT) {
@@ -201,9 +201,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     let detail = INPUT?.detail || new abap.types.Character();
-    const unique337 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: msg});
-    unique337.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 261};
-    throw unique337;
+    const unique53 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: msg});
+    unique53.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 261};
+    throw unique53;
   }
   async skip(INPUT) {
     return cl_abap_unit_assert.skip(INPUT);
@@ -226,9 +226,9 @@ class cl_abap_unit_assert {
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     try {
       await this.assert_equals({act: act, exp: exp});
-      const unique338 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected different values`), actual: act, expected: exp});
-      unique338.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 275};
-      throw unique338;
+      const unique54 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected different values`), actual: act, expected: exp});
+      unique54.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 275};
+      throw unique54;
     } catch (e) {
       if ((abap.Classes['KERNEL_CX_ASSERT'] && e instanceof abap.Classes['KERNEL_CX_ASSERT'])) {
         return;
@@ -250,9 +250,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.ne(act, abap.builtin.abap_true)) {
-      const unique339 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected abap_true`)});
-      unique339.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 287};
-      throw unique339;
+      const unique55 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected abap_true`)});
+      unique55.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 287};
+      throw unique55;
     }
   }
   async assert_false(INPUT) {
@@ -268,9 +268,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.ne(act, abap.builtin.abap_false)) {
-      const unique340 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected abap_false`)});
-      unique340.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 295};
-      throw unique340;
+      const unique56 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Expected abap_false`)});
+      unique56.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 295};
+      throw unique56;
     }
   }
   async assert_equals(INPUT) {
@@ -297,16 +297,16 @@ class cl_abap_unit_assert {
     if (abap.compare.ca(type1, new abap.types.Character(11).set('CgyIFPDTXN8'))) {
       if (abap.compare.initial(type2) === false) {
         if (abap.compare.na(type2, new abap.types.Character(11).set('CgyIFPDTXN8'))) {
-          const unique341 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Unexpected types`)});
-          unique341.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 316};
-          throw unique341;
+          const unique57 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Unexpected types`)});
+          unique57.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 316};
+          throw unique57;
         }
       }
     } else if (abap.compare.initial(type1) === false && abap.compare.initial(type2) === false) {
       if (abap.compare.ne(type1, type2)) {
-        const unique342 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Unexpected types`)});
-        unique342.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 324};
-        throw unique342;
+        const unique58 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: new abap.types.String().set(`Unexpected types`)});
+        unique58.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 324};
+        throw unique58;
       }
     }
     if (abap.compare.eq(type1, new abap.types.Character(1).set('h'))) {
@@ -314,9 +314,9 @@ class cl_abap_unit_assert {
     } else if (INPUT && INPUT.tol) {
       diff.set(abap.operators.minus(exp,act));
       if (abap.compare.ge(diff, tol)) {
-        const unique343 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_();
-        unique343.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 339};
-        throw unique343;
+        const unique59 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_();
+        unique59.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 339};
+        throw unique59;
       }
     } else if (abap.compare.eq(type1, new abap.types.Character(1).set('l'))) {
       await this.assert_equals({act: (act).dereference(), exp: (exp).dereference()});
@@ -328,9 +328,9 @@ class cl_abap_unit_assert {
       } else {
         lv_msg.set(new abap.types.String().set(`Expected '${abap.templateFormatting(lv_exp)}', got '${abap.templateFormatting(lv_act)}'`));
       }
-      const unique344 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg, actual: lv_act, expected: lv_exp});
-      unique344.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 353};
-      throw unique344;
+      const unique60 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg, actual: lv_act, expected: lv_exp});
+      unique60.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 353};
+      throw unique60;
     }
   }
   async assert_not_initial(INPUT) {
@@ -349,9 +349,9 @@ class cl_abap_unit_assert {
       if (abap.compare.initial(lv_msg)) {
         lv_msg.set(new abap.types.String().set(`Expected non initial value`));
       }
-      const unique345 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg});
-      unique345.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 368};
-      throw unique345;
+      const unique61 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg});
+      unique61.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 368};
+      throw unique61;
     }
   }
   async assert_initial(INPUT) {
@@ -370,9 +370,9 @@ class cl_abap_unit_assert {
       if (abap.compare.initial(lv_msg)) {
         lv_msg.set(new abap.types.String().set(`Expected initial value`));
       }
-      const unique346 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg});
-      unique346.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 381};
-      throw unique346;
+      const unique62 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg});
+      unique62.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 381};
+      throw unique62;
     }
   }
   async assert_subrc(INPUT) {
@@ -396,9 +396,9 @@ class cl_abap_unit_assert {
       if (abap.compare.initial(lv_msg)) {
         lv_msg.set(new abap.types.String().set(`Expected sy-subrc to equal ${abap.templateFormatting(exp)}, got ${abap.templateFormatting(act)}`));
       }
-      const unique347 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg});
-      unique347.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 394};
-      throw unique347;
+      const unique63 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_({msg: lv_msg});
+      unique63.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 394};
+      throw unique63;
     }
   }
   async assert_number_between(INPUT) {
@@ -420,9 +420,9 @@ class cl_abap_unit_assert {
     let level = new abap.types.Integer({qualifiedName: "I"});
     if (INPUT && INPUT.level) {level.set(INPUT.level);}
     if (abap.compare.lt(number, lower) || abap.compare.gt(number, upper)) {
-      const unique348 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_();
-      unique348.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 402};
-      throw unique348;
+      const unique64 = await (new abap.Classes['KERNEL_CX_ASSERT']()).constructor_();
+      unique64.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_unit_assert.clas.abap","INTERNAL_LINE": 402};
+      throw unique64;
     }
   }
 }

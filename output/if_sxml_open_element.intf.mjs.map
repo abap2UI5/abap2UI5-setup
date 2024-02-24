@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_sxml_open_element.intf.mjs",
+  "file": "../downport/if_sxml_open_element.intf.mjs",
   "sourceRoot": ""
 }

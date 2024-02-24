@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAUA;;;;;;;;;;;;;;;;AAEA",
-  "file": "cl_abap_enumdescr.clas.mjs",
+  "file": "../downport/cl_abap_enumdescr.clas.mjs",
   "sourceRoot": ""
 }

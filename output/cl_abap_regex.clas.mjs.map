@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;AA2BA;;;;;;;;;;;;;;;EAEE;;;;;IACE,oBAAa,OAAO;IACpB,wBAAiB,WAAW;IAC9B;;EAEA;;;;;;;;;;IAKA;;EAEA;;;;IAMA;;AAEF",
-  "file": "cl_abap_regex.clas.mjs",
+  "file": "../downport/cl_abap_regex.clas.mjs",
   "sourceRoot": ""
 }

@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;AAkBA;;;;;;;;;;;;;;AAEA",
-  "file": "cl_salv_events_table.clas.mjs",
+  "file": "../downport/cl_salv_events_table.clas.mjs",
   "sourceRoot": ""
 }

@@ -1,6 +1,6 @@
 {
   "global": {
-    "files": "/downport/**/*.*"
+    "files": "/abap2UI5/**/*.*"
   },
   "dependencies": [
     {

@@ -35,9 +35,9 @@ class cl_sql_statement {
       lv_sql_message.set(new abap.types.Character(19).set('not connected to db'));
     }
     if (abap.compare.initial(lv_sql_message) === false) {
-      const unique201 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
-      unique201.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 48};
-      throw unique201;
+      const unique109 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
+      unique109.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 48};
+      throw unique109;
     }
     try {
         await abap.context.databaseConnections["DEFAULT"].execute(statement.get());
@@ -45,9 +45,9 @@ class cl_sql_statement {
         lv_sql_message.set(e + "");
     }
     if (abap.compare.initial(lv_sql_message) === false) {
-      const unique202 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
-      unique202.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 57};
-      throw unique202;
+      const unique110 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
+      unique110.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 57};
+      throw unique110;
     }
   }
   async execute_query(INPUT) {
@@ -61,9 +61,9 @@ class cl_sql_statement {
       lv_sql_message.set(new abap.types.Character(19).set('not connected to db'));
     }
     if (abap.compare.initial(lv_sql_message) === false) {
-      const unique203 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
-      unique203.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 71};
-      throw unique203;
+      const unique111 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
+      unique111.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 71};
+      throw unique111;
     }
     result_set.set(await (new abap.Classes['CL_SQL_RESULT_SET']()).constructor_());
     try {
@@ -73,9 +73,9 @@ class cl_sql_statement {
         lv_sql_message.set(e + "");
     }
     if (abap.compare.initial(lv_sql_message) === false) {
-      const unique204 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
-      unique204.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 84};
-      throw unique204;
+      const unique112 = await (new abap.Classes['CX_SQL_EXCEPTION']()).constructor_();
+      unique112.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sql_statement.clas.abap","INTERNAL_LINE": 84};
+      throw unique112;
     }
     return result_set;
   }

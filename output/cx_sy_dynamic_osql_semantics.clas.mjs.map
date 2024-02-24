@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAOA;;;;;;;;;;;EACE;;;8CACuC;IACvC;;AACF",
-  "file": "cx_sy_dynamic_osql_semantics.clas.mjs",
+  "file": "../downport/cx_sy_dynamic_osql_semantics.clas.mjs",
   "sourceRoot": ""
 }

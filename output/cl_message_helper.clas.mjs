@@ -73,9 +73,9 @@ class cl_message_helper {
     if (text === undefined) { text = new abap.types.ABAPObject({qualifiedName: "IF_MESSAGE", RTTIName: "\\INTERFACE=IF_MESSAGE"}).set(INPUT.text); }
     let string = INPUT?.string || new abap.types.String({qualifiedName: "STRING"});
     if (abap.compare.initial(text)) {
-      const unique208 = await (new abap.Classes['CX_SY_MESSAGE_ILLEGAL_TEXT']()).constructor_();
-      unique208.EXTRA_CX = {"INTERNAL_FILENAME": "cl_message_helper.clas.abap","INTERNAL_LINE": 76};
-      throw unique208;
+      const unique103 = await (new abap.Classes['CX_SY_MESSAGE_ILLEGAL_TEXT']()).constructor_();
+      unique103.EXTRA_CX = {"INTERNAL_FILENAME": "cl_message_helper.clas.abap","INTERNAL_LINE": 76};
+      throw unique103;
     }
     string.set((await this.get_text_for_message({text: text})));
     if (abap.compare.ne(string, cl_message_helper.gc_fallback)) {

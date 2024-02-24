@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_ftd_input_arguments.intf.mjs",
+  "file": "../downport/if_ftd_input_arguments.intf.mjs",
   "sourceRoot": ""
 }

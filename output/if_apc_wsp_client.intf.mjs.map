@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_apc_wsp_client.intf.mjs",
+  "file": "../downport/if_apc_wsp_client.intf.mjs",
   "sourceRoot": ""
 }

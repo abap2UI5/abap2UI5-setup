@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
-  "file": "cx_abap_random.clas.mjs",
+  "file": "../downport/cx_abap_random.clas.mjs",
   "sourceRoot": ""
 }

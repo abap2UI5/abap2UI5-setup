@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
-  "file": "cl_abap_complexdescr.clas.mjs",
+  "file": "../downport/cl_abap_complexdescr.clas.mjs",
   "sourceRoot": ""
 }

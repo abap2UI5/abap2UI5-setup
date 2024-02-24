@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAkBA;;;;;;;;;;;;;;;EAEE;;;;;;IAEA;;EAEA;;;;;;IAEA;;AAEF",
-  "file": "cl_abap_conv_codepage.clas.mjs",
+  "file": "../downport/cl_abap_conv_codepage.clas.mjs",
   "sourceRoot": ""
 }

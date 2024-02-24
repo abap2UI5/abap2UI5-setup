@@ -15,8 +15,10 @@ jobs:
       with:
         node-version: 20
     - run: git clone https://github.com/abap2UI5/abap2UI5.git
+    - run: git clone https://github.com/abap2UI5/abap2UI5-samples.git
     - run: npm ci
     - run: npm run downport
+    - run: npm run downport_samples
     - run: npm run transpile
     - name: send to downport repository
       uses: peaceiris/actions-gh-pages@v3

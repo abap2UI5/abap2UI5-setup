@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_serializable_object.intf.mjs",
+  "file": "../downport/if_serializable_object.intf.mjs",
   "sourceRoot": ""
 }

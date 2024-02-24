@@ -27,8 +27,8 @@ class cl_function_test_environment {
     let lv_module = new abap.types.Character(30, {"qualifiedName":"SXCO_FM_NAME","ddicName":"SXCO_FM_NAME"});
     let ls_row = new abap.types.Structure({"name": new abap.types.Character(30, {"qualifiedName":"SXCO_FM_NAME","ddicName":"SXCO_FM_NAME"}), "backup": new abap.types.Integer({qualifiedName: "CL_FUNCTION_TEST_ENVIRONMENT=>TY_BACKUP-BACKUP"}), "double": new abap.types.ABAPObject({qualifiedName: "IF_FUNCTION_TESTDOUBLE", RTTIName: "\\INTERFACE=IF_FUNCTION_TESTDOUBLE"})}, "cl_function_test_environment=>ty_backup", undefined, {}, {});
     abap.statements.assert(abap.compare.gt(abap.builtin.lines({val: function_modules}), abap.IntegerFactory.get(0)));
-    for await (const unique353 of abap.statements.loop(function_modules)) {
-      lv_module.set(unique353);
+    for await (const unique76 of abap.statements.loop(function_modules)) {
+      lv_module.set(unique76);
       ls_row.get().name.set(lv_module);
       ls_row.get().double.set(await (new abap.Classes['CLAS-CL_FUNCTION_TEST_ENVIRONMENT-LCL_DOUBLE']()).constructor_({iv_name: lv_module}));
       ls_row.get().backup = abap.FunctionModules[lv_module.get().trimEnd()];
@@ -54,8 +54,8 @@ class cl_function_test_environment {
   }
   async if_function_test_environment$clear_doubles() {
     let fs_ls_row_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.Character(30, {"qualifiedName":"SXCO_FM_NAME","ddicName":"SXCO_FM_NAME"}), "backup": new abap.types.Integer({qualifiedName: "CL_FUNCTION_TEST_ENVIRONMENT=>TY_BACKUP-BACKUP"}), "double": new abap.types.ABAPObject({qualifiedName: "IF_FUNCTION_TESTDOUBLE", RTTIName: "\\INTERFACE=IF_FUNCTION_TESTDOUBLE"})}, "cl_function_test_environment=>ty_backup", undefined, {}, {}));
-    for await (const unique354 of abap.statements.loop(cl_function_test_environment.gt_backup)) {
-      fs_ls_row_.assign(unique354);
+    for await (const unique77 of abap.statements.loop(cl_function_test_environment.gt_backup)) {
+      fs_ls_row_.assign(unique77);
       abap.FunctionModules[fs_ls_row_.get().name.get().trimEnd()] = fs_ls_row_.get().backup;
     }
     abap.statements.clear(cl_function_test_environment.gt_backup);

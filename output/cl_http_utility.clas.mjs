@@ -101,8 +101,8 @@ class cl_http_utility {
     let ls_field = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {});
     abap.statements.assert(abap.compare.eq(ignore_parenthesis, abap.IntegerFactory.get(0)));
     abap.statements.split({source: string, at: new abap.types.Character(1).set('&'), table: tab});
-    for await (const unique228 of abap.statements.loop(tab)) {
-      str.set(unique228);
+    for await (const unique87 of abap.statements.loop(tab)) {
+      str.set(unique87);
       abap.statements.split({source: str, at: new abap.types.Character(1).set('='), targets: [ls_field.get().name,ls_field.get().value]});
       abap.statements.append({source: ls_field, target: fields});
     }
@@ -142,8 +142,8 @@ class cl_http_utility {
     let tab = abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "");
     let str = new abap.types.String({qualifiedName: "STRING"});
     let ls_field = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {});
-    for await (const unique229 of abap.statements.loop(fields)) {
-      ls_field.set(unique229);
+    for await (const unique88 of abap.statements.loop(fields)) {
+      ls_field.set(unique88);
       ls_field.get().value.set((await this.if_http_utility$escape_url({unescaped: ls_field.get().value})));
       str.set(abap.operators.concat(ls_field.get().name,abap.operators.concat(new abap.types.Character(1).set('='),ls_field.get().value)));
       abap.statements.append({source: str, target: tab});
@@ -200,9 +200,9 @@ class cl_http_utility {
     let lv_index = new abap.types.Integer({qualifiedName: "I"});
     let lv_char = new abap.types.String({qualifiedName: "STRING"});
     const indexBackup1 = abap.builtin.sy.get().index.get();
-    const unique230 = abap.builtin.strlen({val: unescaped}).get();
-    for (let unique231 = 0; unique231 < unique230; unique231++) {
-      abap.builtin.sy.get().index.set(unique231 + 1);
+    const unique89 = abap.builtin.strlen({val: unescaped}).get();
+    for (let unique90 = 0; unique90 < unique89; unique90++) {
+      abap.builtin.sy.get().index.set(unique90 + 1);
       lv_index.set(abap.operators.minus(abap.builtin.sy.get().index,abap.IntegerFactory.get(1)));
       lv_char.set(unescaped.getOffset({offset: lv_index, length: 1}));
       if (abap.compare.ca(abap.builtin.to_upper({val: lv_char}), abap.builtin.sy.get().abcde) || abap.compare.ca(lv_char, new abap.types.Character(14).set('0123456789.-()'))) {

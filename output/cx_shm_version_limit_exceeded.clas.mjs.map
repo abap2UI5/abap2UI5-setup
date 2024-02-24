@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAIA;;;;;;;;;;;;;;;AAEA",
-  "file": "cx_shm_version_limit_exceeded.clas.mjs",
+  "file": "../downport/cx_shm_version_limit_exceeded.clas.mjs",
   "sourceRoot": ""
 }

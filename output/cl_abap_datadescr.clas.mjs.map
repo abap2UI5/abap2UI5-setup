@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAeA;;;;;;;;;;;;;;;;EAEE;;;;;;QACO,8GAAmC;IACxC,WAAQ,2EAA6C;IACrD,gBAAc,KAAK,OAAE,SAAS;IAChC;;EAEA;;;IACE,oCAAS,GAAF,4BAAI,wCAAM;IACnB;;AAEF",
-  "file": "cl_abap_datadescr.clas.mjs",
+  "file": "../downport/cl_abap_datadescr.clas.mjs",
   "sourceRoot": ""
 }

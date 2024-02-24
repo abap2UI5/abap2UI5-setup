@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "if_document_bcs.intf.mjs",
+  "file": "../downport/if_document_bcs.intf.mjs",
   "sourceRoot": ""
 }

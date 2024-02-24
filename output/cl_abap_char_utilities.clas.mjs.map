@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;AAyBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAEE;;;;IAKE;IACA;EAGF;EAEA;;;;;IACE,sCAAY,kCAAI,uCAAe,qCAAa,gCAAQ,qDAAS,2CAAe,KAAK;IACnF;;AAEF",
-  "file": "cl_abap_char_utilities.clas.mjs",
+  "file": "../downport/cl_abap_char_utilities.clas.mjs",
   "sourceRoot": ""
 }
