@@ -14,6 +14,7 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 20
+    - run: git clone https://github.com/abap2UI5/abap2UI5.git
     - run: npm ci
     - run: npm run downport
     - run: npm run transpile
