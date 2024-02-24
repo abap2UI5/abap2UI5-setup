@@ -20,8 +20,6 @@ jobs:
     - run: npm run downport
     - run: npm run downport_samples
     - run: npm run transpile
-    - run: git commit -a
-    - run: git push
     - name: send to downport repository
       uses: peaceiris/actions-gh-pages@v3
       with:
