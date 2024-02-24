@@ -75,8 +75,8 @@ class z2ui5_cl_popup_to_inform {
       await this.view_display();
       return;
     }
-    let unique190 = ((await client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique190, new abap.types.String().set(`BUTTON_CONFIRM`))) {
+    let unique184 = ((await client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique184, new abap.types.String().set(`BUTTON_CONFIRM`))) {
       await client.get().z2ui5_if_client$popup_destroy();
       await client.get().z2ui5_if_client$nav_app_leave({app: (await client.get().z2ui5_if_client$get_app({id: ((await client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
     } else {

@@ -49,10 +49,10 @@ class $ui2$cl_json {
     } else {
       lo_type.set(type_descr);
     }
-    let unique253 = lo_type.get().kind;
-    if (abap.compare.eq(unique253, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
-      let unique254 = lo_type.get().type_kind;
-      if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char)) {
+    let unique247 = lo_type.get().kind;
+    if (abap.compare.eq(unique247, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+      let unique248 = lo_type.get().type_kind;
+      if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char)) {
         if (abap.compare.eq(lo_type.get().absolute_name, new abap.types.String().set(`\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL`))) {
           if (abap.compare.eq(data, abap.builtin.abap_true)) {
             r_json.set(new abap.types.Character(4).set('true'));
@@ -64,18 +64,18 @@ class $ui2$cl_json {
         } else {
           r_json.set(abap.operators.concat(new abap.types.Character(1).set('"'),abap.operators.concat(abap.builtin.escape({val: new abap.types.String().set(`${abap.templateFormatting(data)}`), format: abap.Classes['CL_ABAP_FORMAT'].e_json_string}),new abap.types.Character(1).set('"'))));
         }
-      } else if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
+      } else if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
         r_json.set(abap.operators.concat(new abap.types.Character(1).set('"'),abap.operators.concat(abap.builtin.escape({val: data, format: abap.Classes['CL_ABAP_FORMAT'].e_json_string}),new abap.types.Character(1).set('"'))));
-      } else if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+      } else if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
         r_json.set(new abap.types.String().set(`${abap.templateFormatting(data)}`));
-      } else if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
+      } else if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
         if (abap.compare.eq(data, abap.IntegerFactory.get(0))) {
           r_json.set(new abap.types.String().set(`0`));
         } else {
           r_json.set(new abap.types.String().set(`${abap.templateFormatting(data)}`));
           abap.statements.shift(r_json, {direction: 'LEFT',deletingLeading: new abap.types.Character(1).set('0')});
         }
-      } else if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+      } else if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
         if (abap.compare.eq(this.mv_ts_as_iso8601, abap.builtin.abap_true) && (abap.compare.eq(lo_type.get().absolute_name, new abap.types.String().set(`\\TYPE=TIMESTAMP`)) || abap.compare.eq(lo_type.get().absolute_name, new abap.types.String().set(`\\TYPE=TIMESTAMPL`)))) {
           if (abap.compare.initial(data)) {
             r_json.set(new abap.types.String().set(`""`));
@@ -85,19 +85,19 @@ class $ui2$cl_json {
         } else {
           r_json.set(new abap.types.String().set(`${abap.templateFormatting(data)}`));
         }
-      } else if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
+      } else if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
         r_json.set(new abap.types.String().set(`"${abap.templateFormatting(data,{"date":"iso"})}"`));
-      } else if (abap.compare.eq(unique254, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
+      } else if (abap.compare.eq(unique248, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
         r_json.set(new abap.types.String().set(`"${abap.templateFormatting(data,{"time":"iso"})}"`));
       } else {
         r_json.set(data);
       }
-    } else if (abap.compare.eq(unique253, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique247, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       r_json.set(new abap.types.Character(1).set('['));
       abap.statements.assign({target: fs_tab_, source: data});
       await abap.statements.cast(lo_table, lo_type);
-      for await (const unique255 of abap.statements.loop(fs_tab_)) {
-        fs_any_.assign(unique255);
+      for await (const unique249 of abap.statements.loop(fs_tab_)) {
+        fs_any_.assign(unique249);
         lv_index.set(abap.builtin.sy.get().tabix);
         r_json.set(abap.operators.concat(r_json,(await this.serialize_int({data: fs_any_, type_descr: (await lo_table.get().get_table_line_type())}))));
         if (abap.compare.ne(abap.builtin.lines({val: fs_tab_}), lv_index)) {
@@ -105,12 +105,12 @@ class $ui2$cl_json {
         }
       }
       r_json.set(abap.operators.concat(r_json,new abap.types.Character(1).set(']')));
-    } else if (abap.compare.eq(unique253, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique247, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(lo_struct, lo_type);
       lt_components.set((await lo_struct.get().get_components()));
       r_json.set(new abap.types.Character(1).set('{'));
-      for await (const unique256 of abap.statements.loop(lt_components)) {
-        fs_ls_component_.assign(unique256);
+      for await (const unique250 of abap.statements.loop(lt_components)) {
+        fs_ls_component_.assign(unique250);
         abap.statements.assign({component: fs_ls_component_.get().name, target: fs_any_, source: data});
         abap.statements.assert(abap.compare.eq(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0)));
         if (abap.compare.eq(this.mv_compress, abap.builtin.abap_true) && abap.compare.initial(fs_any_)) {
@@ -130,7 +130,7 @@ class $ui2$cl_json {
         r_json.set(abap.builtin.substring({val: r_json, off: abap.IntegerFactory.get(0), len: abap.operators.minus(abap.builtin.strlen({val: r_json}),abap.IntegerFactory.get(1))}));
       }
       r_json.set(abap.operators.concat(r_json,new abap.types.Character(1).set('}')));
-    } else if (abap.compare.eq(unique253, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
+    } else if (abap.compare.eq(unique247, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
       if (abap.compare.initial(data)) {
         r_json.set(new abap.types.Character(4).set('null'));
         return r_json;
@@ -266,8 +266,8 @@ class $ui2$cl_json {
     let fs_any_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     let fs_ls_component_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
     prefix.set((await $ui2$cl_json.mo_parsed.get().find_ignore_case({iv_path: prefix})));
-    let unique257 = io_type.get().kind;
-    if (abap.compare.eq(unique257, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique251 = io_type.get().kind;
+    if (abap.compare.eq(unique251, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       if (abap.compare.eq(io_type.get().absolute_name, new abap.types.Character(30).set('\\TYPE-POOL=ABAP\\TYPE=ABAP_BOOL')) || abap.compare.eq(io_type.get().absolute_name, new abap.types.Character(18).set('\\TYPE=ABAP_BOOLEAN')) || abap.compare.eq(io_type.get().absolute_name, new abap.types.Character(10).set('\\TYPE=FLAG'))) {
         data.set(abap.builtin.boolc(abap.compare.eq((await $ui2$cl_json.mo_parsed.get().value_string({iv_path: prefix})), new abap.types.Character(4).set('true'))));
       } else if (abap.compare.eq(io_type.get().absolute_name, new abap.types.String().set(`\\TYPE=TIMESTAMP`)) || abap.compare.eq(io_type.get().absolute_name, new abap.types.String().set(`\\TYPE=TIMESTAMPL`))) {
@@ -296,32 +296,32 @@ class $ui2$cl_json {
       } else {
         data.set((await $ui2$cl_json.mo_parsed.get().value_string({iv_path: prefix})));
       }
-    } else if (abap.compare.eq(unique257, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique251, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await abap.statements.cast(lo_table, io_type);
       lt_members.set((await $ui2$cl_json.mo_parsed.get().members({iv_path: abap.operators.concat(prefix,new abap.types.Character(1).set('/'))})));
-      for await (const unique258 of abap.statements.loop(lt_members)) {
-        lv_member.set(unique258);
+      for await (const unique252 of abap.statements.loop(lt_members)) {
+        lv_member.set(unique252);
         abap.statements.createData(ref,{"likeLineOf": data});
         abap.statements.assign({target: fs_any_, source: (ref).dereference()});
         await this._deserialize({prefix: abap.operators.concat(prefix,abap.operators.concat(new abap.types.Character(1).set('/'),lv_member)), pretty_name: pretty_name, io_type: (await lo_table.get().get_table_line_type()), data: fs_any_});
         abap.statements.insertInternal({data: fs_any_, table: data});
       }
-    } else if (abap.compare.eq(unique257, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique251, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(lo_struct, io_type);
       lt_components.set((await lo_struct.get().get_components()));
-      for await (const unique259 of abap.statements.loop(lt_components)) {
-        fs_ls_component_.assign(unique259);
+      for await (const unique253 of abap.statements.loop(lt_components)) {
+        fs_ls_component_.assign(unique253);
         abap.statements.assign({component: fs_ls_component_.get().name, target: fs_any_, source: data});
         abap.statements.assert(abap.compare.eq(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0)));
-        let unique260 = pretty_name;
-        if (abap.compare.eq(unique260, $ui2$cl_json.pretty_mode.get().camel_case)) {
+        let unique254 = pretty_name;
+        if (abap.compare.eq(unique254, $ui2$cl_json.pretty_mode.get().camel_case)) {
           lv_name.set(abap.builtin.to_mixed({val: abap.builtin.to_lower({val: fs_ls_component_.get().name})}));
         } else {
           lv_name.set(abap.builtin.to_lower({val: fs_ls_component_.get().name}));
         }
         await this._deserialize({prefix: abap.operators.concat(prefix,abap.operators.concat(new abap.types.Character(1).set('/'),lv_name)), pretty_name: pretty_name, io_type: fs_ls_component_.get().type, data: fs_any_});
       }
-    } else if (abap.compare.eq(unique257, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
+    } else if (abap.compare.eq(unique251, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
       await abap.statements.cast(lo_refdescr, io_type);
       if (abap.compare.initial(data)) {
         lt_members.set((await $ui2$cl_json.mo_parsed.get().members({iv_path: abap.operators.concat(prefix,new abap.types.Character(1).set('/'))})));
@@ -334,8 +334,8 @@ class $ui2$cl_json {
         }
         if (abap.compare.gt(abap.builtin.lines({val: lt_members}), abap.IntegerFactory.get(0)) && abap.compare.eq(lv_type, new abap.types.Character(6).set('object'))) {
           abap.statements.clear(lt_components);
-          for await (const unique261 of abap.statements.loop(lt_members)) {
-            lv_member.set(unique261);
+          for await (const unique255 of abap.statements.loop(lt_members)) {
+            lv_member.set(unique255);
             abap.statements.clear(ls_component);
             ls_component.get().name.set(abap.builtin.to_upper({val: lv_member}));
             abap.statements.translate(ls_component.get().name, '-_');
@@ -351,8 +351,8 @@ class $ui2$cl_json {
           if (abap.Classes['KERNEL_CREATE_DATA_HANDLE'] === undefined) throw new Error("CreateData, kernel class missing");
           await abap.Classes['KERNEL_CREATE_DATA_HANDLE'].call({handle: lo_table, dref: data});
         } else {
-          let unique262 = lv_type;
-          if (abap.compare.eq(unique262, new abap.types.Character(3).set('num'))) {
+          let unique256 = lv_type;
+          if (abap.compare.eq(unique256, new abap.types.Character(3).set('num'))) {
             lv_value.set((await $ui2$cl_json.mo_parsed.get().value_string({iv_path: prefix})));
             if (abap.compare.co(lv_value, new abap.types.Character(11).set('-0123456789'))) {
               abap.statements.createData(data,{"typeName": "I"});
@@ -361,10 +361,10 @@ class $ui2$cl_json {
             } else {
               abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
             }
-          } else if (abap.compare.eq(unique262, new abap.types.Character(4).set('bool'))) {
+          } else if (abap.compare.eq(unique256, new abap.types.Character(4).set('bool'))) {
             if (abap.Classes['KERNEL_CREATE_DATA_HANDLE'] === undefined) throw new Error("CreateData, kernel class missing");
             await abap.Classes['KERNEL_CREATE_DATA_HANDLE'].call({handle: (await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_name({p_name: new abap.types.Character(9).set('ABAP_BOOL')})), dref: data});
-          } else if (abap.compare.eq(unique262, new abap.types.Character(3).set('str'))) {
+          } else if (abap.compare.eq(unique256, new abap.types.Character(3).set('str'))) {
             if (abap.Classes['KERNEL_CREATE_DATA_HANDLE'] === undefined) throw new Error("CreateData, kernel class missing");
             await abap.Classes['KERNEL_CREATE_DATA_HANDLE'].call({handle: (await abap.Classes['CL_ABAP_ELEMDESCR'].get_string()), dref: data});
           }

@@ -93,8 +93,8 @@ class cl_abap_zip {
     lo_central.set(await (new abap.Classes['CLAS-CL_ABAP_ZIP-LCL_STREAM']()).constructor_());
     lo_total.set(await (new abap.Classes['CLAS-CL_ABAP_ZIP-LCL_STREAM']()).constructor_());
     lo_conv.set((await abap.Classes['CL_ABAP_CONV_OUT_CE'].create()));
-    for await (const unique206 of abap.statements.loop(this.mt_contents)) {
-      ls_contents.set(unique206);
+    for await (const unique200 of abap.statements.loop(this.mt_contents)) {
+      ls_contents.set(unique200);
       await lo_conv.get().convert({data: ls_contents.get().name, buffer: lv_buffer});
       lo_file.set(await (new abap.Classes['CLAS-CL_ABAP_ZIP-LCL_STREAM']()).constructor_());
       await lo_file.get().append({iv_xstr: new abap.types.Character(8).set('504B0304')});

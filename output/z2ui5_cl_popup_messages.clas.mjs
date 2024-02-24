@@ -63,8 +63,8 @@ class z2ui5_cl_popup_messages {
       await this.view_display();
       return;
     }
-    let unique183 = ((await client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique183, new abap.types.String().set(`BUTTON_CONTINUE`))) {
+    let unique177 = ((await client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique177, new abap.types.String().set(`BUTTON_CONTINUE`))) {
       await client.get().z2ui5_if_client$popup_destroy();
       await client.get().z2ui5_if_client$nav_app_leave({app: (await client.get().z2ui5_if_client$get_app({id: ((await client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
     } else {

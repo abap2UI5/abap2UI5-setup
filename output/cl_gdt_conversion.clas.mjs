@@ -28,10 +28,10 @@ class cl_gdt_conversion {
     if (im_value === undefined) { im_value = new abap.types.Packed({length: 1, decimals: 0}).set(INPUT.im_value); }
     let im_currency_code = INPUT?.im_currency_code;
     let ex_value = INPUT?.ex_value || new abap.types.Packed({length: 1, decimals: 0});
-    let unique218 = im_currency_code;
-    if (abap.compare.eq(unique218, new abap.types.Character(3).set('DKK')) || abap.compare.eq(unique218, new abap.types.Character(3).set('EUR')) || abap.compare.eq(unique218, new abap.types.Character(3).set('USD'))) {
+    let unique212 = im_currency_code;
+    if (abap.compare.eq(unique212, new abap.types.Character(3).set('DKK')) || abap.compare.eq(unique212, new abap.types.Character(3).set('EUR')) || abap.compare.eq(unique212, new abap.types.Character(3).set('USD'))) {
       ex_value.set(im_value);
-    } else if (abap.compare.eq(unique218, new abap.types.Character(3).set('VND'))) {
+    } else if (abap.compare.eq(unique212, new abap.types.Character(3).set('VND'))) {
       ex_value.set(abap.operators.multiply(im_value,abap.IntegerFactory.get(100)));
     } else {
       abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
@@ -53,16 +53,16 @@ class cl_gdt_conversion {
     if (im_value?.getQualifiedName === undefined || im_value.getQualifiedName() !== "MSEHI") { im_value = undefined; }
     if (im_value === undefined) { im_value = new abap.types.Character(3, {"qualifiedName":"MSEHI","ddicName":"MSEHI"}).set(INPUT.im_value); }
     let ex_value = INPUT?.ex_value || new abap.types.Character();
-    let unique219 = im_value;
-    if (abap.compare.eq(unique219, new abap.types.Character(1).set(''))) {
-      const unique220 = await (new abap.Classes['CX_GDT_CONVERSION']()).constructor_();
-      unique220.EXTRA_CX = {"INTERNAL_FILENAME": "cl_gdt_conversion.clas.abap","INTERNAL_LINE": 81};
-      throw unique220;
-    } else if (abap.compare.eq(unique219, new abap.types.Character(2).set('ST'))) {
+    let unique213 = im_value;
+    if (abap.compare.eq(unique213, new abap.types.Character(1).set(''))) {
+      const unique214 = await (new abap.Classes['CX_GDT_CONVERSION']()).constructor_();
+      unique214.EXTRA_CX = {"INTERNAL_FILENAME": "cl_gdt_conversion.clas.abap","INTERNAL_LINE": 81};
+      throw unique214;
+    } else if (abap.compare.eq(unique213, new abap.types.Character(2).set('ST'))) {
       ex_value.set(new abap.types.Character(3).set('PCE'));
-    } else if (abap.compare.eq(unique219, new abap.types.Character(2).set('KG'))) {
+    } else if (abap.compare.eq(unique213, new abap.types.Character(2).set('KG'))) {
       ex_value.set(new abap.types.Character(3).set('KGM'));
-    } else if (abap.compare.eq(unique219, new abap.types.Character(3).set('CDM'))) {
+    } else if (abap.compare.eq(unique213, new abap.types.Character(3).set('CDM'))) {
       ex_value.set(new abap.types.Character(3).set('DMQ'));
     } else {
       abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
@@ -101,14 +101,14 @@ class cl_gdt_conversion {
   static async unit_code_inbound(INPUT) {
     let im_value = INPUT?.im_value;
     let ex_value = INPUT?.ex_value || new abap.types.Character(3, {"qualifiedName":"MSEHI","ddicName":"MSEHI"});
-    let unique221 = im_value;
-    if (abap.compare.eq(unique221, new abap.types.Character(3).set('MTR'))) {
+    let unique215 = im_value;
+    if (abap.compare.eq(unique215, new abap.types.Character(3).set('MTR'))) {
       ex_value.set(new abap.types.Character(1).set('M'));
-    } else if (abap.compare.eq(unique221, new abap.types.Character(3).set('PCE'))) {
+    } else if (abap.compare.eq(unique215, new abap.types.Character(3).set('PCE'))) {
       ex_value.set(new abap.types.Character(2).set('PC'));
-    } else if (abap.compare.eq(unique221, new abap.types.Character(3).set('KGM'))) {
+    } else if (abap.compare.eq(unique215, new abap.types.Character(3).set('KGM'))) {
       ex_value.set(new abap.types.Character(2).set('KG'));
-    } else if (abap.compare.eq(unique221, new abap.types.Character(3).set('LTR'))) {
+    } else if (abap.compare.eq(unique215, new abap.types.Character(3).set('LTR'))) {
       ex_value.set(new abap.types.Character(1).set('L'));
     } else {
       abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
@@ -137,9 +137,9 @@ class cl_gdt_conversion {
       }
       abap.statements.translate(ex_value, "LOWER");
       if (abap.compare.ne(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
-        const unique222 = await (new abap.Classes['CX_GDT_CONVERSION']()).constructor_();
-        unique222.EXTRA_CX = {"INTERNAL_FILENAME": "cl_gdt_conversion.clas.abap","INTERNAL_LINE": 143};
-        throw unique222;
+        const unique216 = await (new abap.Classes['CX_GDT_CONVERSION']()).constructor_();
+        unique216.EXTRA_CX = {"INTERNAL_FILENAME": "cl_gdt_conversion.clas.abap","INTERNAL_LINE": 143};
+        throw unique216;
       }
     }
   }

@@ -37,9 +37,9 @@ class lcl_json_parser {
     }
     if (abap.compare.eq(lv_error, abap.builtin.abap_true)) {
       abap.statements.find(lv_error_message, {regex: new abap.types.Character(15).set(' position (\\d+)'), submatches: [lv_xml_offset]});
-      const unique319 = await (new abap.Classes['CX_SXML_PARSE_ERROR']()).constructor_({xml_offset: lv_xml_offset});
-      unique319.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sxml_string_reader.clas.locals_imp.abap","INTERNAL_LINE": 64};
-      throw unique319;
+      const unique313 = await (new abap.Classes['CX_SXML_PARSE_ERROR']()).constructor_({xml_offset: lv_xml_offset});
+      unique313.EXTRA_CX = {"INTERNAL_FILENAME": "cl_sxml_string_reader.clas.locals_imp.abap","INTERNAL_LINE": 64};
+      throw unique313;
     }
     this.mt_nodes.set(it_nodes);
     abap.statements.clear(this.mt_nodes.dereference());
@@ -69,19 +69,19 @@ class lcl_json_parser {
     let lv_type = new abap.types.String({qualifiedName: "STRING"});
     lv_type.set(Array.isArray(iv_json.value) ? "array" : typeof iv_json.value);
     if (iv_json.value === null) lv_type.set("null");
-    let unique320 = lv_type;
-    if (abap.compare.eq(unique320, new abap.types.Character(6).set('object'))) {
+    let unique314 = lv_type;
+    if (abap.compare.eq(unique314, new abap.types.Character(6).set('object'))) {
       await this.traverse_object({iv_json: iv_json, iv_key: iv_key});
-    } else if (abap.compare.eq(unique320, new abap.types.Character(5).set('array'))) {
+    } else if (abap.compare.eq(unique314, new abap.types.Character(5).set('array'))) {
       await this.traverse_array({iv_json: iv_json, iv_key: iv_key});
-    } else if (abap.compare.eq(unique320, new abap.types.Character(6).set('string')) || abap.compare.eq(unique320, new abap.types.Character(7).set('boolean')) || abap.compare.eq(unique320, new abap.types.Character(6).set('number')) || abap.compare.eq(unique320, new abap.types.Character(4).set('null'))) {
+    } else if (abap.compare.eq(unique314, new abap.types.Character(6).set('string')) || abap.compare.eq(unique314, new abap.types.Character(7).set('boolean')) || abap.compare.eq(unique314, new abap.types.Character(6).set('number')) || abap.compare.eq(unique314, new abap.types.Character(4).set('null'))) {
       iv_json = iv_json.value + "";
-      let unique321 = lv_type;
-      if (abap.compare.eq(unique321, new abap.types.Character(6).set('string'))) {
+      let unique315 = lv_type;
+      if (abap.compare.eq(unique315, new abap.types.Character(6).set('string'))) {
         lv_type.set(new abap.types.Character(3).set('str'));
-      } else if (abap.compare.eq(unique321, new abap.types.Character(6).set('number'))) {
+      } else if (abap.compare.eq(unique315, new abap.types.Character(6).set('number'))) {
         lv_type.set(new abap.types.Character(3).set('num'));
-      } else if (abap.compare.eq(unique321, new abap.types.Character(7).set('boolean'))) {
+      } else if (abap.compare.eq(unique315, new abap.types.Character(7).set('boolean'))) {
         lv_type.set(new abap.types.Character(4).set('bool'));
       }
       await this.append({iv_type: abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open, iv_name: lv_type, iv_key: iv_key});
@@ -104,9 +104,9 @@ class lcl_json_parser {
     lv_length.set(parsed.length);
     await this.append({iv_type: abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open, iv_name: new abap.types.Character(5).set('array'), iv_key: iv_key});
     const indexBackup1 = abap.builtin.sy.get().index.get();
-    const unique322 = lv_length.get();
-    for (let unique323 = 0; unique323 < unique322; unique323++) {
-      abap.builtin.sy.get().index.set(unique323 + 1);
+    const unique316 = lv_length.get();
+    for (let unique317 = 0; unique317 < unique316; unique317++) {
+      abap.builtin.sy.get().index.set(unique317 + 1);
       lv_index.set(abap.operators.minus(abap.builtin.sy.get().index,abap.IntegerFactory.get(1)));
       lv_value = {value: parsed[lv_index.get()]};
       await this.traverse({iv_json: lv_value});
@@ -482,19 +482,19 @@ class lcl_reader {
     abap.statements.createData(lt_parsed);
     await lo_json.get().parse({iv_json: this.mv_json, it_nodes: lt_parsed});
     abap.statements.clear(lo_json);
-    for await (const unique324 of abap.statements.loop(lt_parsed.dereference())) {
-      fs_ls_parsed_.assign(unique324);
-      let unique325 = fs_ls_parsed_.get().type;
-      if (abap.compare.eq(unique325, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
+    for await (const unique318 of abap.statements.loop(lt_parsed.dereference())) {
+      fs_ls_parsed_.assign(unique318);
+      let unique319 = fs_ls_parsed_.get().type;
+      if (abap.compare.eq(unique319, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
         abap.statements.clear(lt_attributes);
         if (abap.compare.initial(fs_ls_parsed_.get().key) === false) {
           li_attribute.set(await (new abap.Classes['CLAS-CL_SXML_STRING_READER-LCL_ATTRIBUTE']()).constructor_({name: new abap.types.Character(4).set('name'), value: fs_ls_parsed_.get().key, value_type: abap.Classes['IF_SXML_VALUE'].if_sxml_value$co_vt_text}));
           abap.statements.append({source: li_attribute, target: lt_attributes});
         }
         li_node.set(await (new abap.Classes['CLAS-CL_SXML_STRING_READER-LCL_OPEN_NODE']()).constructor_({name: fs_ls_parsed_.get().name, attributes: lt_attributes}));
-      } else if (abap.compare.eq(unique325, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
+      } else if (abap.compare.eq(unique319, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
         li_node.set(await (new abap.Classes['CLAS-CL_SXML_STRING_READER-LCL_CLOSE_NODE']()).constructor_({name: fs_ls_parsed_.get().name}));
-      } else if (abap.compare.eq(unique325, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_value)) {
+      } else if (abap.compare.eq(unique319, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_value)) {
         li_node.set(await (new abap.Classes['CLAS-CL_SXML_STRING_READER-LCL_VALUE_NODE']()).constructor_({value: fs_ls_parsed_.get().value}));
       } else {
         abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), abap.IntegerFactory.get(2)));
@@ -534,8 +534,8 @@ class lcl_reader {
     this.mv_pointer.set(abap.operators.add(this.mv_pointer,abap.IntegerFactory.get(1)));
     if (abap.compare.initial(node) === false) {
       this.if_sxml_reader$node_type.set(node.get().if_sxml_node$type);
-      let unique326 = this.if_sxml_reader$node_type;
-      if (abap.compare.eq(unique326, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
+      let unique320 = this.if_sxml_reader$node_type;
+      if (abap.compare.eq(unique320, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_open)) {
         await abap.statements.cast(open, node);
         this.if_sxml_reader$name.set(open.get().if_sxml_open_element$qname.get().name);
         attrs.set((await open.get().if_sxml_open_element$get_attributes()));
@@ -544,11 +544,11 @@ class lcl_reader {
         if (abap.compare.eq(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
           this.if_sxml_reader$value.set((await attr.get().if_sxml_attribute$get_value()));
         }
-      } else if (abap.compare.eq(unique326, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
+      } else if (abap.compare.eq(unique320, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_element_close)) {
         await abap.statements.cast(close, node);
         this.if_sxml_reader$name.set(close.get().if_sxml_close_element$qname.get().name);
         abap.statements.clear(this.if_sxml_reader$value);
-      } else if (abap.compare.eq(unique326, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_value)) {
+      } else if (abap.compare.eq(unique320, abap.Classes['IF_SXML_NODE'].if_sxml_node$co_nt_value)) {
         await abap.statements.cast(value, node);
         this.if_sxml_reader$value.set((await value.get().if_sxml_value_node$get_value()));
       } else {

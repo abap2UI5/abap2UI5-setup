@@ -44,10 +44,10 @@ class cl_abap_conv_in_ce {
     abap.statements.assert(abap.compare.eq(replacement, new abap.types.Character(1).set('#')));
     abap.statements.assert(abap.compare.initial(endian));
     ret.set(await (new abap.Classes['CL_ABAP_CONV_IN_CE']()).constructor_());
-    let unique215 = encoding;
-    if (abap.compare.eq(unique215, new abap.types.Character(5).set('UTF-8'))) {
+    let unique209 = encoding;
+    if (abap.compare.eq(unique209, new abap.types.Character(5).set('UTF-8'))) {
       ret.get().mv_js_encoding.set(new abap.types.Character(4).set('utf8'));
-    } else if (abap.compare.eq(unique215, new abap.types.Character(4).set('4103'))) {
+    } else if (abap.compare.eq(unique209, new abap.types.Character(4).set('4103'))) {
       ret.get().mv_js_encoding.set(new abap.types.Character(8).set('utf-16le'));
     } else {
       abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(13).set('not supported')));
@@ -108,9 +108,9 @@ class cl_abap_conv_in_ce {
       lv_error.set(abap.builtin.abap_true);
     }
     if (abap.compare.eq(lv_error, abap.builtin.abap_true)) {
-      const unique216 = await (new abap.Classes['CX_SY_CONVERSION_CODEPAGE']()).constructor_();
-      unique216.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_conv_in_ce.clas.abap","INTERNAL_LINE": 111};
-      throw unique216;
+      const unique210 = await (new abap.Classes['CX_SY_CONVERSION_CODEPAGE']()).constructor_();
+      unique210.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_conv_in_ce.clas.abap","INTERNAL_LINE": 111};
+      throw unique210;
     }
   }
   async read(INPUT) {

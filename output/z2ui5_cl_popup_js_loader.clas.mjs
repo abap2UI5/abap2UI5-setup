@@ -91,14 +91,14 @@ class z2ui5_cl_popup_js_loader {
       await this.view_display();
       return;
     }
-    let unique168 = ((await client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique168, new abap.types.String().set(`INFO_FINISHED`))) {
+    let unique166 = ((await client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique166, new abap.types.String().set(`INFO_FINISHED`))) {
       if (abap.compare.cs(abap.builtin.to_upper({val: this.ui5_gav}), new abap.types.String().set(`OPEN`))) {
         this.mv_is_open_ui5.set(abap.builtin.abap_true);
       }
       await client.get().z2ui5_if_client$popup_destroy();
       await client.get().z2ui5_if_client$nav_app_leave({app: (await client.get().z2ui5_if_client$get_app({id: ((await client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
-    } else if (abap.compare.eq(unique168, new abap.types.String().set(`TIMER_FINISHED`))) {
+    } else if (abap.compare.eq(unique166, new abap.types.String().set(`TIMER_FINISHED`))) {
       await client.get().z2ui5_if_client$popup_destroy();
       await client.get().z2ui5_if_client$nav_app_leave({app: (await client.get().z2ui5_if_client$get_app({id: ((await client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack}))});
     } else {

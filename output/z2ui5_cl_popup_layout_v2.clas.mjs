@@ -242,8 +242,8 @@ class z2ui5_cl_popup_layout_v2 {
     if (abap.compare.initial(tab_name)) {
       tab_name.set(classname);
     }
-    for await (const unique173 of abap.statements.loop(t_comp)) {
-      lr_comp.assign(unique173);
+    for await (const unique167 of abap.statements.loop(t_comp)) {
+      lr_comp.assign(unique167);
       abap.statements.clear(temp7);
       temp7.get().tab.set(tab_name);
       temp7.get().fname.set(lr_comp.get().name);
@@ -275,8 +275,8 @@ class z2ui5_cl_popup_layout_v2 {
     }
     if (abap.compare.initial(def.get().layout) === false) {
       t_t002.set((await this.db_read_layout_info({i_def: def})));
-      for await (const unique174 of abap.statements.loop(result.get().t_layout)) {
-        layout.assign(unique174);
+      for await (const unique168 of abap.statements.loop(result.get().t_layout)) {
+        layout.assign(unique168);
         try {
           abap.statements.readTable(t_t002,{assigning: fs_temp13_,
             withKey: (i) => {return abap.compare.eq(i.fname, layout.get().fname);},
@@ -304,8 +304,8 @@ class z2ui5_cl_popup_layout_v2 {
       result.get().s_head.set(def);
     } else {
       index.set(abap.IntegerFactory.get(0));
-      for await (const unique175 of abap.statements.loop(result.get().t_layout)) {
-        layout.assign(unique175);
+      for await (const unique169 of abap.statements.loop(result.get().t_layout)) {
+        layout.assign(unique169);
         index.set(abap.operators.add(index,abap.IntegerFactory.get(1)));
         if (abap.compare.le(index, abap.IntegerFactory.get(10))) {
           layout.get().visible.set(abap.builtin.abap_true);
@@ -327,35 +327,35 @@ class z2ui5_cl_popup_layout_v2 {
     return result;
   }
   async on_event() {
-    let unique176 = ((await this.client.get().z2ui5_if_client$get())).get().event;
-    if (abap.compare.eq(unique176, new abap.types.Character(6).set('CANCEL'))) {
+    let unique170 = ((await this.client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique170, new abap.types.Character(6).set('CANCEL'))) {
       this.ms_result.get().check_cancel.set(abap.builtin.abap_true);
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(2).set('OK'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(2).set('OK'))) {
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(11).set('LAYOUT_SAVE'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(11).set('LAYOUT_SAVE'))) {
       await this.render_save();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(5).set('CLOSE'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(5).set('CLOSE'))) {
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(10).set('SAVE_CLOSE'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(10).set('SAVE_CLOSE'))) {
       await this.render_edit();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(9).set('SAVE_SAVE'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(9).set('SAVE_SAVE'))) {
       await this.save_layout();
       await this.render_edit();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(11).set('OPEN_SELECT'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(11).set('OPEN_SELECT'))) {
       this.ms_layout.set((await this.get_selected_layout()));
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(13).set('DELETE_SELECT'))) {
+    } else if (abap.compare.eq(unique170, new abap.types.Character(13).set('DELETE_SELECT'))) {
       await this.db_delete_layout();
       await this.client.get().z2ui5_if_client$popup_destroy();
       await this.client.get().z2ui5_if_client$nav_app_leave();
-    } else if (abap.compare.eq(unique176, new abap.types.Character(11).set('LAYOUT_LOAD'))) {
-      await this.client.get().z2ui5_if_client$nav_app_call({app: (await abap.Classes['Z2UI5_CL_POPUP_LAYOUT_V2'].factory({layout: this.ms_layout, open_layout: abap.builtin.abap_true}))});
-    } else if (abap.compare.eq(unique176, new abap.types.Character(13).set('LAYOUT_DELETE'))) {
-      await this.client.get().z2ui5_if_client$nav_app_call({app: (await abap.Classes['Z2UI5_CL_POPUP_LAYOUT_V2'].factory({layout: this.ms_layout, delete_layout: abap.builtin.abap_true}))});
+    } else if (abap.compare.eq(unique170, new abap.types.Character(11).set('LAYOUT_LOAD'))) {
+      await this.client.get().z2ui5_if_client$nav_app_call({app: (await this.factory({layout: this.ms_layout, open_layout: abap.builtin.abap_true}))});
+    } else if (abap.compare.eq(unique170, new abap.types.Character(13).set('LAYOUT_DELETE'))) {
+      await this.client.get().z2ui5_if_client$nav_app_call({app: (await this.factory({layout: this.ms_layout, delete_layout: abap.builtin.abap_true}))});
     }
   }
   async on_init() {
@@ -402,8 +402,8 @@ class z2ui5_cl_popup_layout_v2 {
     let popup = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let dialog = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     popup.set((await abap.Classes['Z2UI5_CL_XML_VIEW'].factory_popup()));
-    dialog.set((await popup.get().dialog({title: new abap.types.Character(6).set('Layout'), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(5).set('CLOSE')}))})));
-    await (await (await (await (await (await (await (await (await (await (await (await (await (await dialog.get().table({headertext: new abap.types.Character(6).set('Layout'), mode: new abap.types.Character(16).set('SingleSelectLeft'), items: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mt_t001}))})).get().columns()).get().column()).get().text({text: new abap.types.Character(6).set('Layout')})).get().get_parent()).get().column()).get().text({text: new abap.types.Character(11).set('Description')})).get().get_parent()).get().get_parent()).get().items()).get().column_list_item({selected: new abap.types.Character(7).set('{SELKZ}')})).get().cells()).get().text({text: new abap.types.Character(8).set('{LAYOUT}')})).get().text({text: new abap.types.Character(7).set('{DESCR}')});
+    dialog.set((await popup.get().dialog({title: new abap.types.Character(15).set('Layout - Delete'), contentheight: new abap.types.String().set(`50%`), contentwidth: new abap.types.String().set(`50%`), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(5).set('CLOSE')}))})));
+    await (await (await (await (await (await (await (await (await (await (await (await (await (await dialog.get().table({mode: new abap.types.Character(16).set('SingleSelectLeft'), items: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mt_t001}))})).get().columns()).get().column()).get().text({text: new abap.types.Character(6).set('Layout')})).get().get_parent()).get().column()).get().text({text: new abap.types.Character(11).set('Description')})).get().get_parent()).get().get_parent()).get().items()).get().column_list_item({selected: new abap.types.Character(7).set('{SELKZ}')})).get().cells()).get().text({text: new abap.types.Character(8).set('{LAYOUT}')})).get().text({text: new abap.types.Character(7).set('{DESCR}')});
     await (await (await (await (await dialog.get().footer()).get().overflow_toolbar()).get().toolbar_spacer()).get().button({text: new abap.types.Character(4).set('Back'), icon: new abap.types.Character(19).set('sap-icon://nav-back'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(5).set('CLOSE')}))})).get().button({text: new abap.types.Character(6).set('Delete'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(13).set('DELETE_SELECT')})), type: new abap.types.Character(6).set('Reject'), icon: new abap.types.Character(17).set('sap-icon://delete')});
     await this.client.get().z2ui5_if_client$popup_display({val: (await popup.get().stringify())});
   }
@@ -419,34 +419,34 @@ class z2ui5_cl_popup_layout_v2 {
     let comp = new abap.types.DataReference(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
     let col = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     popup.set((await abap.Classes['Z2UI5_CL_XML_VIEW'].factory_popup()));
-    dialog.set((await (await popup.get().dialog({title: new abap.types.Character(6).set('Layout'), contentwidth: new abap.types.Character(3).set('50%'), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(6).set('CANCEL')}))})).get().content()));
+    dialog.set((await (await popup.get().dialog({title: new abap.types.Character(6).set('Layout'), contentheight: new abap.types.String().set(`50%`), contentwidth: new abap.types.String().set(`50%`), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(6).set('CANCEL')}))})).get().content()));
     tab.set((await dialog.get().table({growing: abap.builtin.abap_true, items: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.ms_layout.get().t_layout}))})));
     list.set((await tab.get().column_list_item()));
     cells.set((await list.get().cells()));
     columns.set((await tab.get().columns()));
     lt_comp.set((await abap.Classes['Z2UI5_CL_UTIL'].rtti_get_t_attri_by_struc({val: this.ms_layout.get().t_layout})));
-    for await (const unique177 of abap.statements.loop(lt_comp)) {
-      comp.assign(unique177);
-      let unique178 = comp.get().name;
-      if (abap.compare.eq(unique178, new abap.types.Character(5).set('FNAME'))) {
+    for await (const unique171 of abap.statements.loop(lt_comp)) {
+      comp.assign(unique171);
+      let unique172 = comp.get().name;
+      if (abap.compare.eq(unique172, new abap.types.Character(5).set('FNAME'))) {
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(3).set('Row')});
-      } else if (abap.compare.eq(unique178, new abap.types.Character(7).set('VISIBLE'))) {
+      } else if (abap.compare.eq(unique172, new abap.types.Character(7).set('VISIBLE'))) {
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(7).set('Visible')});
-      } else if (abap.compare.eq(unique178, new abap.types.Character(5).set('MERGE'))) {
+      } else if (abap.compare.eq(unique172, new abap.types.Character(5).set('MERGE'))) {
         if (!(abap.compare.eq(this.mv_extended_layout, abap.builtin.abap_true))) {
           continue;
         }
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(16).set('Merge duplicates')});
-      } else if (abap.compare.eq(unique178, new abap.types.Character(6).set('HALIGN'))) {
+      } else if (abap.compare.eq(unique172, new abap.types.Character(6).set('HALIGN'))) {
         if (!(abap.compare.eq(this.mv_extended_layout, abap.builtin.abap_true))) {
           continue;
         }
         col.set((await (await columns.get().column()).get().header({ns: new abap.types.String().set(``)})));
         await col.get().text({text: new abap.types.Character(5).set('Align')});
-      } else if (abap.compare.eq(unique178, new abap.types.Character(10).set('IMPORTANCE'))) {
+      } else if (abap.compare.eq(unique172, new abap.types.Character(10).set('IMPORTANCE'))) {
         if (!(abap.compare.eq(this.mv_extended_layout, abap.builtin.abap_true))) {
           continue;
         }
@@ -454,28 +454,28 @@ class z2ui5_cl_popup_layout_v2 {
         await col.get().text({text: new abap.types.Character(10).set('Importance')});
       }
     }
-    for await (const unique179 of abap.statements.loop(lt_comp)) {
-      comp.assign(unique179);
-      let unique180 = comp.get().name;
-      if (abap.compare.eq(unique180, new abap.types.Character(5).set('FNAME'))) {
+    for await (const unique173 of abap.statements.loop(lt_comp)) {
+      comp.assign(unique173);
+      let unique174 = comp.get().name;
+      if (abap.compare.eq(unique174, new abap.types.Character(5).set('FNAME'))) {
         await cells.get().text({text: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`)))});
-      } else if (abap.compare.eq(unique180, new abap.types.Character(7).set('VISIBLE')) || abap.compare.eq(unique180, new abap.types.Character(5).set('MERGE'))) {
+      } else if (abap.compare.eq(unique174, new abap.types.Character(7).set('VISIBLE')) || abap.compare.eq(unique174, new abap.types.Character(5).set('MERGE'))) {
         await cells.get().switch({type: new abap.types.Character(12).set('AcceptReject'), state: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`)))});
-      } else if (abap.compare.eq(unique180, new abap.types.Character(6).set('HALIGN'))) {
+      } else if (abap.compare.eq(unique174, new abap.types.Character(6).set('HALIGN'))) {
         await (await cells.get().combobox({selectedkey: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`))), items: (await this.client.get().z2ui5_if_client$_bind_local({val: this.mt_halign}))})).get().item({key: new abap.types.Character(5).set('{LOW}'), text: new abap.types.Character(16).set('{LOW} - {DDTEXT}')});
-      } else if (abap.compare.eq(unique180, new abap.types.Character(10).set('IMPORTANCE'))) {
+      } else if (abap.compare.eq(unique174, new abap.types.Character(10).set('IMPORTANCE'))) {
         await (await cells.get().combobox({selectedkey: abap.operators.concat(new abap.types.String().set(`{`),abap.operators.concat(comp.get().name,new abap.types.String().set(`}`))), items: (await this.client.get().z2ui5_if_client$_bind_local({val: this.mt_importance}))})).get().item({key: new abap.types.Character(5).set('{LOW}'), text: new abap.types.Character(16).set('{LOW} - {DDTEXT}')});
       }
     }
-    await (await (await (await (await (await (await (await (await dialog.get().get_parent()).get().footer()).get().overflow_toolbar()).get().toolbar_spacer()).get().button({text: new abap.types.Character(6).set('Cancel'), icon: new abap.types.Character(23).set('sap-icon://sys-cancel-2'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(6).set('CANCEL')}))})).get().button({text: new abap.types.Character(9).set('DB Delete'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(13).set('LAYOUT_DELETE')})), icon: new abap.types.Character(17).set('sap-icon://delete')})).get().button({text: new abap.types.Character(7).set('DB Read'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(11).set('LAYOUT_LOAD')})), icon: new abap.types.Character(30).set('sap-icon://download-from-cloud')})).get().button({text: new abap.types.Character(7).set('DB Save'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(11).set('LAYOUT_SAVE')})), icon: new abap.types.Character(15).set('sap-icon://save')})).get().button({text: new abap.types.Character(2).set('OK'), icon: new abap.types.Character(17).set('sap-icon://accept'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(2).set('OK')})), type: new abap.types.Character(10).set('Emphasized')});
+    await (await (await (await (await (await (await (await (await dialog.get().get_parent()).get().footer()).get().overflow_toolbar()).get().button({text: new abap.types.Character(9).set('DB Delete'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(13).set('LAYOUT_DELETE')})), icon: new abap.types.Character(17).set('sap-icon://delete')})).get().button({text: new abap.types.Character(7).set('DB Read'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(11).set('LAYOUT_LOAD')})), icon: new abap.types.Character(30).set('sap-icon://download-from-cloud')})).get().button({text: new abap.types.Character(7).set('DB Save'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(11).set('LAYOUT_SAVE')})), icon: new abap.types.Character(15).set('sap-icon://save')})).get().toolbar_spacer()).get().button({text: new abap.types.Character(6).set('Cancel'), icon: new abap.types.Character(23).set('sap-icon://sys-cancel-2'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(6).set('CANCEL')}))})).get().button({text: new abap.types.Character(2).set('OK'), icon: new abap.types.Character(17).set('sap-icon://accept'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(2).set('OK')})), type: new abap.types.Character(10).set('Emphasized')});
     await this.client.get().z2ui5_if_client$popup_display({val: (await (await popup.get().get_root()).get().xml_get())});
   }
   async render_open() {
     let popup = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let dialog = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     popup.set((await abap.Classes['Z2UI5_CL_XML_VIEW'].factory_popup()));
-    dialog.set((await popup.get().dialog({title: new abap.types.Character(6).set('Layout'), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(5).set('CLOSE')}))})));
-    await (await (await (await (await (await (await (await (await (await (await (await (await (await (await (await (await (await dialog.get().table({headertext: new abap.types.Character(6).set('Layout'), mode: new abap.types.Character(16).set('SingleSelectLeft'), items: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mt_t001}))})).get().columns()).get().column()).get().text({text: new abap.types.Character(6).set('Layout')})).get().get_parent()).get().column()).get().text({text: new abap.types.Character(11).set('Description')})).get().get_parent()).get().column()).get().text({text: new abap.types.Character(7).set('Default')})).get().get_parent()).get().get_parent()).get().items()).get().column_list_item({selected: new abap.types.Character(7).set('{SELKZ}')})).get().cells()).get().text({text: new abap.types.Character(8).set('{LAYOUT}')})).get().text({text: new abap.types.Character(7).set('{DESCR}')})).get().text({text: new abap.types.Character(5).set('{DEF}')});
+    dialog.set((await popup.get().dialog({title: new abap.types.Character(13).set('Layout - Open'), contentheight: new abap.types.String().set(`50%`), contentwidth: new abap.types.String().set(`50%`), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(5).set('CLOSE')}))})));
+    await (await (await (await (await (await (await (await (await (await (await (await (await (await (await (await (await (await dialog.get().table({mode: new abap.types.Character(16).set('SingleSelectLeft'), items: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mt_t001}))})).get().columns()).get().column()).get().text({text: new abap.types.Character(6).set('Layout')})).get().get_parent()).get().column()).get().text({text: new abap.types.Character(11).set('Description')})).get().get_parent()).get().column()).get().text({text: new abap.types.Character(7).set('Default')})).get().get_parent()).get().get_parent()).get().items()).get().column_list_item({selected: new abap.types.Character(7).set('{SELKZ}')})).get().cells()).get().text({text: new abap.types.Character(8).set('{LAYOUT}')})).get().text({text: new abap.types.Character(7).set('{DESCR}')})).get().text({text: new abap.types.Character(5).set('{DEF}')});
     await (await (await (await (await dialog.get().footer()).get().overflow_toolbar()).get().toolbar_spacer()).get().button({text: new abap.types.Character(4).set('Back'), icon: new abap.types.Character(19).set('sap-icon://nav-back'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(5).set('CLOSE')}))})).get().button({text: new abap.types.Character(4).set('Open'), icon: new abap.types.Character(17).set('sap-icon://accept'), press: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(11).set('OPEN_SELECT')})), type: new abap.types.Character(10).set('Emphasized')});
     await this.client.get().z2ui5_if_client$popup_display({val: (await popup.get().stringify())});
   }
@@ -484,9 +484,8 @@ class z2ui5_cl_popup_layout_v2 {
     let dialog = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     let form = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
     popup.set((await abap.Classes['Z2UI5_CL_XML_VIEW'].factory_popup()));
-    dialog.set((await popup.get().dialog({title: new abap.types.Character(4).set('Save'), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(10).set('SAVE_CLOSE')}))})));
-    form.set((await dialog.get().simple_form({title: new abap.types.Character(6).set('Layout'), editable: abap.builtin.abap_true, labelspanxl: new abap.types.String().set(`4`), labelspanl: new abap.types.String().set(`4`), labelspanm: new abap.types.String().set(`4`), labelspans: new abap.types.String().set(`4`), adjustlabelspan: abap.builtin.abap_false})));
-    await (await form.get().toolbar()).get().title({text: new abap.types.Character(6).set('Layout')});
+    dialog.set((await popup.get().dialog({title: new abap.types.Character(13).set('Layout - Save'), contentheight: new abap.types.String().set(`50%`), contentwidth: new abap.types.String().set(`50%`), afterclose: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(10).set('SAVE_CLOSE')}))})));
+    form.set((await dialog.get().simple_form({editable: abap.builtin.abap_true, labelspanxl: new abap.types.String().set(`4`), labelspanl: new abap.types.String().set(`4`), labelspanm: new abap.types.String().set(`4`), labelspans: new abap.types.String().set(`4`), adjustlabelspan: abap.builtin.abap_false})));
     await (await (await (await (await form.get().content({ns: new abap.types.Character(4).set('form')})).get().label({text: new abap.types.Character(6).set('Layout')})).get().input({value: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mv_layout}))})).get().label({text: new abap.types.Character(11).set('Description')})).get().input({value: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mv_descr}))});
     await (await form.get().toolbar()).get().title({text: new abap.types.String().set(``)});
     await (await (await (await (await form.get().content({ns: new abap.types.Character(4).set('form')})).get().label({text: new abap.types.Character(14).set('Default Layout')})).get().switch({type: new abap.types.Character(12).set('AcceptReject'), state: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mv_def}))})).get().label({text: new abap.types.Character(13).set('User specific')})).get().switch({type: new abap.types.Character(12).set('AcceptReject'), state: (await this.client.get().z2ui5_if_client$_bind_edit({val: this.mv_usr}))});
@@ -524,8 +523,8 @@ class z2ui5_cl_popup_layout_v2 {
     temp19.get().uname.set(user);
     temp19.get().tab.set(this.ms_layout.get().s_head.get().tab);
     t001.set(temp19);
-    for await (const unique181 of abap.statements.loop(this.ms_layout.get().t_layout)) {
-      layout.set(unique181);
+    for await (const unique175 of abap.statements.loop(this.ms_layout.get().t_layout)) {
+      layout.set(unique175);
       abap.statements.clear(temp20);
       temp20.get().layout.set(this.mv_layout);
       temp20.get().tab.set(this.ms_layout.get().s_head.get().tab);
@@ -579,11 +578,11 @@ class z2ui5_cl_popup_layout_v2 {
     if (abap.compare.eq(this.mv_init, abap.builtin.abap_false)) {
       this.mv_init.set(abap.builtin.abap_true);
       await this.on_init();
-      let unique182 = abap.builtin.abap_true;
-      if (abap.compare.eq(unique182, this.mv_open)) {
+      let unique176 = abap.builtin.abap_true;
+      if (abap.compare.eq(unique176, this.mv_open)) {
         await this.get_layouts();
         await this.render_open();
-      } else if (abap.compare.eq(unique182, this.mv_delete)) {
+      } else if (abap.compare.eq(unique176, this.mv_delete)) {
         await this.get_layouts();
         await this.render_delete();
       } else {
