@@ -24,6 +24,7 @@ jobs:
       uses: peaceiris/actions-gh-pages@v3
       with:
         external_repository: abap2UI5/abap2UI5-web
+        token: test
         user_name: 'github-actions[bot]'
         user_email: 'github-actions[bot]@users.noreply.github.com'
         publish_branch: main
