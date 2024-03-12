@@ -24,12 +24,12 @@ class lcl_dump {
     let lv_type = new abap.types.Character(1, {});
     let lv_name = new abap.types.String({qualifiedName: "STRING"});
     abap.statements.describe({field: iv_val, type: lv_type});
-    let unique40 = lv_type;
-    if (abap.compare.eq(unique40, new abap.types.Character(1).set('u')) || abap.compare.eq(unique40, new abap.types.Character(1).set('v'))) {
+    let unique41 = lv_type;
+    if (abap.compare.eq(unique41, new abap.types.Character(1).set('u')) || abap.compare.eq(unique41, new abap.types.Character(1).set('v'))) {
       rv_str.set((await this.dump_structure({iv_val: iv_val})));
-    } else if (abap.compare.eq(unique40, new abap.types.Character(1).set('h'))) {
+    } else if (abap.compare.eq(unique41, new abap.types.Character(1).set('h'))) {
       rv_str.set(new abap.types.String().set(`[itab]`));
-    } else if (abap.compare.eq(unique40, new abap.types.Character(1).set('r'))) {
+    } else if (abap.compare.eq(unique41, new abap.types.Character(1).set('r'))) {
       lv_name.set(iv_val.get().constructor.name);
       rv_str.set(new abap.types.String().set(`[object, ${abap.templateFormatting(lv_name)}]`));
     } else {
@@ -48,8 +48,8 @@ class lcl_dump {
     let lv_str = new abap.types.String({qualifiedName: "STRING"});
     let fs_fs_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     Object.keys(iv_val.get()).forEach((name) => lt_components.append(new abap.types.String().set(name)));
-    for await (const unique41 of abap.statements.loop(lt_components)) {
-      lv_name.set(unique41);
+    for await (const unique42 of abap.statements.loop(lt_components)) {
+      lv_name.set(unique42);
       if (abap.compare.ne(rv_str, new abap.types.Character(1).set(''))) {
         rv_str.set(abap.operators.concat(rv_str,new abap.types.String().set(`, `)));
       }

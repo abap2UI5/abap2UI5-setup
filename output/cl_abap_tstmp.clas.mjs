@@ -72,6 +72,11 @@ class cl_abap_tstmp {
     if (syst_time?.getQualifiedName === undefined || syst_time.getQualifiedName() !== "T") { syst_time = undefined; }
     if (syst_time === undefined) { syst_time = new abap.types.Time({qualifiedName: "T"}).set(INPUT.syst_time); }
     let utc_tstmp = INPUT?.utc_tstmp || new abap.types.Packed({length: 1, decimals: 0});
+    if (abap.compare.initial(syst_date)) {
+      const unique36 = await (new abap.Classes['CX_PARAMETER_INVALID_RANGE']()).constructor_();
+      unique36.EXTRA_CX = {"INTERNAL_FILENAME": "cl_abap_tstmp.clas.abap","INTERNAL_LINE": 98};
+      throw unique36;
+    }
     utc_tstmp.set(new abap.types.String().set(`${abap.templateFormatting(syst_date)}${abap.templateFormatting(syst_time)}`));
   }
   async subtract(INPUT) {

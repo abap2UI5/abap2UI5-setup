@@ -376,8 +376,8 @@ class cl_http_entity {
     if (fields?.getQualifiedName === undefined || fields.getQualifiedName() !== "TIHTTPNVP") { fields = undefined; }
     if (fields === undefined) { fields = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"isUnique":false,"type":"STANDARD","keyFields":[],"name":"primary_key"},"secondary":[]}, "TIHTTPNVP").set(INPUT.fields); }
     let ls_field = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {});
-    for await (const unique85 of abap.statements.loop(fields)) {
-      ls_field.set(unique85);
+    for await (const unique86 of abap.statements.loop(fields)) {
+      ls_field.set(unique86);
       await this.if_http_entity$set_header_field({name: ls_field.get().name, value: ls_field.get().value});
     }
   }
@@ -551,8 +551,8 @@ class cl_http_entity {
     let fields = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"isUnique":false,"type":"STANDARD","keyFields":[],"name":"primary_key"},"secondary":[]}, "TIHTTPNVP");
     if (INPUT && INPUT.fields) {fields = INPUT.fields;}
     let ls_field = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "STRING"}), "value": new abap.types.String({qualifiedName: "STRING"})}, "IHTTPNVP", "IHTTPNVP", {}, {});
-    for await (const unique86 of abap.statements.loop(this.mt_form_fields)) {
-      ls_field.set(unique86);
+    for await (const unique87 of abap.statements.loop(this.mt_form_fields)) {
+      ls_field.set(unique87);
       abap.statements.translate(ls_field.get().name, "LOWER");
       abap.statements.append({source: ls_field, target: fields});
     }

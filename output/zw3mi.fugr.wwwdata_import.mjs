@@ -21,9 +21,9 @@ async function wwwdata_import(INPUT) {
   const __dirname = path.dirname(__filename);
   xstr.set(fs.readFileSync(__dirname + path.sep + filename.get()).toString("hex").toUpperCase());
   const indexBackup1 = abap.builtin.sy.get().index.get();
-  let unique174 = 1;
+  let unique175 = 1;
   while (abap.compare.gt(abap.builtin.xstrlen({val: xstr}), abap.IntegerFactory.get(0))) {
-    abap.builtin.sy.get().index.set(unique174++);
+    abap.builtin.sy.get().index.set(unique175++);
     len.set(new abap.types.Integer().set(255));
     if (abap.compare.lt(abap.builtin.xstrlen({val: xstr}), len)) {
       len.set(abap.builtin.xstrlen({val: xstr}));

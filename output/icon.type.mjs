@@ -151,6 +151,8 @@ pool['icon_resubmission'] = new abap.types.Character(4, {});
 pool['icon_resubmission'].set('ICON');
 pool['icon_select_all'] = new abap.types.Character(4, {});
 pool['icon_select_all'].set('ICON');
+pool['icon_select_block'] = new abap.types.Character(4, {});
+pool['icon_select_block'].set('ICON');
 pool['icon_select_detail'] = new abap.types.Character(4, {});
 pool['icon_select_detail'].set('ICON');
 pool['icon_set_state'] = new abap.types.Character(4, {});

@@ -11,9 +11,9 @@ async function conversion_exit_alpha_output(INPUT) {
   output.set(input);
   abap.statements.shift(output, {direction: 'LEFT',deletingLeading: new abap.types.Character(1).set('0')});
   const indexBackup1 = abap.builtin.sy.get().index.get();
-  const unique171 = abap.operators.minus(abap.builtin.strlen({val: input}),abap.builtin.strlen({val: output}).get()).get();
-  for (let unique172 = 0; unique172 < unique171; unique172++) {
-    abap.builtin.sy.get().index.set(unique172 + 1);
+  const unique172 = abap.operators.minus(abap.builtin.strlen({val: input}),abap.builtin.strlen({val: output}).get()).get();
+  for (let unique173 = 0; unique173 < unique172; unique173++) {
+    abap.builtin.sy.get().index.set(unique173 + 1);
     output.set(abap.operators.concat(output,new abap.types.String().set(` `)));
   }
   abap.builtin.sy.get().index.set(indexBackup1);

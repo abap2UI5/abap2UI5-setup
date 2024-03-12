@@ -55,9 +55,9 @@ class kernel_ixml_xml_to_data {
     abap.statements.assert(abap.compare.initial(iv_href) === false);
     li_iterator.set((await (await kernel_ixml_xml_to_data.mi_heap.get().if_ixml_element$get_children()).get().if_ixml_node_list$create_iterator()));
     const indexBackup1 = abap.builtin.sy.get().index.get();
-    let unique147 = 1;
+    let unique148 = 1;
     while (true) {
-      abap.builtin.sy.get().index.set(unique147++);
+      abap.builtin.sy.get().index.set(unique148++);
       li_child.set((await li_iterator.get().if_ixml_node_iterator$get_next()));
       if (abap.compare.initial(li_child)) {
         break;
@@ -95,14 +95,14 @@ class kernel_ixml_xml_to_data {
     let fs_field_ = new abap.types.FieldSymbol(new abap.types.Character(4));
     let fs_tab_ = new abap.types.FieldSymbol(abap.types.TableFactory.construct(new abap.types.Character(4), {"withHeader":false,"keyType":"DEFAULT"}));
     lo_type.set((await abap.Classes['CL_ABAP_TYPEDESCR'].describe_by_data({p_data: (iv_ref).dereference()})));
-    let unique148 = lo_type.get().kind;
-    if (abap.compare.eq(unique148, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    let unique149 = lo_type.get().kind;
+    if (abap.compare.eq(unique149, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       abap.statements.assign({target: fs_any_, source: (iv_ref).dereference()});
       li_iterator.set((await (await ii_node.get().if_ixml_node$get_children()).get().if_ixml_node_list$create_iterator()));
       const indexBackup1 = abap.builtin.sy.get().index.get();
-      let unique149 = 1;
+      let unique150 = 1;
       while (true) {
-        abap.builtin.sy.get().index.set(unique149++);
+        abap.builtin.sy.get().index.set(unique150++);
         li_child.set((await li_iterator.get().if_ixml_node_iterator$get_next()));
         if (abap.compare.initial(li_child)) {
           break;
@@ -115,19 +115,19 @@ class kernel_ixml_xml_to_data {
         }
       }
       abap.builtin.sy.get().index.set(indexBackup1);
-    } else if (abap.compare.eq(unique148, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    } else if (abap.compare.eq(unique149, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       li_child.set((await ii_node.get().if_ixml_node$get_first_child()));
       if (abap.compare.initial(li_child) === false) {
         abap.statements.assign({target: fs_any_, source: (iv_ref).dereference()});
         fs_any_.set((await li_child.get().if_ixml_node$get_value()));
       }
-    } else if (abap.compare.eq(unique148, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique149, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       abap.statements.assign({target: fs_tab_, source: (iv_ref).dereference()});
       li_iterator.set((await (await ii_node.get().if_ixml_node$get_children()).get().if_ixml_node_list$create_iterator()));
       const indexBackup2 = abap.builtin.sy.get().index.get();
-      let unique150 = 1;
+      let unique151 = 1;
       while (true) {
-        abap.builtin.sy.get().index.set(unique150++);
+        abap.builtin.sy.get().index.set(unique151++);
         li_child.set((await li_iterator.get().if_ixml_node_iterator$get_next()));
         if (abap.compare.initial(li_child)) {
           break;
@@ -138,7 +138,7 @@ class kernel_ixml_xml_to_data {
         abap.statements.insertInternal({data: fs_any_, table: fs_tab_});
       }
       abap.builtin.sy.get().index.set(indexBackup2);
-    } else if (abap.compare.eq(unique148, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
+    } else if (abap.compare.eq(unique149, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
       abap.statements.assign({target: fs_any_, source: (iv_ref).dereference()});
       if (abap.compare.initial(fs_any_)) {
         li_href.set((await (await ii_node.get().if_ixml_node$get_attributes()).get().if_ixml_named_node_map$get_named_item_ns({name: new abap.types.Character(4).set('href')})));
@@ -157,9 +157,9 @@ class kernel_ixml_xml_to_data {
         fs_any_.pointer.value = new abap.Classes[lv_value.get()]();
         li_iterator.set((await (await (await li_heap.get().if_ixml_node$get_first_child()).get().if_ixml_node$get_children()).get().if_ixml_node_list$create_iterator()));
         const indexBackup3 = abap.builtin.sy.get().index.get();
-        let unique151 = 1;
+        let unique152 = 1;
         while (true) {
-          abap.builtin.sy.get().index.set(unique151++);
+          abap.builtin.sy.get().index.set(unique152++);
           li_child.set((await li_iterator.get().if_ixml_node_iterator$get_next()));
           if (abap.compare.initial(li_child)) {
             break;

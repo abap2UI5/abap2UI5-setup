@@ -3038,7 +3038,9 @@ ENDCLASS.');`);
         syst_date TYPE d
         syst_time TYPE t
       EXPORTING
-        utc_tstmp TYPE p.
+        utc_tstmp TYPE p
+      RAISING
+        cx_parameter_invalid_range.
 
     CLASS-METHODS move_to_short
       IMPORTING
@@ -3089,6 +3091,10 @@ CLASS cl_abap_tstmp IMPLEMENTATION.
 
   METHOD systemtstmp_syst2utc.
 * system timezone is always UTC for open-abap, so no conversion needed
+    IF syst_date IS INITIAL.
+      RAISE EXCEPTION TYPE cx_parameter_invalid_range.
+    ENDIF.
+
     utc_tstmp = |{ syst_date }{ syst_time }|.
   ENDMETHOD.
 
@@ -4831,14 +4837,14 @@ ENDCLASS.');`);
     CLASS-METHODS
       gui_upload
         IMPORTING
-          filename TYPE string
-          filetype TYPE string OPTIONAL
-          codepage TYPE abap_encoding DEFAULT space
+          filename     TYPE string
+          filetype     TYPE char10 OPTIONAL
+          codepage     TYPE abap_encoding DEFAULT space
           read_by_line TYPE abap_bool OPTIONAL
         EXPORTING
-          filelength TYPE i
+          filelength   TYPE i
         CHANGING
-          data_tab TYPE any.
+          data_tab     TYPE any.
 
     CLASS-METHODS
       file_open_dialog

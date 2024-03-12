@@ -31,14 +31,14 @@ class kernel_create_data_handle {
     if (dref.constructor.name === "FieldSymbol") {
         dref = dref.getPointer();
     }
-    let unique137 = handle.get().kind;
-    if (abap.compare.eq(unique137, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
+    let unique138 = handle.get().kind;
+    if (abap.compare.eq(unique138, abap.Classes['CL_ABAP_TYPEDESCR'].kind_elem)) {
       await this.elem({handle: handle, dref: dref});
-    } else if (abap.compare.eq(unique137, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
+    } else if (abap.compare.eq(unique138, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await this.struct({handle: handle, dref: dref});
-    } else if (abap.compare.eq(unique137, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
+    } else if (abap.compare.eq(unique138, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await this.table({handle: handle, dref: dref});
-    } else if (abap.compare.eq(unique137, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
+    } else if (abap.compare.eq(unique138, abap.Classes['CL_ABAP_TYPEDESCR'].kind_ref)) {
       await this.ref({handle: handle, dref: dref});
     } else {
       console.dir(handle);
@@ -79,8 +79,8 @@ class kernel_create_data_handle {
     await abap.statements.cast(lo_struct, handle);
     lt_components.set((await lo_struct.get().get_components()));
     let obj = {};
-    for await (const unique138 of abap.statements.loop(lt_components)) {
-      fs_ls_component_.assign(unique138);
+    for await (const unique139 of abap.statements.loop(lt_components)) {
+      fs_ls_component_.assign(unique139);
       await this.call({handle: (await lo_struct.get().get_component_type({p_name: fs_ls_component_.get().name})), dref: field});
       lv_name.set(abap.builtin.to_lower({val: fs_ls_component_.get().name}));
       obj[lv_name.get()] = field.getPointer();
@@ -106,8 +106,8 @@ class kernel_create_data_handle {
     let options = {primaryKey: undefined, keyType: "DEFAULT", withHeader: false};
     options.primaryKey = {name: "primary_key", type: "STANDARD", keyFields: [], isUnique: false};
     lt_keys.set((await lo_table.get().get_keys()));
-    for await (const unique139 of abap.statements.loop(lt_keys,{where: async (I) => {return abap.compare.eq(I.is_primary, abap.builtin.abap_true);},topEquals: {"is_primary": abap.builtin.abap_true}})) {
-      fs_ls_key_.assign(unique139);
+    for await (const unique140 of abap.statements.loop(lt_keys,{where: async (I) => {return abap.compare.eq(I.is_primary, abap.builtin.abap_true);},topEquals: {"is_primary": abap.builtin.abap_true}})) {
+      fs_ls_key_.assign(unique140);
       if (abap.compare.eq(fs_ls_key_.get().access_kind, abap.Classes['CL_ABAP_TABLEDESCR'].tablekind_sorted)) {
         options.primaryKey.type = "SORTED";
       } else if (abap.compare.eq(fs_ls_key_.get().access_kind, abap.Classes['CL_ABAP_TABLEDESCR'].tablekind_hashed)) {
@@ -116,8 +116,8 @@ class kernel_create_data_handle {
       if (abap.compare.eq(fs_ls_key_.get().is_unique, abap.builtin.abap_true)) {
         options.primaryKey.isUnique = true;
       }
-      for await (const unique140 of abap.statements.loop(fs_ls_key_.get().components)) {
-        lv_component.set(unique140);
+      for await (const unique141 of abap.statements.loop(fs_ls_key_.get().components)) {
+        lv_component.set(unique141);
         options.primaryKey.keyFields.push(lv_component.get().toLowerCase());
       }
     }
@@ -133,31 +133,31 @@ class kernel_create_data_handle {
     let dref = new abap.types.DataReference(new abap.types.Character(4));
     if (INPUT && INPUT.dref) {dref = INPUT.dref;}
     let lv_half = new abap.types.Integer({qualifiedName: "I"});
-    let unique141 = handle.get().type_kind;
-    if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float)) {
+    let unique142 = handle.get().type_kind;
+    if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_float)) {
       abap.statements.createData(dref,{"typeName": "F"});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_string)) {
       abap.statements.createData(dref,{"typeName": "STRING"});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_xstring)) {
       abap.statements.createData(dref,{"typeName": "XSTRING"});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int)) {
       abap.statements.createData(dref,{"typeName": "I"});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_date)) {
       abap.statements.createData(dref,{"typeName": "D"});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_hex)) {
       abap.statements.createData(dref,{"typeName": "X","length": handle.get().length});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_packed)) {
       abap.statements.createData(dref,{"typeName": "P","length": handle.get().length,"decimals": handle.get().decimals});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_char)) {
       lv_half.set(abap.operators.divide(handle.get().length,abap.IntegerFactory.get(2)));
       abap.statements.createData(dref,{"typeName": "C","length": lv_half});
       dref.getPointer().extra = {"qualifiedName": handle.get().relative_name};
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_num)) {
       lv_half.set(abap.operators.divide(handle.get().length,abap.IntegerFactory.get(2)));
       abap.statements.createData(dref,{"typeName": "N","length": lv_half});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_time)) {
       abap.statements.createData(dref,{"typeName": "T"});
-    } else if (abap.compare.eq(unique141, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8)) {
+    } else if (abap.compare.eq(unique142, abap.Classes['CL_ABAP_TYPEDESCR'].typekind_int8)) {
       abap.statements.createData(dref,{"typeName": "INT8"});
     } else {
       console.dir(handle);
