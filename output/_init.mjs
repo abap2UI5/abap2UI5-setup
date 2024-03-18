@@ -341,6 +341,7 @@ import "./lvc_nokeyc.dtel.mjs";
 import "./mandt.dtel.mjs";
 import "./match_result.tabl.mjs";
 import "./match_result_tab.ttyp.mjs";
+import "./meins.dtel.mjs";
 import "./menge_d.dtel.mjs";
 import "./msehi.dtel.mjs";
 import "./number_get_next.fugr.number_get_next.mjs";
@@ -3457,7 +3458,7 @@ CLASS cl_abap_typedescr IMPLEMENTATION.
         type->length = lv_length * 2.
         lo_elem ?= type.
         lo_elem->output_length = lv_length.
-      WHEN ''Hex''.
+      WHEN ''Hex'' OR ''HexUInt8''.
         CREATE OBJECT type TYPE cl_abap_elemdescr.
         type->type_kind = typekind_hex.
         type->kind = kind_elem.

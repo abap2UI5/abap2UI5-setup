@@ -321,7 +321,7 @@ class cl_abap_typedescr {
       type.get().length.set(abap.operators.multiply(lv_length,abap.IntegerFactory.get(2)));
       await abap.statements.cast(lo_elem, type);
       lo_elem.get().output_length.set(lv_length);
-    } else if (abap.compare.eq(unique40, new abap.types.Character(3).set('Hex'))) {
+    } else if (abap.compare.eq(unique40, new abap.types.Character(3).set('Hex')) || abap.compare.eq(unique40, new abap.types.Character(8).set('HexUInt8'))) {
       type.set(await (new abap.Classes['CL_ABAP_ELEMDESCR']()).constructor_());
       type.get().type_kind.set(cl_abap_typedescr.typekind_hex);
       type.get().kind.set(cl_abap_typedescr.kind_elem);
