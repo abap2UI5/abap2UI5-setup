@@ -458,6 +458,7 @@ await import("./wwwdatatab.tabl.mjs");
 await import("./wwwparams.tabl.mjs");
 await import("./xfeld.dtel.mjs");
 await import("./xsdboolean.dtel.mjs");
+await import("./xsddatetime_z.dtel.mjs");
 await import("./xsdtime_t.dtel.mjs");
 await import("./z2ui5_cl_ajson.clas.mjs");
 await import("./z2ui5_cl_ajson_filter_lib.clas.mjs");
