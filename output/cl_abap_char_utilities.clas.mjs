@@ -8,6 +8,7 @@ class cl_abap_char_utilities {
   "BYTE_ORDER_MARK_BIG": {"type": () => {return new abap.types.Hex({length: 2});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
   "BYTE_ORDER_MARK_LITTLE": {"type": () => {return new abap.types.Hex({length: 2});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
   "CHARSIZE": {"type": () => {return new abap.types.Integer({qualifiedName: "I"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
+  "ENDIAN": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"abap_endian"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
   "BACKSPACE": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"abap_char1"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
   "CR_LF": {"type": () => {return new abap.types.Character(2, {"qualifiedName":"abap_cr_lf"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
   "FORM_FEED": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"abap_char1"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
@@ -25,6 +26,7 @@ class cl_abap_char_utilities {
     this.byte_order_mark_big = cl_abap_char_utilities.byte_order_mark_big;
     this.byte_order_mark_little = cl_abap_char_utilities.byte_order_mark_little;
     this.charsize = cl_abap_char_utilities.charsize;
+    this.endian = cl_abap_char_utilities.endian;
     this.backspace = cl_abap_char_utilities.backspace;
     this.cr_lf = cl_abap_char_utilities.cr_lf;
     this.form_feed = cl_abap_char_utilities.form_feed;
@@ -63,6 +65,8 @@ cl_abap_char_utilities.byte_order_mark_little = new abap.types.Hex({length: 2});
 cl_abap_char_utilities.byte_order_mark_little.set('FFFE');
 cl_abap_char_utilities.charsize = new abap.types.Integer({qualifiedName: "I"});
 cl_abap_char_utilities.charsize.set(2);
+cl_abap_char_utilities.endian = new abap.types.Character(1, {"qualifiedName":"abap_endian"});
+cl_abap_char_utilities.endian.set('L');
 cl_abap_char_utilities.backspace = new abap.types.Character(1, {"qualifiedName":"abap_char1"});
 cl_abap_char_utilities.backspace.set("\b");
 cl_abap_char_utilities.cr_lf = new abap.types.Character(2, {"qualifiedName":"abap_cr_lf"});

@@ -4,7 +4,7 @@
     "cl_abap_char_utilities.clas.abap"
   ],
   "names": [],
-  "mappings": ";;AAyBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAEE;;;;IAKE;IACA;EAGF;EAEA;;;;;IACE,sCAAY,kCAAI,uCAAe,qCAAa,gCAAQ,qDAAS,2CAAe,KAAK;IACnF;;AAEF",
+  "mappings": ";;AA2BA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAEE;;;;IACE;IACA;EACF;EAEA;;;;;IACE,sCAAY,kCAAI,uCAAe,qCAAa,gCAAQ,qDAAS,2CAAe,KAAK;IACnF;;AAEF",
   "file": "../downport/cl_abap_char_utilities.clas.mjs",
   "sourceRoot": ""
 }
