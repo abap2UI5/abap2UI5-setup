@@ -8026,6 +8026,27 @@ ENDCLASS.
 CLASS cx_salv_static_check IMPLEMENTATION.
 
 ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_DYNAMIC                         ', 'CLASS cx_shma_dynamic DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
+
+ENDCLASS.
+
+CLASS cx_shma_dynamic IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_INCONSISTENT                    ', 'CLASS cx_shma_inconsistent DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
+
+ENDCLASS.
+
+CLASS cx_shma_inconsistent IMPLEMENTATION.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_NOT_CONFIGURED                  ', 'CLASS cx_shma_not_configured DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
+
+ENDCLASS.
+
+CLASS cx_shma_not_configured IMPLEMENTATION.
+
+ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHM_ALREADY_DETACHED                 ', 'CLASS cx_shm_already_detached DEFINITION PUBLIC INHERITING FROM cx_shm_general_error.
   PUBLIC SECTION.
     METHODS constructor
@@ -8170,39 +8191,11 @@ ENDCLASS.
 CLASS cx_shm_wrong_handle IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_DYNAMIC                         ', 'CLASS cx_shma_dynamic DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
-
-ENDCLASS.
-
-CLASS cx_shma_dynamic IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_INCONSISTENT                    ', 'CLASS cx_shma_inconsistent DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
-
-ENDCLASS.
-
-CLASS cx_shma_inconsistent IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SHMA_NOT_CONFIGURED                  ', 'CLASS cx_shma_not_configured DEFINITION PUBLIC INHERITING FROM cx_shma_dynamic.
-
-ENDCLASS.
-
-CLASS cx_shma_not_configured IMPLEMENTATION.
-
-ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SQL_EXCEPTION                        ', 'CLASS cx_sql_exception DEFINITION PUBLIC INHERITING FROM cx_static_check.
 
 ENDCLASS.
 
 CLASS cx_sql_exception IMPLEMENTATION.
-
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ST_ERROR                             ', 'CLASS cx_st_error DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
-
-ENDCLASS.
-
-CLASS cx_st_error IMPLEMENTATION.
 
 ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_STATIC_CHECK                         ', 'CLASS cx_static_check DEFINITION PUBLIC INHERITING FROM cx_root.
@@ -8221,6 +8214,13 @@ CLASS cx_static_check IMPLEMENTATION.
       textid   = textid
       previous = previous ).
   ENDMETHOD.
+
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_ST_ERROR                             ', 'CLASS cx_st_error DEFINITION PUBLIC INHERITING FROM cx_transformation_error.
+
+ENDCLASS.
+
+CLASS cx_st_error IMPLEMENTATION.
 
 ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SXML_ERROR                           ', 'CLASS cx_sxml_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
@@ -8410,6 +8410,30 @@ ENDCLASS.
 CLASS cx_sy_duplicate_key IMPLEMENTATION.
 
 ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_ERROR                ', 'CLASS cx_sy_dynamic_osql_error DEFINITION PUBLIC INHERITING FROM cx_sy_open_sql_error.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        sqlmsg TYPE string OPTIONAL.
+ENDCLASS.
+
+CLASS cx_sy_dynamic_osql_error IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( sqlmsg = sqlmsg ).
+  ENDMETHOD.
+ENDCLASS.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_SEMANTICS            ', 'CLASS cx_sy_dynamic_osql_semantics DEFINITION PUBLIC INHERITING FROM cx_sy_dynamic_osql_error.
+  PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING
+        sqlmsg TYPE string OPTIONAL.
+ENDCLASS.
+
+CLASS cx_sy_dynamic_osql_semantics IMPLEMENTATION.
+  METHOD constructor.
+    super->constructor( sqlmsg = sqlmsg ).
+  ENDMETHOD.
+ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_ERROR                    ', 'CLASS cx_sy_dyn_call_error DEFINITION PUBLIC INHERITING FROM cx_dynamic_check.
 
 ENDCLASS.
@@ -8459,13 +8483,6 @@ CLASS cx_sy_dyn_call_illegal_method IMPLEMENTATION.
   ENDMETHOD.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAM_NOT_FOUND          ', 'CLASS cx_sy_dyn_call_param_not_found DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_parameter_error.
-
-ENDCLASS.
-
-CLASS cx_sy_dyn_call_param_not_found IMPLEMENTATION.
-
-ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAMETER_ERROR          ', 'CLASS cx_sy_dyn_call_parameter_error DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_error.
   PUBLIC SECTION.
     DATA parameter TYPE string.
@@ -8474,29 +8491,12 @@ ENDCLASS.
 CLASS cx_sy_dyn_call_parameter_error IMPLEMENTATION.
 
 ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_ERROR                ', 'CLASS cx_sy_dynamic_osql_error DEFINITION PUBLIC INHERITING FROM cx_sy_open_sql_error.
-  PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING
-        sqlmsg TYPE string OPTIONAL.
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYN_CALL_PARAM_NOT_FOUND          ', 'CLASS cx_sy_dyn_call_param_not_found DEFINITION PUBLIC INHERITING FROM cx_sy_dyn_call_parameter_error.
+
 ENDCLASS.
 
-CLASS cx_sy_dynamic_osql_error IMPLEMENTATION.
-  METHOD constructor.
-    super->constructor( sqlmsg = sqlmsg ).
-  ENDMETHOD.
-ENDCLASS.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_DYNAMIC_OSQL_SEMANTICS            ', 'CLASS cx_sy_dynamic_osql_semantics DEFINITION PUBLIC INHERITING FROM cx_sy_dynamic_osql_error.
-  PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING
-        sqlmsg TYPE string OPTIONAL.
-ENDCLASS.
+CLASS cx_sy_dyn_call_param_not_found IMPLEMENTATION.
 
-CLASS cx_sy_dynamic_osql_semantics IMPLEMENTATION.
-  METHOD constructor.
-    super->constructor( sqlmsg = sqlmsg ).
-  ENDMETHOD.
 ENDCLASS.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('CX_SY_ITAB_DUPLICATE_KEY                ', 'CLASS cx_sy_itab_duplicate_key DEFINITION PUBLIC INHERITING FROM cx_sy_itab_error.
 
@@ -8905,15 +8905,6 @@ ENDINTERFACE.');`);
       VALUE(result) TYPE REF TO if_ftd_output_configuration.
 
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_OUTPUT_CONFIG_SETTER             ', 'INTERFACE if_ftd_output_config_setter PUBLIC.
-
-  METHODS then_answer
-    IMPORTING
-      answer      TYPE REF TO if_ftd_invocation_answer
-    RETURNING
-      VALUE(self) TYPE REF TO if_ftd_output_config_setter.
-
-ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_OUTPUT_CONFIGURATION             ', 'INTERFACE if_ftd_output_configuration PUBLIC.
 
   METHODS set_exporting_parameter
@@ -8935,6 +8926,22 @@ ENDINTERFACE.');`);
       cx_ftd_parameter_not_found.
 
 ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FTD_OUTPUT_CONFIG_SETTER             ', 'INTERFACE if_ftd_output_config_setter PUBLIC.
+
+  METHODS then_answer
+    IMPORTING
+      answer      TYPE REF TO if_ftd_invocation_answer
+    RETURNING
+      VALUE(self) TYPE REF TO if_ftd_output_config_setter.
+
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FUNCTION_TESTDOUBLE                  ', 'INTERFACE if_function_testdouble PUBLIC.
+
+  METHODS configure_call
+    RETURNING
+      VALUE(input_configuration_setter) TYPE REF TO if_ftd_input_config_setter.
+
+ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FUNCTION_TEST_ENVIRONMENT            ', 'INTERFACE if_function_test_environment PUBLIC.
 
   TYPES tt_function_dependencies TYPE STANDARD TABLE OF sxco_fm_name WITH KEY table_line.
@@ -8946,13 +8953,6 @@ ENDINTERFACE.');`);
       VALUE(result) TYPE REF TO if_function_testdouble.
 
   METHODS clear_doubles.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_FUNCTION_TESTDOUBLE                  ', 'INTERFACE if_function_testdouble PUBLIC.
-
-  METHODS configure_call
-    RETURNING
-      VALUE(input_configuration_setter) TYPE REF TO if_ftd_input_config_setter.
 
 ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_HTTP_CLIENT                          ', 'INTERFACE if_http_client PUBLIC.
@@ -9747,6 +9747,7 @@ ENDINTERFACE.');`);
     find_from_name
       IMPORTING
         name      TYPE string
+        depth     TYPE i OPTIONAL
         namespace TYPE string OPTIONAL
       RETURNING
         VALUE(element) TYPE REF TO if_ixml_element,
@@ -10086,17 +10087,6 @@ ENDINTERFACE.');`);
     IMPORTING
       indent TYPE i.
 ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSE_ERROR                     ', 'INTERFACE if_ixml_parse_error PUBLIC.
-  METHODS get_reason
-    RETURNING
-      VALUE(reason) TYPE string.
-  METHODS get_line
-    RETURNING
-      VALUE(line) TYPE i.
-  METHODS get_column
-    RETURNING
-      VALUE(column) TYPE i.
-ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSER                          ', 'INTERFACE if_ixml_parser PUBLIC.
   CONSTANTS co_no_validation   TYPE i VALUE 0.
   CONSTANTS co_validate_if_dtd TYPE i VALUE 2.
@@ -10121,6 +10111,17 @@ ENDINTERFACE.');`);
       mode TYPE i OPTIONAL
     RETURNING
       VALUE(rval) TYPE abap_bool.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_PARSE_ERROR                     ', 'INTERFACE if_ixml_parse_error PUBLIC.
+  METHODS get_reason
+    RETURNING
+      VALUE(reason) TYPE string.
+  METHODS get_line
+    RETURNING
+      VALUE(line) TYPE i.
+  METHODS get_column
+    RETURNING
+      VALUE(column) TYPE i.
 ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_IXML_RENDERER                        ', 'INTERFACE if_ixml_renderer PUBLIC.
   METHODS render RETURNING VALUE(rval) TYPE i.
@@ -10550,6 +10551,28 @@ ENDINTERFACE.');`);
   CONSTANTS co_xt_json TYPE xml_stream_type VALUE 4.
 
 ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_FACTORY                        ', 'INTERFACE if_sxmlp_factory PUBLIC.
+  CLASS-METHODS create_list
+    IMPORTING
+      name        TYPE string
+      nsuri       TYPE string OPTIONAL
+      prefix      TYPE string OPTIONAL
+    RETURNING
+      VALUE(rval) TYPE REF TO if_sxmlp_list.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_LIST                           ', 'INTERFACE if_sxmlp_list PUBLIC.
+  INTERFACES if_sxmlp_part.
+
+  METHODS add_part
+    IMPORTING
+      part TYPE REF TO if_sxmlp_part.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_PART                           ', 'INTERFACE if_sxmlp_part PUBLIC.
+  METHODS serialize IMPORTING writer TYPE REF TO if_sxml_writer.
+ENDINTERFACE.');`);
+  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_SIMPLE                         ', 'INTERFACE if_sxmlp_simple PUBLIC.
+
+ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXML_ATTRIBUTE                       ', 'INTERFACE if_sxml_attribute PUBLIC.
   TYPES attributes TYPE STANDARD TABLE OF REF TO if_sxml_attribute WITH DEFAULT KEY.
   DATA: BEGIN OF qname,
@@ -10839,28 +10862,6 @@ ENDINTERFACE.');`);
       value TYPE xstring
     RAISING
       cx_sxml_state_error.
-
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_FACTORY                        ', 'INTERFACE if_sxmlp_factory PUBLIC.
-  CLASS-METHODS create_list
-    IMPORTING
-      name        TYPE string
-      nsuri       TYPE string OPTIONAL
-      prefix      TYPE string OPTIONAL
-    RETURNING
-      VALUE(rval) TYPE REF TO if_sxmlp_list.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_LIST                           ', 'INTERFACE if_sxmlp_list PUBLIC.
-  INTERFACES if_sxmlp_part.
-
-  METHODS add_part
-    IMPORTING
-      part TYPE REF TO if_sxmlp_part.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_PART                           ', 'INTERFACE if_sxmlp_part PUBLIC.
-  METHODS serialize IMPORTING writer TYPE REF TO if_sxml_writer.
-ENDINTERFACE.');`);
-  insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SXMLP_SIMPLE                         ', 'INTERFACE if_sxmlp_simple PUBLIC.
 
 ENDINTERFACE.');`);
   insert.push(`INSERT INTO reposrc ('PROGNAME', 'DATA') VALUES ('IF_SYSTEM_UUID_RFC4122_STATIC           ', 'INTERFACE if_system_uuid_rfc4122_static PUBLIC.

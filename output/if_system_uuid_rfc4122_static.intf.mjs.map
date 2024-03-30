@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "../downport/if_system_uuid_rfc4122_static.intf.mjs",
+  "file": "..\\downport\\if_system_uuid_rfc4122_static.intf.mjs",
   "sourceRoot": ""
 }

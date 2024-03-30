@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "../downport/if_sxml_writer.intf.mjs",
+  "file": "..\\downport\\if_sxml_writer.intf.mjs",
   "sourceRoot": ""
 }

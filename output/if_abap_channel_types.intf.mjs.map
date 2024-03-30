@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "../downport/if_abap_channel_types.intf.mjs",
+  "file": "..\\downport\\if_abap_channel_types.intf.mjs",
   "sourceRoot": ""
 }

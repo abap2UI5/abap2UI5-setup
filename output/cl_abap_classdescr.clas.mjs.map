@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;;AAmBA;;;;;;;;;;;;;EACE;;kDACgC;IAChC;;EAEA;;;;;;;QACO,0DAAmB;IACxB;IACA,YAAS,oFAAiD;IAC5D;;EAEA;;IACE,oCAAS,GAAF,4BAAI,wCAAM;IACnB;;AACF",
-  "file": "../downport/cl_abap_classdescr.clas.mjs",
+  "file": "..\\downport\\cl_abap_classdescr.clas.mjs",
   "sourceRoot": ""
 }

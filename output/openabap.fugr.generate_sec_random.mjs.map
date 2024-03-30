@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "../downport/openabap.fugr.generate_sec_random.mjs",
+  "file": "..\\downport\\openabap.fugr.generate_sec_random.mjs",
   "sourceRoot": ""
 }

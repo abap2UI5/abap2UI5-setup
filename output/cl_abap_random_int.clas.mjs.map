@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;AAsBA;;;;;;;;;;;;;;;;;;EACE;;;;;;;;;;;;;;IAEE,IAAI,OAAE,WAAS,GAAG;IAClB,IAAI,OAAE,WAAS,GAAG;IACpB;;EAEA;;IACE,WAAQ,8GAES;IACnB;;AACF",
-  "file": "../downport/cl_abap_random_int.clas.mjs",
+  "file": "..\\downport\\cl_abap_random_int.clas.mjs",
   "sourceRoot": ""
 }

@@ -381,7 +381,9 @@ class lcl_node {
     if (new_child === undefined) { new_child = new abap.types.ABAPObject({qualifiedName: "IF_IXML_NODE", RTTIName: "\\INTERFACE=IF_IXML_NODE"}).set(INPUT.new_child); }
     let lo_node = new abap.types.ABAPObject({qualifiedName: "LCL_NODE", RTTIName: "\\CLASS-POOL=CL_IXML\\CLASS=LCL_NODE"});
     await abap.statements.cast(lo_node, new_child);
-    await lo_node.get().mi_parent.get().if_ixml_node$remove_child({child: lo_node});
+    if (abap.compare.initial(lo_node.get().mi_parent) === false) {
+      await lo_node.get().mi_parent.get().if_ixml_node$remove_child({child: lo_node});
+    }
     lo_node.get().mi_parent.set(this.me);
     await this.mo_children.get().append({ii_node: new_child});
     return rc;
@@ -1150,9 +1152,11 @@ class lcl_document {
     let name = INPUT?.name;
     if (name?.getQualifiedName === undefined || name.getQualifiedName() !== "STRING") { name = undefined; }
     if (name === undefined) { name = new abap.types.String({qualifiedName: "STRING"}).set(INPUT.name); }
+    let depth = new abap.types.Integer({qualifiedName: "I"});
+    if (INPUT && INPUT.depth) {depth.set(INPUT.depth);}
     let namespace = new abap.types.String({qualifiedName: "STRING"});
     if (INPUT && INPUT.namespace) {namespace.set(INPUT.namespace);}
-    abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(35).set('todo, use find_from_name_ns instead')));
+    element.set((await this.mi_node.get().if_ixml_element$find_from_name_ns({name: name, depth: depth, namespace: namespace})));
     return element;
   }
   async if_ixml_document$find_from_name_ns(INPUT) {

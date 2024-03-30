@@ -3,6 +3,6 @@
   "sources": [],
   "names": [],
   "mappings": "",
-  "file": "../downport/if_abap_conv_out.intf.mjs",
+  "file": "..\\downport\\if_abap_conv_out.intf.mjs",
   "sourceRoot": ""
 }

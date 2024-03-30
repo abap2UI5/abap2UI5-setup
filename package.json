@@ -1,10 +1,12 @@
 {
-  "name": "abap2ui5",
+  "name": "abap2ui5-web",
   "private": true,
   "version": "1.0.0",
   "description": "Development of UI5 Apps in pure ABAP. Follow this project on [twitter](https://twitter.com/OblomovDev) to keep up to date!",
   "scripts": {
-    "clone": "rm -rf abap2UI5 && git clone https://github.com/oblomov-dev/abap2UI5 && rm -rf src && cp -r abap2UI5/src src",
+    "clone1": "rm -rf abap2UI5 && git clone https://github.com/abap2UI5/abap2UI5 && cp -r abap2UI5/src src",
+    "clone2": "rm -rf abap2UI5-samples && git clone https://github.com/abap2UI5/abap2UI5-samples && cp -r abap2UI5-samples/src src/samples",
+    "clone": "rm -rf src && npm run clone1 && npm run clone2",
     "transpile": "rm -rf output && cp test/*.abap downport && abap_transpile abap_transpile.json",
     "transpile_samples": "rm -rf output && cp test/*.abap downport && abap_transpile abap_transpile_samples.json",
     "express": "node test/express.mjs",
@@ -15,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oblomov-dev/abap2UI5.git"
+    "url": "git+https://github.com/abap2UI5/abap2UI5-web.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/oblomov-dev/abap2UI5/issues"
+    "url": "https://github.com/abap2UI5/abap2UI5-web/issues"
   },
-  "homepage": "https://github.com/oblomov-dev/abap2UI5#readme",
+  "homepage": "https://github.com/abap2UI5/abap2UI5-web#readme",
   "devDependencies": {
     "@abaplint/cli": "^2.106.5",
     "@abaplint/runtime": "^2.8.22",

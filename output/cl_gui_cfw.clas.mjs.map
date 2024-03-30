@@ -5,6 +5,6 @@
   ],
   "names": [],
   "mappings": ";;AAmBA;;;;;;;;;;;;;;;;EACE;;;;;;;;;IACE,QAAM,0BAAC;IACT;;EAEA;;;;IACE;EACF;EAEA;;;;;IACE,oCAAS,GAAF,4BAAI,oDAAiB;EAC9B;AACF",
-  "file": "../downport/cl_gui_cfw.clas.mjs",
+  "file": "..\\downport\\cl_gui_cfw.clas.mjs",
   "sourceRoot": ""
 }

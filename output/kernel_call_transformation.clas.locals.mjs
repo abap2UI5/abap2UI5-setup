@@ -378,18 +378,25 @@ class lcl_heap {
                   let lv_name = new abap.types.String({qualifiedName: "STRING"});
                   let result = new abap.types.DataReference(new abap.types.Character(4));
                   let li_element = new abap.types.ABAPObject({qualifiedName: "IF_IXML_ELEMENT", RTTIName: "\\INTERFACE=IF_IXML_ELEMENT"});
+                  let li_top = new abap.types.ABAPObject({qualifiedName: "IF_IXML_ELEMENT", RTTIName: "\\INTERFACE=IF_IXML_ELEMENT"});
+                  let li_sub = new abap.types.ABAPObject({qualifiedName: "IF_IXML_ELEMENT", RTTIName: "\\INTERFACE=IF_IXML_ELEMENT"});
                   let lt_stab = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "value": new abap.types.DataReference(new abap.types.Character(4))}, "abap_trans_srcbind", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "abap_trans_srcbind_tab");
                   let ls_stab = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "value": new abap.types.DataReference(new abap.types.Character(4))}, "abap_trans_srcbind", undefined, {}, {});
-                  console.dir(INPUT.source);
                   if (INPUT.source.constructor.name === "Table") {
                       lt_stab = INPUT.source;
                   }
                   abap.statements.assert(abap.compare.gt(abap.builtin.lines({val: lt_stab}), abap.IntegerFactory.get(0)));
+                  li_top.set((await ii_doc.get().if_ixml_document$create_element_ns({prefix: new abap.types.Character(3).set('asx'), name: new abap.types.Character(4).set('abap')})));
+                  await li_top.get().if_ixml_element$set_attribute({name: new abap.types.Character(9).set('xmlns:asx'), value: new abap.types.Character(26).set('http://www.sap.com/abapxml')});
+                  await li_top.get().if_ixml_element$set_attribute({name: new abap.types.Character(7).set('version'), value: new abap.types.Character(3).set('1.0')});
+                  await ii_doc.get().if_ixml_document$append_child({new_child: li_top});
+                  li_sub.set((await ii_doc.get().if_ixml_document$create_element_ns({prefix: new abap.types.Character(3).set('asx'), name: new abap.types.Character(6).set('values')})));
+                  await li_top.get().if_ixml_element$append_child({new_child: li_sub});
                   for await (const unique135 of abap.statements.loop(lt_stab)) {
                     ls_stab.set(unique135);
                     li_element.set((await ii_doc.get().if_ixml_document$create_element({name: ls_stab.get().name})));
                     await this.traverse({ii_parent: li_element, ii_doc: ii_doc, iv_ref: ls_stab.get().value});
-                    await ii_doc.get().if_ixml_document$append_child({new_child: li_element});
+                    await li_sub.get().if_ixml_element$append_child({new_child: li_element});
                   }
                 }
                 async traverse(INPUT) {
