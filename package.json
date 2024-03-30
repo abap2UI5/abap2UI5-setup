@@ -8,10 +8,8 @@
     "clone2": "rm -rf abap2UI5-samples && git clone https://github.com/abap2UI5/abap2UI5-samples && cp -r abap2UI5-samples/src src/samples",
     "clone": "rm -rf src && npm run clone1 && npm run clone2",
     "transpile": "rm -rf output && cp test/*.abap downport && abap_transpile abap_transpile.json",
-    "transpile_samples": "rm -rf output && cp test/*.abap downport && abap_transpile abap_transpile_samples.json",
     "express": "node test/express.mjs",
     "downport": "rm -rf downport && cp -r src downport && abaplint --fix abaplint-downport.jsonc",
-    "downport_samples": "rm -rf downport && cp -r src downport && abaplint --fix abaplint-downport-samples.jsonc",
     "unit": "npm run downport && npm run transpile && node output/index.mjs",
     "test": "npm run downport && npm run transpile && npm run express"
   },
