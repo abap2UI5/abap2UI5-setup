@@ -11,9 +11,9 @@ CLASS zcl_sicf IMPLEMENTATION.
   METHOD if_http_extension~handle_request.
 
     DATA lv_requ_body TYPE string.
-    lv_requ_body = server->request->get_cdata( ).
-
     DATA lv_method TYPE string.
+
+    lv_requ_body = server->request->get_cdata( ).
     lv_method = server->request->get_method( ).
 
     DATA lv_resp TYPE string.

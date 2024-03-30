@@ -2,6 +2,7 @@ name: build_web
 
 on:
   workflow_dispatch:
+  pull_request:
   schedule:
     - cron: '0 8 * * *'
 
@@ -10,23 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-    - uses: actions/checkout@v3
-    - uses: actions/setup-node@v3
-      with:
-        node-version: 20
-    - run: git clone https://github.com/abap2UI5/abap2UI5.git
-    - run: git clone https://github.com/abap2UI5/abap2UI5-samples.git
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
     - run: npm ci
-    - run: npm run downport
-    - run: npm run downport_samples
-    - run: npm run transpile
-    - name: send to downport repository
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        external_repository: abap2UI5/abap2UI5-web
-        user_name: 'github-actions[bot]'
-        user_email: 'github-actions[bot]@users.noreply.github.com'
-        publish_branch: main
-        publish_dir: ./output
-        deploy_key: ${{ secrets.DEPLOY_KEY }}
-        destination_dir: output
+    - run: npm run clone
+    - run: npm run unit
