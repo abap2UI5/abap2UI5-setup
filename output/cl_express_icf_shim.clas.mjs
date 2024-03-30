@@ -30,10 +30,10 @@ class cl_express_icf_shim {
     let li_handler = new abap.types.ABAPObject({qualifiedName: "IF_HTTP_EXTENSION", RTTIName: "\\INTERFACE=IF_HTTP_EXTENSION"});
     lv_classname.set(INPUT.class);
     abap.statements.translate(lv_classname, "UPPER");
-    let unique176 = abap.Classes["CLAS-CL_EXPRESS_ICF_SHIM-"+lv_classname.get().trimEnd()];
-    if (unique176 === undefined) { unique176 = abap.Classes[lv_classname.get().trimEnd()]; }
-    if (unique176 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
-    li_handler.set(await (new unique176()).constructor_());
+    let unique180 = abap.Classes["CLAS-CL_EXPRESS_ICF_SHIM-"+lv_classname.get().trimEnd()];
+    if (unique180 === undefined) { unique180 = abap.Classes[lv_classname.get().trimEnd()]; }
+    if (unique180 === undefined) { throw new abap.Classes['CX_SY_CREATE_OBJECT_ERROR']; }
+    li_handler.set(await (new unique180()).constructor_());
     if (abap.compare.initial(cl_express_icf_shim.mi_server)) {
       cl_express_icf_shim.mi_server.set(await (new abap.Classes['CLAS-CL_EXPRESS_ICF_SHIM-LCL_SERVER']()).constructor_());
     }
@@ -97,8 +97,8 @@ class cl_express_icf_shim {
       await cl_express_icf_shim.mi_server.get().if_http_server$response.get().if_http_entity$set_content_type({content_type: new abap.types.Character(9).set('text/html')});
     }
     await cl_express_icf_shim.mi_server.get().if_http_server$response.get().if_http_entity$get_header_fields({fields: lt_header_fields});
-    for await (const unique177 of abap.statements.loop(lt_header_fields)) {
-      ls_field.set(unique177);
+    for await (const unique181 of abap.statements.loop(lt_header_fields)) {
+      ls_field.set(unique181);
       INPUT.res.append(ls_field.get().name.get(), ls_field.get().value.get());
     }
     lv_xstr.set((await cl_express_icf_shim.mi_server.get().if_http_server$response.get().if_http_entity$get_data()));

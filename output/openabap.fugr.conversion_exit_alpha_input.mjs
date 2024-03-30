@@ -29,9 +29,9 @@ async function conversion_exit_alpha_input(INPUT) {
     return;
   }
   const indexBackup1 = abap.builtin.sy.get().index.get();
-  const unique170 = abap.operators.minus(lv_len.get(),abap.builtin.strlen({val: lv_tmp}).get()).get();
-  for (let unique171 = 0; unique171 < unique170; unique171++) {
-    abap.builtin.sy.get().index.set(unique171 + 1);
+  const unique174 = abap.operators.minus(lv_len.get(),abap.builtin.strlen({val: lv_tmp}).get()).get();
+  for (let unique175 = 0; unique175 < unique174; unique175++) {
+    abap.builtin.sy.get().index.set(unique175 + 1);
     lv_tmp.set(abap.operators.concat(new abap.types.String().set(`0`),lv_tmp));
   }
   abap.builtin.sy.get().index.set(indexBackup1);

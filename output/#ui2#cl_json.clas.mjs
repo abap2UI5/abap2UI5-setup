@@ -264,6 +264,7 @@ class $ui2$cl_json {
     let lv_value = new abap.types.String({qualifiedName: "STRING"});
     let lv_member = new abap.types.String({qualifiedName: "STRING"});
     let fs_any_ = new abap.types.FieldSymbol(new abap.types.Character(4));
+    let fs_at_ = new abap.types.FieldSymbol(abap.types.TableFactory.construct(new abap.types.Character(4), {"withHeader":false,"keyType":"DEFAULT"}));
     let fs_ls_component_ = new abap.types.FieldSymbol(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "NAME"}), "type": new abap.types.ABAPObject({qualifiedName: "CL_ABAP_DATADESCR", RTTIName: "\\CLASS=CL_ABAP_DATADESCR"}), "as_include": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "suffix": new abap.types.String({qualifiedName: "SUFFIX"})}, "abap_componentdescr", undefined, {}, {}));
     prefix.set((await $ui2$cl_json.mo_parsed.get().find_ignore_case({iv_path: prefix})));
     let unique11 = io_type.get().kind;
@@ -299,12 +300,13 @@ class $ui2$cl_json {
     } else if (abap.compare.eq(unique11, abap.Classes['CL_ABAP_TYPEDESCR'].kind_table)) {
       await abap.statements.cast(lo_table, io_type);
       lt_members.set((await $ui2$cl_json.mo_parsed.get().members({iv_path: abap.operators.concat(prefix,new abap.types.Character(1).set('/'))})));
+      abap.statements.assign({target: fs_at_, source: data});
       for await (const unique12 of abap.statements.loop(lt_members)) {
         lv_member.set(unique12);
         abap.statements.createData(ref,{"likeLineOf": data});
         abap.statements.assign({target: fs_any_, source: (ref).dereference()});
         await this._deserialize({prefix: abap.operators.concat(prefix,abap.operators.concat(new abap.types.Character(1).set('/'),lv_member)), pretty_name: pretty_name, io_type: (await lo_table.get().get_table_line_type()), data: fs_any_});
-        abap.statements.insertInternal({data: fs_any_, table: data});
+        abap.statements.insertInternal({data: fs_any_, table: fs_at_});
       }
     } else if (abap.compare.eq(unique11, abap.Classes['CL_ABAP_TYPEDESCR'].kind_struct)) {
       await abap.statements.cast(lo_struct, io_type);

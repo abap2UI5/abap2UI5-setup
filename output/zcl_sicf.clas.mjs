@@ -28,10 +28,10 @@ class zcl_sicf {
     let lv_method = new abap.types.String({qualifiedName: "STRING"});
     lv_method.set((await server.get().if_http_server$request.get().if_http_request$get_method()));
     let lv_resp = new abap.types.String({qualifiedName: "STRING"});
-    let unique174 = lv_method;
-    if (abap.compare.eq(unique174, new abap.types.Character(3).set('GET'))) {
+    let unique178 = lv_method;
+    if (abap.compare.eq(unique178, new abap.types.Character(3).set('GET'))) {
       lv_resp.set((await abap.Classes['Z2UI5_CL_HTTP_HANDLER'].http_get()));
-    } else if (abap.compare.eq(unique174, new abap.types.Character(4).set('POST'))) {
+    } else if (abap.compare.eq(unique178, new abap.types.Character(4).set('POST'))) {
       lv_resp.set((await abap.Classes['Z2UI5_CL_HTTP_HANDLER'].http_post(lv_requ_body)));
     }
     await server.get().if_http_server$response.get().if_http_entity$set_cdata({data: lv_resp});

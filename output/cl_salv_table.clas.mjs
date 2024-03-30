@@ -28,7 +28,8 @@ class cl_salv_table {
   "GET_AGGREGATIONS": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_SALV_AGGREGATIONS", RTTIName: "\\CLASS=CL_SALV_AGGREGATIONS"});}, "is_optional": " "}}},
   "GET_FILTERS": {"visibility": "U", "parameters": {"FOO": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_SALV_FILTERS", RTTIName: "\\CLASS=CL_SALV_FILTERS"});}, "is_optional": " "}}},
   "TO_XML": {"visibility": "U", "parameters": {"XML": {"type": () => {return new abap.types.XString({qualifiedName: "XSTRING"});}, "is_optional": " "}, "XML_TYPE": {"type": () => {return new abap.types.Character(4);}, "is_optional": " "}}},
-  "GET_SORTS": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_SALV_SORTS", RTTIName: "\\CLASS=CL_SALV_SORTS"});}, "is_optional": " "}}}};
+  "GET_SORTS": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_SALV_SORTS", RTTIName: "\\CLASS=CL_SALV_SORTS"});}, "is_optional": " "}}},
+  "GET_FUNCTIONAL_SETTINGS": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_SALV_FUNCTIONAL_SETTINGS", RTTIName: "\\CLASS=CL_SALV_FUNCTIONAL_SETTINGS"});}, "is_optional": " "}}}};
   constructor() {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
@@ -40,6 +41,11 @@ class cl_salv_table {
   }
   async get_sorts() {
     let value = new abap.types.ABAPObject({qualifiedName: "CL_SALV_SORTS", RTTIName: "\\CLASS=CL_SALV_SORTS"});
+    abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
+    return value;
+  }
+  async get_functional_settings() {
+    let value = new abap.types.ABAPObject({qualifiedName: "CL_SALV_FUNCTIONAL_SETTINGS", RTTIName: "\\CLASS=CL_SALV_FUNCTIONAL_SETTINGS"});
     abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
     return value;
   }

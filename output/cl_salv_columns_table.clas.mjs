@@ -10,7 +10,8 @@ class cl_salv_columns_table {
   "SET_COLOR_COLUMN": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}}},
   "GET_COLUMN": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "CL_SALV_COLUMN", RTTIName: "\\CLASS=CL_SALV_COLUMN"});}, "is_optional": " "}, "COLUMNNAME": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}}},
   "GET": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "is_optional": " "}}},
-  "SET_EXCEPTION_COLUMN": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.Character(4);}, "is_optional": " "}}}};
+  "SET_EXCEPTION_COLUMN": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.Character(4);}, "is_optional": " "}}},
+  "SET_HYPERLINK_ENTRY_COLUMN": {"visibility": "U", "parameters": {"VALUE": {"type": () => {return new abap.types.Character(4);}, "is_optional": " "}}}};
   constructor() {
     this.me = new abap.types.ABAPObject();
     this.me.set(this);
@@ -18,6 +19,10 @@ class cl_salv_columns_table {
   async constructor_(INPUT) {
     if (super.constructor_) { await super.constructor_(INPUT); }
     return this;
+  }
+  async set_hyperlink_entry_column(INPUT) {
+    let value = INPUT?.value;
+    abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), new abap.types.Character(4).set('todo')));
   }
   async get_column(INPUT) {
     let value = new abap.types.ABAPObject({qualifiedName: "CL_SALV_COLUMN", RTTIName: "\\CLASS=CL_SALV_COLUMN"});
