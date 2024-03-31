@@ -16,3 +16,4 @@ npm test
 1. Clone repositories into `/src/`
 2. Downport `/src/` into `/downport/`
 3. Transpile with [express-icf-shim](https://github.com/open-abap/express-icf-shim) into `/output/`
+4. Webpack backend + frontend + database into folder `build`
