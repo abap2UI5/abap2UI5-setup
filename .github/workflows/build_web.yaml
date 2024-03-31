@@ -16,3 +16,4 @@ jobs:
     - run: npm ci
     - run: npm run clone
     - run: npm run unit
+    - run: npm run webpack:build
