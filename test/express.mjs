@@ -12,19 +12,9 @@ app.use(express.raw({type: "*/*"}));
 
 // ------------------
 
-app.get('/', function (req, res) {
-  res.send('path: /');
-});
-
-// ------------------
-
-app.all(["/sap/bc/adt/*"], async function (req, res) {
-  res.send('no ADT');
-});
-
-app.all(["/sap", "/sap*"], async function (req, res) {
+app.all(["/", "/*"], async function (req, res) {
   await cl_express_icf_shim.run({req, res, class: "ZCL_SICF"});
 });
 
 app.listen(PORT);
-console.log("Listening on port http://localhost:" + PORT + "/sap/abap2ui5/");
+console.log("Listening on port http://localhost:" + PORT);
