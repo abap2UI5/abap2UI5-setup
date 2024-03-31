@@ -6,8 +6,7 @@
   "scripts": {
     "clone1": "rm -rf abap2UI5 && git clone --depth=1 https://github.com/abap2UI5/abap2UI5 && cp -r abap2UI5/src src",
     "clone2": "rm -rf abap2UI5-samples && git clone --depth=1 https://github.com/abap2UI5/abap2UI5-samples && cp -r abap2UI5-samples/src src/samples",
-    "workarounds": "rm src/samples/z2ui5_cl_demo_app_070* && rm src/samples/z2ui5_cl_demo_app_072* && rm src/samples/z2ui5_cl_demo_app_077* && rm src/samples/z2ui5_cl_demo_app_085* && rm src/samples/z2ui5_cl_demo_app_100* && rm src/samples/z2ui5_cl_demo_app_130* && rm src/samples/z2ui5_cl_demo_app_160* && rm src/samples/z2ui5_cl_demo_app_172*",
-    "clone": "rm -rf src && npm run clone1 && npm run clone2 && npm run workarounds",
+    "clone": "rm -rf src && npm run clone1 && npm run clone2",
     "downport": "rm -rf downport && cp -r src downport && abaplint --fix abaplint-downport.jsonc",
     "transpile": "rm -rf output && cp test/*.abap downport && abap_transpile abap_transpile.json",
     "express": "node test/express.mjs",
