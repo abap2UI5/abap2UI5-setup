@@ -27,7 +27,7 @@ module.exports = ({mode} = {mode: "development"}) => ({
   resolve: {
     fallback: {
       "./%23ui2%23cl_json.clas.mjs": false,
-      "crypto": require.resolve("crypto-browserify"),
+      "crypto": false,
       "path": require.resolve("path-browserify"),
       "buffer": require.resolve("buffer/"),
       "util/types": false,
@@ -40,6 +40,7 @@ module.exports = ({mode} = {mode: "development"}) => ({
       "fs": false,
       "tls": false,
       "https": false,
+      "vm": false,
       "net": false,
     },
     extensions: [".mjs", ".js"],
@@ -51,6 +52,7 @@ module.exports = ({mode} = {mode: "development"}) => ({
   plugins: [
     new HtmlWebpackPlugin({
       template: "test/index.html",
+      scriptLoading: "blocking",
     }),
     new CopyPlugin({
       patterns: [
