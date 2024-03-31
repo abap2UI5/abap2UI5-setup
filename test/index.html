@@ -308,6 +308,8 @@ sap.ui.define("z2ui5/Controller", ["sap/ui/core/mvc/Controller", "sap/ui/core/mv
             sap.z2ui5.oController.Roundtrip();
         },
         responseError(response) {
+          console.dir("ERR")
+          console.dir(response)
             document.write(response);
         },
         updateModelIfRequired(paramKey, oView) {

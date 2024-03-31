@@ -30,7 +30,11 @@ async function redirectFetch(url, options) {
   await abap.Classes["CL_EXPRESS_ICF_SHIM"].run({req: req, res, class: "ZCL_SICF"})
   console.log("redirectFetch RESPONSE,");
   console.dir(data);
-  return { json: async () => JSON.parse(data)};
+  return {
+    ok: true,
+    json: async () => JSON.parse(data),
+    text: async () => data,
+  };
 }
 
 console.dir("entry, web.mjs");
