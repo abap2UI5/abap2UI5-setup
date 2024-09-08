@@ -11,20 +11,13 @@ CLASS zcl_sicf IMPLEMENTATION.
   METHOD if_http_extension~handle_request.
 
     DATA lv_requ_body TYPE string.
-    DATA lv_method    TYPE string.
-
-    lv_requ_body = server->request->get_cdata( ).
-    lv_method = server->request->get_method( ).
+    lv_req = server->request->get_cdata( ).
 
     DATA lv_resp TYPE string.
-    CASE lv_method.
-      WHEN 'GET'.
-        lv_resp = z2ui5_cl_http_handler=>http_get( ).
-      WHEN 'POST'.
-        lv_resp = z2ui5_cl_http_handler=>http_post( lv_requ_body ).
-    ENDCASE.
+    lv_resp = z2ui5_cl_http_handler=>main( lv_req ).
 
     server->response->set_cdata( lv_resp ).
+    server->response->set_header_field( name = `cache-control` value = `no-cache` ).
     server->response->set_status( code = 200 reason = `success` ).
 
   ENDMETHOD.
