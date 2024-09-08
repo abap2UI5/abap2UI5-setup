@@ -1,32 +1,7 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test('has title', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/Playwright/);
-});
-
-test('get started link', async ({ page }) => {
-  await page.goto('https://playwright.dev/');
-
-  // Click the get started link.
-  await page.getByRole('link', { name: 'Get started' }).click();
-
-  // Expects page to have a heading with the name of Installation.
-  await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
-});
-
-test('test abap2UI5', async ({ page }) => {
-  await page.goto('https://abap2ui5.github.io/web-abap2ui5-samples/');
-
-  // Expect a title "to contain" a substring.
-  await expect(page).toHaveTitle(/abap2UI5/);
-
-});
-
-test('test abap2UI52', async ({ page }) => {
+test('first test', async ({ page }) => {
   await page.goto('/');
 
   // Expect a title "to contain" a substring.
