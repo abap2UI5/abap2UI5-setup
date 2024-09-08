@@ -5,3 +5,7 @@ abap2UI5-samples
 output
 src
 build
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
