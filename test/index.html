@@ -451,6 +451,31 @@ sap.ui.require(["z2ui5/Controller", "sap/ui/core/BusyIndicator", "sap/ui/model/j
 
     }
 );
+    if (!z2ui5.Dirty) { sap.ui.define("z2ui5/Dirty" , ["sap/ui/core/Control"], (Control)=>{
+        "use strict";
+        return Control.extend("z2ui5.Dirty", {
+            metadata: {
+                properties: {
+                    isDirty: {
+                        type: "string"
+                    },
+                }
+            },
+            setIsDirty(val) {
+         //  var dirty = !!sap.z2ui5.oResponse.PARAMS?.DIRTY;
+            if (sap.ushell?.Container) {
+                sap.ushell.Container.setDirtyFlag(val);
+            } else {
+                window.onbeforeunload = function (e) { 
+                    if (val) {
+                        e.preventDefault();    
+                    }                
+                }        
+            }
+            },
+            renderer(oRm, oControl) {}
+        });
+  }); } 
  sap.ui.define("z2ui5/Timer" , [
    "sap/ui/core/Control"
 ], (Control) => {
