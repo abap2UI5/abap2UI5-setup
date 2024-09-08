@@ -19,5 +19,8 @@ npm run express
 3. Transpile with [express-icf-shim](https://github.com/open-abap/express-icf-shim) into `/output/`
 4. Webpack backend + frontend + database into folder `build`
 
+## Blogs
+* Running abap2UI5 Backend in Browser [(SCN - 02.04.2024)](https://www.linkedin.com/pulse/running-abap2ui5-backend-browser-lars-hvam-petersen-l8zff)
+
 ## Demo
 ![gif_open_abap](https://github.com/abap2UI5/abap2UI5-web/assets/102328295/7d0fa7e5-2c5b-46c4-b2e8-0ffd70350370)
