@@ -7,7 +7,7 @@ const webpack = require("webpack");
 
 module.exports = ({mode} = {mode: "development"}) => ({
   entry: {
-    "app": "./test/web.mjs",
+    "app": "./app/web.mjs",
   },
   mode,
   devtool: "nosources-source-map",
@@ -51,7 +51,7 @@ module.exports = ({mode} = {mode: "development"}) => ({
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "test/index.html",
+      template: "app/index.html",
       scriptLoading: "blocking",
     }),
     new CopyPlugin({

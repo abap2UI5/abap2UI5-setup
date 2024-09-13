@@ -18,7 +18,7 @@ jobs:
     - uses: actions/setup-node@v4
     - run: npm ci
     - run: npm run clone
-    - run: npm run unit
+    - run: npm run build && node output/index.mjs
     - run: npm run webpack:build
     - name: deploy to web-abap2ui5-samples
       uses: peaceiris/actions-gh-pages@v4
