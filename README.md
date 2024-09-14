@@ -40,13 +40,10 @@ npx playwright test
 npm run webpack:build
 ```
 ### Overview
-<img width="800" alt="image" src="https://github.com/user-attachments/assets/97cc8b91-4a0b-4f22-9501-6655117c9c24">
+<img width="1077" alt="image" src="https://github.com/user-attachments/assets/4306fc51-a926-44e3-9572-e4f3fe0eb419">
 
 ### Demo
-#### Running on Node.js
-![306716361-7d0fa7e5-2c5b-46c4-b2e8-0ffd70350370](https://github.com/user-attachments/assets/a170cc1e-2521-4f86-b59e-d852bbd656ee)
-
-#### Backend Runnning in Browser
+Backend Running in Browser
 [https://abap2ui5.github.io/web-abap2ui5-samples/](https://abap2ui5.github.io/web-abap2ui5-samples/)
 
 
