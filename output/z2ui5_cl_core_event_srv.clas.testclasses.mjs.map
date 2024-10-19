@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/02/z2ui5_cl_core_event_srv.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAYA;;;;;;;;;;;;;;;EAEE;QAEO,6HAA4C;QAC5C,2DAAoB;;IAGzB,cAAW,2EAA6B;+HAIf;EAE3B;EAEA;QAEO,6HAA4C;QAC5C,2DAAoB;;IAGzB,cAAW,2HAAqE;sIAIhD;EAElC;AACF",
+  "file": "z2ui5_cl_core_event_srv.clas.testclasses.mjs",
+  "sourceRoot": ""
+}

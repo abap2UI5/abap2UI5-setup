@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/01/z2ui5_cl_pop_textedit.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA0CA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAEE;;;;;;;;;;;;;;;;;IAGE,QAAQ,OAAE,sBAAoB,gBAAgB;IAC9C,QAAQ,OAAE,SAAS,MAAC,UAAO,UAAU;IACrC,QAAQ,OAAE,aAAY,OAAO;IAC7B,QAAQ,OAAE,sBAAoB,gBAAgB;IAEhD;;EAEA;QAEO,8GAAmC;IACxC,WAAQ,ygCAiB4B;iGAEQ;EAE9C;EAGA;;;;IAEE,OAAE,OAAE,WAAS,MAAM;IAEnB,iBAAqB,GAAlB,wBAAoB,wBAAU;MAC/B,2BAAoB,sBAAS;0BACnB;MACV;IACF;IAEA,IACE,OAKA,OANG,iDAAe,KAApB;;MAEI,cAAS,MAAC,qBAAkB,sBAAS;wDACb;qMAC4D;;wDAG5D;qMAC4D;;EAI1F;EAEA;;IACE,WAAS,cAAS;IACpB;;AAEF",
+  "file": "z2ui5_cl_pop_textedit.clas.mjs",
+  "sourceRoot": ""
+}

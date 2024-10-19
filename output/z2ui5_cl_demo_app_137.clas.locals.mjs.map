@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/samples/z2ui5_cl_demo_app_137.clas.locals_imp.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAUA;;;;;;;;;;;;;;;EACE;;;;;IACE,iCAAkB,mBAAR,6BAAU,2BAAC;IACrB,WAAS,4BAAO;IAClB;;AACF",
+  "file": "z2ui5_cl_demo_app_137.clas.locals.mjs",
+  "sourceRoot": ""
+}

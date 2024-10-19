@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/zcl_sicf.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAQA;;;;;;;;;;;;;;;;;;;EAEE;;;;QAEM,0HAA2C;IAChD,eAAY,sEAAwC;gCAClC;EAEnB;AAEF",
+  "file": "zcl_sicf.clas.mjs",
+  "sourceRoot": ""
+}

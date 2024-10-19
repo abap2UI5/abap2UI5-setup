@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/00/02/z2ui5_cx_abap_api.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;AASA;;;;;;;;;;;;;;EAEE;QACW,2GAAgC;IAEzC;MAEI;;;;;;;;;;IASJ;EAEF;AAEF",
+  "file": "z2ui5_cx_abap_api.clas.testclasses.mjs",
+  "sourceRoot": ""
+}

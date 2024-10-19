@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/03/z2ui5_cl_app_index_html.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAgBA;;;;;;;;;;;;;;EAEE;;;;;IAEE,iCAAS,qEACA,sEACA,4DACA,gFACA,gIACA,+GACA,yEACA,iEACA,qHACA,+EACA,+DACA,kEACA,iEACA,mFACA,8HACA,6FACA,0FACA,+EACA,gEACA,sHACA,8FACA,sFACA,gGACA,oEACA,6DACA,4GACA,8DACA,mFACA,+EACA,iFACA,8FACA,2FACA,iEACA,6DACA,uCACC,kEAAE;IAEd;;AAEF",
+  "file": "z2ui5_cl_app_index_html.clas.mjs",
+  "sourceRoot": ""
+}

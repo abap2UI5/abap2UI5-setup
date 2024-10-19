@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/samples/z2ui5_cl_demo_app_086.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA2BA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;QACO,6GAAkC;QAClC,6GAAkC;IAEvC,IACE,cADG,iDAAe,KAApB;;wDAE4B;;IAK5B,UAAO,kDAA6B;IAEpC,UAAO,6QAIH;6gBAO2E;0FAGrC;EAE5C;AACF",
+  "file": "z2ui5_cl_demo_app_086.clas.mjs",
+  "sourceRoot": ""
+}

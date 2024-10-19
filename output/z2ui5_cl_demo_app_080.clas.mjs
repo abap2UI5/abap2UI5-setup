@@ -1,0 +1,218 @@
+const {cx_root} = await import("./cx_root.clas.mjs");
+// z2ui5_cl_demo_app_080.clas.abap
+class z2ui5_cl_demo_app_080 {
+  static INTERNAL_TYPE = 'CLAS';
+  static INTERNAL_NAME = 'Z2UI5_CL_DEMO_APP_080';
+  static IMPLEMENTED_INTERFACES = ["Z2UI5_IF_APP","IF_SERIALIZABLE_OBJECT"];
+  static ATTRIBUTES = {"MT_PEOPLE": {"type": () => {return abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-NAME"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-PIC"}), "role": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-ROLE"}), "appointments": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments"), "headers": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers")}, "z2ui5_cl_demo_app_080=>ty_s_people", undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>temp1_813550bafa");}, "visibility": "U", "is_constant": " ", "is_class": " "},
+  "CLIENT": {"type": () => {return new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_CLIENT", RTTIName: "\\INTERFACE=Z2UI5_IF_CLIENT"});}, "visibility": "O", "is_constant": " ", "is_class": " "},
+  "CHECK_INITIALIZED": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});}, "visibility": "O", "is_constant": " ", "is_class": " "},
+  "Z2UI5_IF_APP~ID_DRAFT": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": " ", "is_class": " "},
+  "Z2UI5_IF_APP~ID_APP": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": " ", "is_class": " "},
+  "Z2UI5_IF_APP~CHECK_STICKY": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});}, "visibility": "U", "is_constant": " ", "is_class": " "},
+  "Z2UI5_IF_APP~VERSION": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
+  "Z2UI5_IF_APP~ORIGIN": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
+  "Z2UI5_IF_APP~AUTHOR": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": "X", "is_class": "X"},
+  "Z2UI5_IF_APP~LICENSE": {"type": () => {return new abap.types.String({qualifiedName: "STRING"});}, "visibility": "U", "is_constant": "X", "is_class": "X"}};
+  static METHODS = {"Z2UI5_DISPLAY_VIEW": {"visibility": "O", "parameters": {}},
+  "Z2UI5_ON_EVENT": {"visibility": "O", "parameters": {}},
+  "Z2UI5_SET_DATA": {"visibility": "O", "parameters": {}}};
+  constructor() {
+    this.me = new abap.types.ABAPObject();
+    this.me.set(this);
+    this.mt_people = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-NAME"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-PIC"}), "role": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-ROLE"}), "appointments": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments"), "headers": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers")}, "z2ui5_cl_demo_app_080=>ty_s_people", undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>temp1_813550bafa");
+    this.client = new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_CLIENT", RTTIName: "\\INTERFACE=Z2UI5_IF_CLIENT"});
+    this.check_initialized = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
+    this.z2ui5_if_app$version = abap.Classes['Z2UI5_IF_APP'].z2ui5_if_app$version;
+    this.z2ui5_if_app$origin = abap.Classes['Z2UI5_IF_APP'].z2ui5_if_app$origin;
+    this.z2ui5_if_app$author = abap.Classes['Z2UI5_IF_APP'].z2ui5_if_app$author;
+    this.z2ui5_if_app$license = abap.Classes['Z2UI5_IF_APP'].z2ui5_if_app$license;
+    if (this.z2ui5_if_app$id_draft === undefined) this.z2ui5_if_app$id_draft = new abap.types.String({qualifiedName: "STRING"});
+    if (this.z2ui5_if_app$id_app === undefined) this.z2ui5_if_app$id_app = new abap.types.String({qualifiedName: "STRING"});
+    if (this.z2ui5_if_app$check_sticky === undefined) this.z2ui5_if_app$check_sticky = new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});
+  }
+  async constructor_(INPUT) {
+    if (super.constructor_) { await super.constructor_(INPUT); }
+    return this;
+  }
+  async z2ui5_display_view() {
+    let lv_s_date = new abap.types.Character(19, {});
+    let view = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    let temp1 = new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {});
+    let page = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    let temp3 = new abap.types.Character(1, {"qualifiedName":"XSDBOOLEAN","ddicName":"XSDBOOLEAN"});
+    let lo_vbox = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    let temp2 = abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"isUnique":false,"type":"STANDARD","keyFields":[],"name":"primary_key"},"secondary":[]}, "STRING_TABLE");
+    let lo_planningcalendar = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    let lo_rows = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    let lo_planningcalendarrow = new abap.types.ABAPObject({qualifiedName: "Z2UI5_CL_XML_VIEW", RTTIName: "\\CLASS=Z2UI5_CL_XML_VIEW"});
+    lv_s_date.set(new abap.types.Character(19).set('2023-04-22T08:15:00'));
+    view.set((await abap.Classes['Z2UI5_CL_XML_VIEW'].factory()));
+    abap.statements.clear(temp1);
+    temp1.get().n.set(new abap.types.String().set(`core:require`));
+    temp1.get().v.set(new abap.types.String().set(`{Helper:'z2ui5/Util'}`));
+    await view.get()._generic_property({val: temp1});
+    temp3.set(abap.builtin.boolc(abap.compare.initial(((await this.client.get().z2ui5_if_client$get())).get().s_draft.get().id_prev_app_stack) === false));
+    page.set((await view.get().page({id: new abap.types.String().set(`page_main`), title: new abap.types.Character(28).set('abap2UI5 - Planning Calendar'), navbuttonpress: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(4).set('BACK')})), shownavbutton: temp3, class: new abap.types.Character(19).set('sapUiContentPadding')})));
+    lo_vbox.set((await page.get().vbox({class: new abap.types.Character(16).set('sapUiSmallMargin')})));
+    abap.statements.clear(temp2);
+    abap.statements.insertInternal({data: new abap.types.String().set(`\${$parameters>/appointment/mProperties/title}`), table: temp2});
+    lo_planningcalendar.set((await lo_vbox.get().planning_calendar({startdate: abap.operators.concat(new abap.types.String().set(`{= Helper.DateCreateObject($`),abap.operators.concat((await this.client.get().z2ui5_if_client$_bind_local({val: lv_s_date})),new abap.types.Character(3).set(') }'))), rows: abap.operators.concat(new abap.types.String().set(`{path: '`),abap.operators.concat((await this.client.get().z2ui5_if_client$_bind_local({val: this.mt_people, path: abap.builtin.abap_true})),new abap.types.String().set(`'}`))), appointmentselect: (await this.client.get().z2ui5_if_client$_event({val: new abap.types.Character(11).set('AppSelected'), t_arg: temp2})), showweeknumbers: abap.builtin.abap_true})));
+    lo_rows.set((await lo_planningcalendar.get().rows()));
+    lo_planningcalendarrow.set((await lo_rows.get().planning_calendar_row({appointments: new abap.types.String().set(`{path:'APPOINTMENTS', templateShareable: false}`), icon: new abap.types.Character(5).set('{PIC}'), title: new abap.types.Character(6).set('{NAME}'), text: new abap.types.Character(6).set('{ROLE}'), intervalheaders: new abap.types.String().set(`{path:'HEADERS', templateShareable: false}`)})));
+    await (await lo_planningcalendarrow.get().appointments()).get().calendar_appointment({startdate: new abap.types.String().set(`{= Helper.DateCreateObject(\${START} ) }`), enddate: new abap.types.String().set(`{= Helper.DateCreateObject(\${END} ) }`), icon: new abap.types.Character(5).set('{PIC}'), title: new abap.types.Character(7).set('{TITLE}'), text: new abap.types.Character(6).set('{INFO}'), type: new abap.types.Character(6).set('{TYPE}'), tentative: new abap.types.Character(11).set('{TENTATIVE}')});
+    await (await lo_planningcalendarrow.get().interval_headers()).get().calendar_appointment({startdate: new abap.types.String().set(`{= Helper.DateCreateObject(\${START} ) }`), enddate: new abap.types.String().set(`{= Helper.DateCreateObject(\${END} ) }`), icon: new abap.types.Character(5).set('{PIC}'), title: new abap.types.Character(7).set('{TITLE}'), text: new abap.types.Character(6).set('{INFO}'), type: new abap.types.Character(6).set('{TYPE}')});
+    await this.client.get().z2ui5_if_client$view_display({val: (await view.get().stringify())});
+  }
+  async z2ui5_if_app$main(INPUT) {
+    let client = INPUT?.client;
+    if (client?.getQualifiedName === undefined || client.getQualifiedName() !== "Z2UI5_IF_CLIENT") { client = undefined; }
+    if (client === undefined) { client = new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_CLIENT", RTTIName: "\\INTERFACE=Z2UI5_IF_CLIENT"}).set(INPUT.client); }
+    this.me.get().client.set(client);
+    if (abap.compare.eq(this.check_initialized, abap.builtin.abap_false)) {
+      this.check_initialized.set(abap.builtin.abap_true);
+      await this.z2ui5_set_data();
+    }
+    if (abap.compare.eq(((await client.get().z2ui5_if_client$get())).get().check_on_navigated, abap.builtin.abap_true) || abap.compare.eq(((await client.get().z2ui5_if_client$get())).get().event, new abap.types.Character(12).set('DISPLAY_VIEW'))) {
+      await this.z2ui5_display_view();
+      return;
+    }
+    await this.z2ui5_on_event();
+  }
+  async z2ui5_on_event() {
+    let ls_client = new abap.types.Structure({"event": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_GET-EVENT"}), "t_event_arg": abap.types.TableFactory.construct(new abap.types.String({qualifiedName: "STRING"}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"isUnique":false,"type":"STANDARD","keyFields":[],"name":"primary_key"},"secondary":[]}, "STRING_TABLE"), "check_launchpad_active": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "check_on_navigated": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"}), "viewname": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_GET-VIEWNAME"}), "s_draft": new abap.types.Structure({"id": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_DRAFT-ID"}), "id_prev": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_DRAFT-ID_PREV"}), "id_prev_app": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_DRAFT-ID_PREV_APP"}), "id_prev_app_stack": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_DRAFT-ID_PREV_APP_STACK"})}, "z2ui5_if_types=>ty_s_draft", undefined, {}, {}), "s_config": new abap.types.Structure({"origin": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_CONFIG-ORIGIN"}), "pathname": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_CONFIG-PATHNAME"}), "search": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_CONFIG-SEARCH"}), "hash": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_CONFIG-HASH"}), "t_startup_params": abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value")}, "z2ui5_if_types=>ty_s_config", undefined, {}, {}), "t_comp_params": abap.types.TableFactory.construct(new abap.types.Structure({"n": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-N"}), "v": new abap.types.String({qualifiedName: "Z2UI5_IF_TYPES=>TY_S_NAME_VALUE-V"})}, "z2ui5_if_types=>ty_s_name_value", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_if_types=>ty_t_name_value")}, "z2ui5_if_types=>ty_s_get", undefined, {}, {});
+    let temp4 = new abap.types.String({qualifiedName: "STRING"});
+    let temp5 = new abap.types.Integer({qualifiedName: "I"});
+    let unique305 = ((await this.client.get().z2ui5_if_client$get())).get().event;
+    if (abap.compare.eq(unique305, new abap.types.Character(11).set('AppSelected'))) {
+      ls_client.set((await this.client.get().z2ui5_if_client$get()));
+      temp5.set(abap.builtin.sy.get().tabix);
+      abap.statements.readTable(ls_client.get().t_event_arg,{index: abap.IntegerFactory.get(1),
+        into: temp4});
+      abap.builtin.sy.get().tabix.set(temp5);
+      if (abap.compare.ne(abap.builtin.sy.get().subrc, abap.IntegerFactory.get(0))) {
+        abap.statements.assert(abap.compare.eq(abap.IntegerFactory.get(1), abap.IntegerFactory.get(0)));
+      }
+      await this.client.get().z2ui5_if_client$message_toast_display({text: new abap.types.String().set(`Event AppSelected with appointment ${abap.templateFormatting(temp4)}`)});
+    } else if (abap.compare.eq(unique305, new abap.types.Character(4).set('BACK'))) {
+      await this.client.get().z2ui5_if_client$nav_app_leave();
+    }
+  }
+  async z2ui5_set_data() {
+    let temp6 = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-NAME"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-PIC"}), "role": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-ROLE"}), "appointments": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments"), "headers": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers")}, "z2ui5_cl_demo_app_080=>ty_s_people", undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>temp1_813550bafa");
+    let temp7 = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-NAME"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-PIC"}), "role": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-ROLE"}), "appointments": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments"), "headers": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers")}, "z2ui5_cl_demo_app_080=>ty_s_people", undefined, {}, {});
+    let temp1 = abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments");
+    let temp2 = new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {});
+    let temp3 = abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers");
+    let temp4 = new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {});
+    let temp5 = abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments");
+    let temp8 = new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {});
+    let temp9 = abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers");
+    let temp10 = new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {});
+    abap.statements.clear(temp6);
+    temp7.get().name.set(new abap.types.Character(4).set('Olaf'));
+    temp7.get().role.set(new abap.types.Character(11).set('Team Member'));
+    temp7.get().pic.set(new abap.types.Character(19).set('sap-icon://employee'));
+    abap.statements.clear(temp1);
+    temp2.get().start.set(new abap.types.Character(19).set('2023-04-22T08:15:00'));
+    temp2.get().end.set(new abap.types.Character(19).set('2023-04-23T08:15:00'));
+    temp2.get().info.set(new abap.types.Character(7).set('Mittag1'));
+    temp2.get().type.set(new abap.types.Character(6).set('Type01'));
+    temp2.get().title.set(new abap.types.Character(4).set('App1'));
+    temp2.get().tentative.set(abap.builtin.abap_false);
+    temp2.get().pic.set(new abap.types.Character(18).set('sap-icon://sap-ui5'));
+    abap.statements.insertInternal({data: temp2, table: temp1});
+    temp2.get().start.set(new abap.types.Character(19).set('2023-04-25T10:30:00'));
+    temp2.get().end.set(new abap.types.Character(19).set('2023-04-26T11:30:00'));
+    temp2.get().info.set(new abap.types.Character(7).set('Mittag2'));
+    temp2.get().type.set(new abap.types.Character(6).set('Type02'));
+    temp2.get().title.set(new abap.types.Character(4).set('App2'));
+    temp2.get().tentative.set(abap.builtin.abap_false);
+    temp2.get().pic.set(new abap.types.Character(18).set('sap-icon://sap-ui5'));
+    abap.statements.insertInternal({data: temp2, table: temp1});
+    temp2.get().start.set(new abap.types.Character(19).set('2023-04-10T10:30:00'));
+    temp2.get().end.set(new abap.types.Character(19).set('2023-04-11T11:30:00'));
+    temp2.get().info.set(new abap.types.Character(7).set('Mittag3'));
+    temp2.get().type.set(new abap.types.Character(6).set('Type03'));
+    temp2.get().title.set(new abap.types.Character(4).set('App3'));
+    temp2.get().tentative.set(abap.builtin.abap_false);
+    temp2.get().pic.set(new abap.types.Character(18).set('sap-icon://sap-ui5'));
+    abap.statements.insertInternal({data: temp2, table: temp1});
+    temp7.get().appointments.set(temp1);
+    abap.statements.clear(temp3);
+    temp4.get().start.set(new abap.types.Character(19).set('2020-04-22T08:15:00'));
+    temp4.get().end.set(new abap.types.Character(19).set('2020-04-23T08:15:00'));
+    temp4.get().type.set(new abap.types.Character(6).set('Type11'));
+    temp4.get().title.set(new abap.types.Character(9).set('Reminder1'));
+    temp4.get().tentative.set(abap.builtin.abap_true);
+    abap.statements.insertInternal({data: temp4, table: temp3});
+    temp4.get().start.set(new abap.types.Character(19).set('2020-04-25T10:30:00'));
+    temp4.get().end.set(new abap.types.Character(19).set('2020-04-26T11:30:00'));
+    temp4.get().type.set(new abap.types.Character(6).set('Type12'));
+    temp4.get().title.set(new abap.types.Character(9).set('Reminder2'));
+    temp4.get().tentative.set(abap.builtin.abap_false);
+    abap.statements.insertInternal({data: temp4, table: temp3});
+    temp7.get().headers.set(temp3);
+    abap.statements.insertInternal({data: temp7, table: temp6});
+    temp7.get().name.set(new abap.types.Character(8).set('Stefanie'));
+    temp7.get().role.set(new abap.types.Character(11).set('Team Member'));
+    temp7.get().pic.set(new abap.types.Character(19).set('sap-icon://employee'));
+    abap.statements.clear(temp5);
+    temp8.get().start.set(new abap.types.Character(19).set('2023-04-22T08:15:00'));
+    temp8.get().end.set(new abap.types.Character(19).set('2023-04-23T08:15:00'));
+    temp8.get().info.set(new abap.types.Character(8).set('Mittag11'));
+    temp8.get().type.set(new abap.types.Character(6).set('Type11'));
+    temp8.get().title.set(new abap.types.Character(5).set('App11'));
+    temp8.get().tentative.set(abap.builtin.abap_false);
+    temp8.get().pic.set(new abap.types.Character(18).set('sap-icon://sap-ui5'));
+    abap.statements.insertInternal({data: temp8, table: temp5});
+    temp8.get().start.set(new abap.types.Character(19).set('2023-04-25T10:30:00'));
+    temp8.get().end.set(new abap.types.Character(19).set('2023-04-26T11:30:00'));
+    temp8.get().info.set(new abap.types.Character(8).set('Mittag21'));
+    temp8.get().type.set(new abap.types.Character(6).set('Type12'));
+    temp8.get().title.set(new abap.types.Character(5).set('App12'));
+    temp8.get().tentative.set(abap.builtin.abap_false);
+    temp8.get().pic.set(new abap.types.Character(18).set('sap-icon://sap-ui5'));
+    abap.statements.insertInternal({data: temp8, table: temp5});
+    temp8.get().start.set(new abap.types.Character(19).set('2023-04-10T10:30:00'));
+    temp8.get().end.set(new abap.types.Character(19).set('2023-04-11T11:30:00'));
+    temp8.get().info.set(new abap.types.Character(8).set('Mittag31'));
+    temp8.get().type.set(new abap.types.Character(6).set('Type13'));
+    temp8.get().title.set(new abap.types.Character(5).set('App13'));
+    temp8.get().tentative.set(abap.builtin.abap_false);
+    temp8.get().pic.set(new abap.types.Character(18).set('sap-icon://sap-ui5'));
+    abap.statements.insertInternal({data: temp8, table: temp5});
+    temp7.get().appointments.set(temp5);
+    abap.statements.clear(temp9);
+    temp10.get().start.set(new abap.types.Character(19).set('2023-04-22T08:15:00'));
+    temp10.get().end.set(new abap.types.Character(19).set('2023-04-23T08:15:00'));
+    temp10.get().type.set(new abap.types.Character(6).set('Type11'));
+    temp10.get().title.set(new abap.types.Character(10).set('Reminder11'));
+    temp10.get().tentative.set(abap.builtin.abap_true);
+    abap.statements.insertInternal({data: temp10, table: temp9});
+    temp10.get().start.set(new abap.types.Character(19).set('2023-04-25T10:30:00'));
+    temp10.get().end.set(new abap.types.Character(19).set('2023-04-26T11:30:00'));
+    temp10.get().type.set(new abap.types.Character(6).set('Type12'));
+    temp10.get().title.set(new abap.types.Character(10).set('Reminder21'));
+    temp10.get().tentative.set(abap.builtin.abap_false);
+    abap.statements.insertInternal({data: temp10, table: temp9});
+    temp7.get().headers.set(temp9);
+    abap.statements.insertInternal({data: temp7, table: temp6});
+    this.mt_people.set(temp6);
+  }
+}
+abap.Classes['Z2UI5_CL_DEMO_APP_080'] = z2ui5_cl_demo_app_080;
+z2ui5_cl_demo_app_080.z2ui5_if_app$version = new abap.types.String({qualifiedName: "STRING"});
+z2ui5_cl_demo_app_080.z2ui5_if_app$version.set('1.135.0');
+z2ui5_cl_demo_app_080.z2ui5_if_app$origin = new abap.types.String({qualifiedName: "STRING"});
+z2ui5_cl_demo_app_080.z2ui5_if_app$origin.set('https://github.com/abap2UI5/abap2UI5');
+z2ui5_cl_demo_app_080.z2ui5_if_app$author = new abap.types.String({qualifiedName: "STRING"});
+z2ui5_cl_demo_app_080.z2ui5_if_app$author.set('https://github.com/oblomov-dev');
+z2ui5_cl_demo_app_080.z2ui5_if_app$license = new abap.types.String({qualifiedName: "STRING"});
+z2ui5_cl_demo_app_080.z2ui5_if_app$license.set('MIT');
+z2ui5_cl_demo_app_080.ty_s_appointments = new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {});
+z2ui5_cl_demo_app_080.ty_s_headers = new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {});
+z2ui5_cl_demo_app_080.ty_s_people = new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-NAME"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-PIC"}), "role": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-ROLE"}), "appointments": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments"), "headers": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers")}, "z2ui5_cl_demo_app_080=>ty_s_people", undefined, {}, {});
+z2ui5_cl_demo_app_080.temp1_813550bafa = abap.types.TableFactory.construct(new abap.types.Structure({"name": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-NAME"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-PIC"}), "role": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_PEOPLE-ROLE"}), "appointments": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_APPOINTMENTS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_appointments", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-appointments"), "headers": abap.types.TableFactory.construct(new abap.types.Structure({"start": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-START"}), "end": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-END"}), "title": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TITLE"}), "type": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-TYPE"}), "info": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-INFO"}), "pic": new abap.types.String({qualifiedName: "Z2UI5_CL_DEMO_APP_080=>TY_S_HEADERS-PIC"}), "tentative": new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"})}, "z2ui5_cl_demo_app_080=>ty_s_headers", undefined, {}, {}), {"withHeader":false,"keyType":"DEFAULT","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>ty_s_people-headers")}, "z2ui5_cl_demo_app_080=>ty_s_people", undefined, {}, {}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":[]},"secondary":[]}, "z2ui5_cl_demo_app_080=>temp1_813550bafa");
+export {z2ui5_cl_demo_app_080};
+//# sourceMappingURL=z2ui5_cl_demo_app_080.clas.mjs.map

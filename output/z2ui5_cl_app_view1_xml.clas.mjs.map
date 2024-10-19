@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/03/z2ui5_cl_app_view1_xml.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAgBA;;;;;;;;;;;;;;EAEE;;;;;IAEE,iCAAS,uGACA,yGACA,wEACA,iEACA,gCACC,oCAAE;IAEd;;AAEF",
+  "file": "z2ui5_cl_app_view1_xml.clas.mjs",
+  "sourceRoot": ""
+}

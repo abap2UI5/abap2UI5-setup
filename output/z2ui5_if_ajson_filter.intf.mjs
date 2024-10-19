@@ -1,0 +1,15 @@
+// z2ui5_if_ajson_filter.intf.abap
+class z2ui5_if_ajson_filter {
+  static INTERNAL_TYPE = 'INTF';
+  static ATTRIBUTES = {"VISIT_TYPE": {"type": () => {return new abap.types.Structure({"value": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"}), "open": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"}), "close": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"})}, undefined, undefined, {}, {});}, "visibility": "U", "is_constant": "X", "is_class": "X"}};
+  static METHODS = {"KEEP_NODE": {"visibility": "U", "parameters": {"RV_KEEP": {"type": () => {return new abap.types.Character(1, {"qualifiedName":"ABAP_BOOL","ddicName":"ABAP_BOOL"});}, "is_optional": " "}, "IS_NODE": {"type": () => {return new abap.types.Structure({"path": new abap.types.String({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE-PATH"}), "name": new abap.types.String({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE-NAME"}), "type": new abap.types.String({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE_TYPE"}), "value": new abap.types.String({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE-VALUE"}), "index": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE-INDEX"}), "order": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE-ORDER"}), "children": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_TYPES=>TY_NODE-CHILDREN"})}, "z2ui5_if_ajson_types=>ty_node", undefined, {}, {});}, "is_optional": " "}, "IV_VISIT": {"type": () => {return new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"});}, "is_optional": " "}}}};
+}
+abap.Classes['Z2UI5_IF_AJSON_FILTER'] = z2ui5_if_ajson_filter;
+z2ui5_if_ajson_filter.z2ui5_if_ajson_filter$visit_type = new abap.types.Structure({"value": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"}), "open": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"}), "close": new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"})}, undefined, undefined, {}, {});
+z2ui5_if_ajson_filter.z2ui5_if_ajson_filter$visit_type.get().value.set(0);
+z2ui5_if_ajson_filter.z2ui5_if_ajson_filter$visit_type.get().open.set(1);
+z2ui5_if_ajson_filter.z2ui5_if_ajson_filter$visit_type.get().close.set(2);
+z2ui5_if_ajson_filter.ty_filter_tab = abap.types.TableFactory.construct(new abap.types.ABAPObject({qualifiedName: "Z2UI5_IF_AJSON_FILTER", RTTIName: "\\INTERFACE=Z2UI5_IF_AJSON_FILTER"}), {"withHeader":false,"keyType":"USER","primaryKey":{"name":"primary_key","type":"STANDARD","isUnique":false,"keyFields":["TABLE_LINE"]},"secondary":[]}, "z2ui5_if_ajson_filter=>ty_filter_tab");
+z2ui5_if_ajson_filter.ty_visit_type = new abap.types.Integer({qualifiedName: "Z2UI5_IF_AJSON_FILTER=>TY_VISIT_TYPE"});
+export {z2ui5_if_ajson_filter};
+//# sourceMappingURL=z2ui5_if_ajson_filter.intf.mjs.map

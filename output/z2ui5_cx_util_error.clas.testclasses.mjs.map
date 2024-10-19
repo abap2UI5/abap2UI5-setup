@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/00/03/z2ui5_cx_util_error.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;;AASA;;;;;;;;;;;;;;EAEE;QACW,+GAAkC;IAE3C;MAEI;;;;;;;;;;IASJ;EAEF;AAEF",
+  "file": "z2ui5_cx_util_error.clas.testclasses.mjs",
+  "sourceRoot": ""
+}

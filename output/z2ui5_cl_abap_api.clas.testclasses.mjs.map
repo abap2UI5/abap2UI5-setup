@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/00/02/z2ui5_cl_abap_api.clas.testclasses.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAcA;;;;;;;;;;;;;;;;;;EAEE;QAEO,0DAAmB;IACxB,aAAU,uDAAkC;gFACM;yIAGrB;EAE/B;EAEA;QAEO,0DAAmB;IACxB,aAAU,uDAAkC;gFACM;yIAGrB;EAE/B;EAEA;QAEO,4DAAqB;QACrB,+DAAuB;QACvB,6DAAsB;QACtB,gEAAwB;QACxB,6DAAsB;IAC3B,cAAc,wCAAW;IAEzB,gBAAc,qFAA0D;IAExE,gBAAc,gFAAqD;IAEnE,iBAAc,gFAAqD;IAEnE,gBAAc,uFAA4D;8FAIrD;EAEvB;EAEA;QACO,wfAAwD;IAE7D,iBAAY,GAAT,eAAE,MAAC,QAAQ,uCAAK;MACjB;IACF;IAGA,eAAY,iIAAyD;kFACjB;EAEtD;EAEA;QACO,sgBAA+C;IAEpD,iBAAY,GAAT,eAAE,MAAC,QAAQ,uCAAK;MACjB;IACF;IAGA,gBAAa,iIAA0E;mFAClC;EAEvD;AAEF",
+  "file": "z2ui5_cl_abap_api.clas.testclasses.mjs",
+  "sourceRoot": ""
+}

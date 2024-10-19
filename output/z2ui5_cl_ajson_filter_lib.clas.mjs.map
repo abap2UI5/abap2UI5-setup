@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/00/01/z2ui5_cl_ajson_filter_lib.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AAmCA;;;;;;;;;;;;;;;;EAGE;;;;;;;;;IAIA;;EAGA;;;;;;IAEA;;EAGA;;;;;;;;;;;;;IAMA;;AACF",
+  "file": "z2ui5_cl_ajson_filter_lib.clas.mjs",
+  "sourceRoot": ""
+}

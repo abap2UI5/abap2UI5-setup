@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/03/z2ui5_cl_app_models_js.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAgBA;;;;;;;;;;;;;;EAEE;;;;;IAEE,iCAAS,6HACA,gJACA,iIACA,gHACA,4IACA,+HACA,8GACA,0HACA,yHACA,oMACA,yHACA,sJACA,6JACA,iKACA,wIACA,uHACA,oHACA,8GACA,2FACC,qEAAE;IAEd;;AAEF",
+  "file": "z2ui5_cl_app_models_js.clas.mjs",
+  "sourceRoot": ""
+}

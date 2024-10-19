@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/samples/z2ui5_cl_demo_app_198.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAkBA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAGE;;;;QACS,6GAAkC;QAClC,gTAA6C;QAC7C,0PAAuB;QACvB,2FAAqB;QACnB,2PAAwB;IAEjC,iBAAqB,GAAlB,wBAAoB,wBAAU;MAC/B,2BAAoB,sBAAS;MAE7B,iBAAW,yCAAQ;MACnB,kBAAW,sCAAK;MAGhB,UAAO,kDAA6B;gQACmG;MAEvI,sBAAM,KAAK;MACX,KAAK,MAAC,wBAAqB,sBAAS;MAEpC,sBAAM,KAAK;MACX,yFAAgC;MAEhC,UAAQ,0CAAO,iDAAe,OAAO,OAAC,4BAA9B,CAAgE;8hBAShD;IAE1B;IAEA,IAEE,OAIA,OANG,iDAAe,KAApB;;MAII,aAAS,iDAAe,WAAW;;wDAGX;;EAI9B;AACF",
+  "file": "z2ui5_cl_demo_app_198.clas.mjs",
+  "sourceRoot": ""
+}

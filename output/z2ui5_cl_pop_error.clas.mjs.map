@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/02/01/z2ui5_cl_pop_error.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AA0BA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;EAEE;;;;;;;;;IAGE,QAAQ,OAAE,UAAQ,MAAM;IAE1B;;EAGA;QAEO,8GAAmC;IACxC,WAAQ,wuBAWgC;iGAEI;EAE9C;EAGA;;;;IAEE,OAAE,OAAE,WAAS,MAAM;IAEnB,iBAAqB,GAAlB,wBAAoB,wBAAU;MAC/B,2BAAoB,sBAAS;+BACd;MACf;IACF;IAEA,IACE,cADG,iDAAe,KAApB;;wDAE4B;wDACA;;;EAI9B;AACF",
+  "file": "z2ui5_cl_pop_error.clas.mjs",
+  "sourceRoot": ""
+}

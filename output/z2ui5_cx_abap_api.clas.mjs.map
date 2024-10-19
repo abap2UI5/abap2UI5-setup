@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/00/02/z2ui5_cx_abap_api.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;;AA8BA;;;;;;;;;;;;;EAGE;;;;kDAE2C;IACzC,sBAAM,WAAM;IAEZ;iCACI,aAAQ,MAAC,SAAU,GAAG;;;;;;;IAG1B;IAGF;;EAGA;;QACS,yFAAoB;QACtB,wDAAiB;IAEtB,yBAAG,aAAQ,MAAC,kBAAqB;MAC/B,YAAS,6DAA4B;MAErC,UAAQ,sBAAS;IACnB,gCAAO,aAAQ,MAAC,gBAAmB;MACjC,WAAS,aAAQ,MAAC,KAAI;MACtB,UAAQ,sBAAS;IACnB;IAGA,iBAAS,GAAN,OAAQ,uBAAU,yBAAI,OAAiB;MACxC,UAAQ,4CAAe;IACzB;MACE,UAAQ,MAAM;IAChB;IACA,WAAS,KAAK;IAEhB;;AACF",
+  "file": "z2ui5_cx_abap_api.clas.mjs",
+  "sourceRoot": ""
+}

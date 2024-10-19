@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "sources": [
+    "../downport/01/03/z2ui5_cl_app_component_js.clas.abap"
+  ],
+  "names": [],
+  "mappings": ";;AAgBA;;;;;;;;;;;;;;EAEE;;;;;IAEE,iCAAS,6KACA,+LACA,8GACA,0LACA,gKACA,iIACA,0IACA,wHACA,gJACA,8GACA,4KACA,8GACA,wJACA,2JACA,8KACA,oKACA,8GACA,6IACA,gLACA,8GACA,+HACA,gMACA,yIACA,8GACA,sKACA,0JACA,6JACA,2KACA,qJACA,2HACA,8GACA,uKACA,gMACA,kIACA,wMACA,2HACA,8GACA,kLACA,0JACA,kKACA,+HACA,6HACA,wHACA,8GACA,mJACA,uMACA,yIACA,wHACA,+IACA,+LACA,yIACA,wHACA,8GACA,yIACA,8IACA,yJACA,gLACA,wHACA,qHACA,iHACA,wFACC,yJAAE;IAEd;;AAEF",
+  "file": "z2ui5_cl_app_component_js.clas.mjs",
+  "sourceRoot": ""
+}
